@@ -1,0 +1,36 @@
+<effect>
+    <fillPattern alpha="1">
+        <patternArray>
+			<pattern type="1" width="50" height="50" alpha="0.5">
+                <imagePatternPath>45degreee_fabric.png</imagePatternPath>
+            </pattern>
+        </patternArray>
+        <gradient type="0"> <!-- 1 for radial, 0 for line -->
+		   <gradientValue red="0" green="0" blue="0" alpha="1" location="0.0"/>
+		   <gradientValue red="244" green="244" blue="244" alpha="1" location="0.23"/>
+		   <gradientValue red="3" green="5" blue="5" alpha="1" location="0.36"/>
+		   <gradientValue red="244" green="244" blue="244" alpha="1" location="0.48"/>
+		   <gradientValue red="3" green="5" blue="5" alpha="1" location="0.59"/>
+		   <gradientValue red="245" green="255" blue="255" alpha="1" location="0.72"/>
+		   <gradientValue red="3" green="5" blue="5" alpha="1" location="1"/>
+		   <lineGradientAttrs angle="0"/>
+	   </gradient>
+    </fillPattern>
+
+    <strokePattern alpha="1">
+		<strokeGradient type="0">
+			<strokeGradientValue red="106" green="106" blue="106" alpha="1" location="0.0"/>
+			<strokeGradientValue red="176" green="176" blue="176" alpha="1" location="0.2"/>
+			<strokeGradientValue red="106" green="106" blue="106" alpha="1" location="0.46"/>
+			<strokeGradientValue red="176" green="176" blue="176" alpha="1" location="0.5"/>
+			<strokeGradientValue red="106" green="106" blue="106" alpha="1" location="0.62"/>
+			<strokeGradientValue red="196" green="196" blue="196" alpha="1" location="1"/>
+			<lineStrokeGradientAttrs angle="0"/>
+		</strokeGradient>
+    </strokePattern>
+		
+    <strokeWidthPercent value="0.02"/>
+    <shadowColor red="233" green="234" blue="233" alpha="1"/>
+    <shadowOffset widthPercentage="0.02" heightPercentage="0.02"/>
+    <shadowBlur value="0"/>
+</effect>

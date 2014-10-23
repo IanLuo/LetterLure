@@ -1,0 +1,26 @@
+<effect>
+    <fillPattern alpha="1">
+        <gradient type="0" blendMode="0"> <!-- 1 for radial, 0 for line -->
+		   <gradientValue red="148" green="210" blue="132" alpha="0.8" location="0.0"/>
+		   <gradientValue red="255" green="255" blue="255" alpha="0" location="0.4"/>
+		   <gradientValue red="255" green="255" blue="255" alpha="0" location="0.5"/>
+		   <gradientValue red="148" green="210" blue="132" alpha="0.8" location="1"/>
+		   <lineGradientAttrs angle="0"/>
+	   </gradient>
+    </fillPattern>
+
+    <strokePattern alpha="1">
+		<strokeGradient type="0" blendMode="0">
+			<strokeGradientValue red="148" green="210" blue="132" alpha="0.5" location="0.0"/>
+			<strokeGradientValue red="255" green="255" blue="255" alpha="1" location="0.4"/>
+			<strokeGradientValue red="255" green="255" blue="255" alpha="1" location="0.5"/>
+			<strokeGradientValue red="148" green="210" blue="132" alpha="0.5" location="1"/>
+			<lineStrokeGradientAttrs angle="0"/>
+		</strokeGradient>
+    </strokePattern>
+		
+    <strokeWidthPercent value="0.02"/>
+    <shadowColor red="233" green="234" blue="233" alpha="1"/>
+    <shadowOffset widthPercentage="0.0" heightPercentage="0.0"/>
+    <shadowBlur value="0"/>
+</effect>

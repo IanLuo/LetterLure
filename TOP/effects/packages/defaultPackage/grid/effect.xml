@@ -1,0 +1,14 @@
+<effect>
+	<fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="50" height="50" alpha="1.0"><!--0 for generic, 1 for image pattern -->
+				<imagePatternPath>grid_metal_black.png</imagePatternPath>
+			</pattern>
+		</patternArray>
+    </fillPattern>
+		
+	<strokeWidthPercent value="0.00"/>
+	<shadowColor red="0" green="0" blue="0" alpha="0.5"/>
+	<shadowOffset widthPercentage="0.002" heightPercentage="0.002"/>
+	<shadowBlur value="2"/>
+</effect>

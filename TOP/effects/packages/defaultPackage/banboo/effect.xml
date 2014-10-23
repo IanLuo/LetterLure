@@ -1,0 +1,26 @@
+<effect>
+	<fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="50" height="50" alpha="1" isStencil="0"><!--0 for generic, 1 for image pattern -->
+                <imagePatternPath>banboo.png</imagePatternPath>
+                <systemPatternKey></systemPatternKey>
+            </pattern>
+        </patternArray>
+		
+		<!-- 1 for radial, 0 for line -->
+		<gradient type="0" blendMode="0">
+		 <gradientValue red="250" green="250" blue="250" alpha="0.5" location="0"/>
+		 <gradientValue red="250" green="250" blue="250" alpha="0.5" location="0.5"/>
+		 <gradientValue red="0" green="0" blue="0" alpha="0.1" location="0.5"/>
+		 <gradientValue red="0" green="0" blue="0" alpha="0.1" location="1"/>
+		 <lineGradientAttrs angle="90"/>
+		 <radialGradientAttrs center1XPercentage="" center1YPercentage="" center2XPercentage="" center2YPercentage="" radialGradientRadius1Percentage="" radialGradientRadius2Percentage=""/>
+		 </gradient>
+    </fillPattern>
+	
+    <strokeWidthPercent value="0.02"/>
+	<strokeColor red="230" green="237" blue="200" alpha="1"/><!-- if stroke gradient is defined above, this will not work -->
+    <shadowColor red="176" green="176" blue="176" alpha="0"/>
+    <shadowOffset widthPercentage="0.0" heightPercentage="0.0"/>
+    <shadowBlur value="0"/>
+</effect>

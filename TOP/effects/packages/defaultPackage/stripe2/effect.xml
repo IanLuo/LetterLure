@@ -1,0 +1,48 @@
+<effect>
+	<fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="50" height="50" alpha="1.0">
+                <imagePatternPath>45degreee_fabric.png</imagePatternPath>
+            </pattern>
+        </patternArray>
+
+		<gradient type="0" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="234" green="217" blue="210" alpha="1" location="0.0"/>
+			<gradientValue red="234" green="217" blue="210" alpha="1" location="0.1"/>
+			<gradientValue red="143" green="125" blue="120" alpha="1" location="0.1"/>
+			<gradientValue red="143" green="125" blue="120" alpha="1" location="0.13"/>
+			<gradientValue red="188" green="169" blue="160" alpha="1" location="0.13"/>
+			<gradientValue red="188" green="169" blue="160" alpha="1" location="0.2"/>
+			
+			<gradientValue red="234" green="217" blue="210" alpha="1" location="0.2"/>
+			<gradientValue red="234" green="217" blue="210" alpha="1" location="0.3"/>
+			<gradientValue red="143" green="125" blue="120" alpha="1" location="0.3"/>
+			<gradientValue red="143" green="125" blue="120" alpha="1" location="0.33"/>
+			<gradientValue red="188" green="169" blue="160" alpha="1" location="0.33"/>
+			<gradientValue red="188" green="169" blue="160" alpha="1" location="0.4"/>
+			
+			<gradientValue red="234" green="217" blue="210" alpha="1" location="0.4"/>
+			<gradientValue red="234" green="217" blue="210" alpha="1" location="0.5"/>
+			<gradientValue red="143" green="125" blue="120" alpha="1" location="0.5"/>
+			<gradientValue red="143" green="125" blue="120" alpha="1" location="0.53"/>
+			<gradientValue red="188" green="169" blue="160" alpha="1" location="0.53"/>
+			<gradientValue red="188" green="169" blue="160" alpha="1" location="0.6"/>
+			
+			<gradientValue red="234" green="217" blue="210" alpha="1" location="0.6"/>
+			<gradientValue red="234" green="217" blue="210" alpha="1" location="0.7"/>
+			<gradientValue red="143" green="125" blue="120" alpha="1" location="0.7"/>
+			<gradientValue red="143" green="125" blue="120" alpha="1" location="0.73"/>
+			<gradientValue red="188" green="169" blue="160" alpha="1" location="0.73"/>
+			<gradientValue red="188" green="169" blue="160" alpha="1" location="0.8"/>
+			
+			<gradientValue red="234" green="217" blue="210" alpha="1" location="0.8"/>
+			<gradientValue red="234" green="217" blue="210" alpha="1" location="0.9"/>
+			<gradientValue red="143" green="125" blue="120" alpha="1" location="0.9"/>
+			<gradientValue red="143" green="125" blue="120" alpha="1" location="0.93"/>
+			<gradientValue red="188" green="169" blue="160" alpha="1" location="0.93"/>
+			<gradientValue red="188" green="169" blue="160" alpha="1" location="1.0"/>
+
+			<lineGradientAttrs angle="90.0"/>
+		</gradient>
+    </fillPattern>
+</effect>

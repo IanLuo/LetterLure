@@ -1,0 +1,40 @@
+<effect>
+	<fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="150" height="150" alpha="1.0">
+                <imagePatternPath>grain_dirtBW2.png</imagePatternPath>
+            </pattern>
+        </patternArray>
+
+		<gradient type="0" blendMode="9"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="2" green="1" blue="4" alpha="1" location="0.2"/>
+			<gradientValue red="92" green="52" blue="36" alpha="1" location="0.25"/>
+			<gradientValue red="118" green="37" blue="44" alpha="1" location="0.3"/>
+			<gradientValue red="97" green="42" blue="51" alpha="1" location="0.35"/>
+			<gradientValue red="194" green="54" blue="47" alpha="1" location="0.4"/>
+			<gradientValue red="226" green="67" blue="53" alpha="1" location="0.45"/>
+			<gradientValue red="247" green="174" blue="89" alpha="1" location="0.5"/>
+			<gradientValue red="252" green="212" blue="117" alpha="1" location="0.55"/>
+			<gradientValue red="230" green="137" blue="71" alpha="1" location="0.6"/>
+			<gradientValue red="130" green="51" blue="48" alpha="1" location="0.7"/>
+
+			<lineGradientAttrs angle="90.0"/>
+			<radialGradientAttrs center1XPercentage="1.0" center1YPercentage="1.0" center2XPercentage="1.0" center2YPercentage="1.0" radialGradientRadius1Percentage="1.0" radialGradientRadius2Percentage="0.0"/>
+		</gradient>
+    </fillPattern>
+	
+	<strokePattern alpha="1.0">
+		<strokeGradient type="0" blendMode="0"> <!-- 1 for radial, 0 for line -->
+			<strokeGradientValue red="2" green="1" blue="4" alpha="1" location="0.2"/>
+			<strokeGradientValue red="252" green="212" blue="117" alpha="1" location="0.55"/>
+			<strokeGradientValue red="130" green="51" blue="48" alpha="1" location="0.7"/>
+			<lineStrokeGradientAttrs angle="-90"/>
+			<radialStrokeGradientAttrs center1XPercentage="0.5" center1YPercentage="0.5" center2XPercentage="0.5" center2YPercentage="0.5" radialGradientRadius1Percentage="1" radialGradientRadius2Percentage="0"/>
+		</strokeGradient>
+    </strokePattern>
+
+	<strokeWidthPercent value="0.01"/>
+	<shadowColor red="196" green="106" blue="101" alpha="0.0"/>
+	<shadowOffset widthPercentage="-0.0" heightPercentage="-0.0"/>
+	<shadowBlur value="0"/>
+</effect>

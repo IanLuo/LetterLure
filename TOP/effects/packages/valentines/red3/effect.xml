@@ -1,0 +1,35 @@
+<effect>
+    <fillPattern alpha="1">
+        <gradient type="0" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="19" green="2" blue="2" alpha="1.0" location="0"/>
+			<gradientValue red="198" green="70" blue="78" alpha="1.0" location="0.05"/>
+			<gradientValue red="231" green="112" blue="135" alpha="1.0" location="0.1"/>
+			<gradientValue red="19" green="2" blue="2" alpha="1.0" location="0.15"/>
+			<gradientValue red="198" green="70" blue="78" alpha="1.0" location="0.2"/>
+			<gradientValue red="231" green="112" blue="135" alpha="1.0" location="0.25"/>
+			<gradientValue red="19" green="2" blue="2" alpha="1.0" location="0.3"/>
+			<gradientValue red="198" green="70" blue="78" alpha="1.0" location="0.35"/>
+			<gradientValue red="231" green="112" blue="135" alpha="1.0" location="0.4"/>
+			<gradientValue red="19" green="2" blue="2" alpha="1.0" location="0.45"/>
+			<gradientValue red="198" green="70" blue="78" alpha="1.0" location="0.5"/>
+			<gradientValue red="231" green="112" blue="135" alpha="1.0" location="0.55"/>
+			<gradientValue red="19" green="2" blue="2" alpha="1.0" location="0.6"/>
+			<gradientValue red="198" green="70" blue="78" alpha="1.0" location="0.65"/>
+			<gradientValue red="19" green="2" blue="2" alpha="1.0" location="0.7"/>
+			<gradientValue red="198" green="70" blue="78" alpha="1.0" location="0.75"/>
+			<gradientValue red="231" green="112" blue="135" alpha="1.0" location="0.8"/>
+			<gradientValue red="19" green="2" blue="2" alpha="1.0" location="0.85"/>
+			<gradientValue red="198" green="70" blue="78" alpha="1.0" location="0.9"/>
+			<gradientValue red="231" green="112" blue="135" alpha="1.0" location="0.95"/>
+			<gradientValue red="231" green="112" blue="135" alpha="1.0" location="1.0"/>
+
+			<lineGradientAttrs angle="45"/>
+	   </gradient>
+    </fillPattern>
+		
+    <strokeWidthPercent value="0.04"/>
+	<strokeColor red="255" green="255" blue="255" alpha="1"/>
+    <shadowColor red="0" green="0" blue="0" alpha="0.5"/>
+    <shadowOffset widthPercentage="0.0" heightPercentage="0.0"/>
+    <shadowBlur value="0"/>
+</effect>

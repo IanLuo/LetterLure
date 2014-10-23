@@ -1,0 +1,1328 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3901164519A5AD8E00F04E49 /* WODFullSizeExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3901164419A5AD8E00F04E49 /* WODFullSizeExportViewController.m */; };
+		39029532188575D800124E36 /* WODTextConfigureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39029531188575D800124E36 /* WODTextConfigureView.m */; };
+		3903536C19153CED00E55B18 /* input_text.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 3903536B19153B3B00E55B18 /* input_text.m4v */; };
+		3903536E19153D4B00E55B18 /* 3d_rotation.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 3903536D19153D4B00E55B18 /* 3d_rotation.m4v */; };
+		3903537019153DD900E55B18 /* apply_effect.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 3903536F19153DD900E55B18 /* apply_effect.m4v */; };
+		390353721915437000E55B18 /* layout.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 390353711915437000E55B18 /* layout.m4v */; };
+		3903C37418E15C86008FE017 /* OpenImageInOtherApps.m in Sources */ = {isa = PBXBuildFile; fileRef = 3903C37318E15C86008FE017 /* OpenImageInOtherApps.m */; };
+		3903C37718E174D2008FE017 /* WODExportToOtherAppviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3903C37618E174D2008FE017 /* WODExportToOtherAppviewController.m */; };
+		39076AC61929CB2A009585A3 /* emboss_shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 39076AC51929CB2A009585A3 /* emboss_shader.fsh */; };
+		39076ACA1929D007009585A3 /* WODFilterSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 39076AC91929D007009585A3 /* WODFilterSelector.m */; };
+		39076ACC192A1ED2009585A3 /* refraction_shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 39076ACB192A1ED2009585A3 /* refraction_shader.fsh */; };
+		39076ACE192A20F1009585A3 /* image.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 39076ACD192A20F1009585A3 /* image.vsh */; };
+		3909212918D1A669005E97EC /* WODRenderingEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3909212818D1A669005E97EC /* WODRenderingEngine.m */; };
+		3909212C18D1A9ED005E97EC /* WODOpenGLESDrawable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3909212B18D1A9ED005E97EC /* WODOpenGLESDrawable.m */; };
+		3909213218D1B9FA005E97EC /* WODOpenGLESAppEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3909213118D1B9FA005E97EC /* WODOpenGLESAppEngine.m */; };
+		3919CFFB186B1A8D001970CD /* WODSimpleScrollItemPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3919CFFA186B1A8D001970CD /* WODSimpleScrollItemPicker.m */; };
+		391FB56518A6223F002541AE /* WODFontRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 391FB56418A6223F002541AE /* WODFontRegisterViewController.m */; };
+		391FB56818A6442C002541AE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 391FB56A18A6442C002541AE /* Localizable.strings */; };
+		393207E3185EEFEF00DE3ADC /* WODCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393207E2185EEFEF00DE3ADC /* WODCameraViewController.m */; };
+		39333E451913D72C00F89336 /* WODAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333E441913D72C00F89336 /* WODAboutViewController.m */; };
+		393C5E1818F39F9E00197EA3 /* WODIAPCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 393C5E1718F39F9E00197EA3 /* WODIAPCenter.m */; };
+		39424FD818ADED3D0038EA08 /* default_shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 39424FD618ADED3D0038EA08 /* default_shader.vsh */; };
+		39424FD918ADED3D0038EA08 /* default_shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 39424FD718ADED3D0038EA08 /* default_shader.fsh */; };
+		3945451E190960BB002EBB0D /* WODFontCreditViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3945451D190960BB002EBB0D /* WODFontCreditViewerViewController.m */; };
+		394589F419CECE2800BB230E /* SocialControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 394589F319CECE2800BB230E /* SocialControl.m */; };
+		394589F919CECE6900BB230E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 394589F719CECE6900BB230E /* libWeChatSDK.a */; };
+		394C911A19AAD9B100390B57 /* WODRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C911919AAD9B100390B57 /* WODRootViewController.m */; };
+		394C911E19AB141100390B57 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 394C911D19AB141100390B57 /* KxMenu.m */; };
+		3951C4A2190818BA00904BAB /* WODItemPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3951C4A1190818BA00904BAB /* WODItemPicker.m */; };
+		3952DBBF18F77B0900B67FCB /* InstagramActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3952DBBE18F77B0900B67FCB /* InstagramActivity.m */; };
+		3952DBC218F782E000B67FCB /* ExportToInstagramPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3952DBC118F782E000B67FCB /* ExportToInstagramPreviewController.m */; };
+		395C5C06188D0E7E00FA47AD /* WODEffectsPackageItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395C5C05188D0E7E00FA47AD /* WODEffectsPackageItemsViewController.m */; };
+		3967732218791D1F00B66D20 /* WODBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3967732118791D1F00B66D20 /* WODBackgroundLayer.m */; };
+		396EEC6F188BBDCD00423CB2 /* WODEffectsPackageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396EEC6E188BBDCD00423CB2 /* WODEffectsPackageViewController.m */; };
+		3976E862187468410081B1C8 /* WODBendLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3976E861187468410081B1C8 /* WODBendLayout.m */; };
+		39850E72187FC83000A98D88 /* effect_template.xml in Resources */ = {isa = PBXBuildFile; fileRef = 39850E71187FC83000A98D88 /* effect_template.xml */; };
+		3985EA4218C0652400DAE533 /* WODBouncingFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985EA4118C0652400DAE533 /* WODBouncingFlowLayout.m */; };
+		398A79DF1881400500A6B791 /* effects in Resources */ = {isa = PBXBuildFile; fileRef = 398A79DE1881400500A6B791 /* effects */; };
+		399283B51864187700F36E36 /* WODToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 399283B41864187700F36E36 /* WODToolbar.m */; };
+		3994865718EC1EF200A1754D /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3994865418EC1EF200A1754D /* SVProgressHUD.bundle */; };
+		3994865818EC1EF200A1754D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994865618EC1EF200A1754D /* SVProgressHUD.m */; };
+		399C2D9118CC6CA300B4D5A8 /* WODOpenGLESStageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C2D9018CC6CA200B4D5A8 /* WODOpenGLESStageView.m */; };
+		399CDA9E19245F20004ADBB8 /* libFlurry_5.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 399CDA9D19245F20004ADBB8 /* libFlurry_5.0.0.a */; };
+		399CDAA1192487EC004ADBB8 /* WODBrowseTheworldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 399CDAA0192487EC004ADBB8 /* WODBrowseTheworldViewController.m */; };
+		39A12CBA19AC92AB009D1A24 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A12CB719AC92AB009D1A24 /* ASValuePopUpView.m */; };
+		39A12CBB19AC92AB009D1A24 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A12CB919AC92AB009D1A24 /* ASValueTrackingSlider.m */; };
+		39A1A6E518D2DE7A00D0D4E8 /* WODPramaticSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A1A6E418D2DE7A00D0D4E8 /* WODPramaticSurface.m */; };
+		39A1A6E818D2E72400D0D4E8 /* WODPramaticSufaceQuad.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A1A6E718D2E72400D0D4E8 /* WODPramaticSufaceQuad.m */; };
+		39A20BA718B30BFD00CA608A /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A20BA618B30BFD00CA608A /* GLProgram.m */; };
+		39A2F049187CF12A0025DBDB /* WODSystemPatternGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A2F048187CF12A0025DBDB /* WODSystemPatternGenerator.m */; };
+		39A321BE18764E690036A57C /* WODFreeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A321BD18764E690036A57C /* WODFreeLayout.m */; };
+		39A321C1187650F70036A57C /* WODDrawFreeLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A321C0187650F70036A57C /* WODDrawFreeLineView.m */; };
+		39A321C4187680050036A57C /* WODDrawDotLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A321C3187680050036A57C /* WODDrawDotLineView.m */; };
+		39A321C8187686460036A57C /* WODPathDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A321C7187686460036A57C /* WODPathDrawView.m */; };
+		39A321CB187693C50036A57C /* WODTextViewTextLayerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A321CA187693C50036A57C /* WODTextViewTextLayerDelegate.m */; };
+		39A79B9E185EBD5B00D45F56 /* WODImagesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A79B9D185EBD5B00D45F56 /* WODImagesCollectionViewController.m */; };
+		39B990C218D69AE5001BD510 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39B990C118D69AE5001BD510 /* OpenGLES.framework */; };
+		39B990C518D806AD001BD510 /* WODTransformEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B990C418D806AD001BD510 /* WODTransformEngine.m */; };
+		39C1D54B185984AE00BC91CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C1D54A185984AE00BC91CC /* Foundation.framework */; };
+		39C1D54D185984AE00BC91CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C1D54C185984AE00BC91CC /* CoreGraphics.framework */; };
+		39C1D54F185984AE00BC91CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C1D54E185984AE00BC91CC /* UIKit.framework */; };
+		39C1D555185984AE00BC91CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39C1D553185984AE00BC91CC /* InfoPlist.strings */; };
+		39C1D557185984AE00BC91CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D556185984AE00BC91CC /* main.m */; };
+		39C1D55B185984AE00BC91CC /* WODAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D55A185984AE00BC91CC /* WODAppDelegate.m */; };
+		39C1D55D185984AE00BC91CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39C1D55C185984AE00BC91CC /* Images.xcassets */; };
+		39C1D564185984AE00BC91CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C1D563185984AE00BC91CC /* XCTest.framework */; };
+		39C1D565185984AE00BC91CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C1D54A185984AE00BC91CC /* Foundation.framework */; };
+		39C1D566185984AE00BC91CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C1D54E185984AE00BC91CC /* UIKit.framework */; };
+		39C1D570185984AF00BC91CC /* TOPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D56F185984AF00BC91CC /* TOPTests.m */; };
+		39C1D57A1859855F00BC91CC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C1D5791859855F00BC91CC /* StoreKit.framework */; };
+		39C1D5851859870C00BC91CC /* EditHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5841859870C00BC91CC /* EditHomeViewController.m */; };
+		39C1D5881859889300BC91CC /* WODImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5871859889300BC91CC /* WODImagePickerViewController.m */; };
+		39C1D58B185988A600BC91CC /* WODImageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D58A185988A600BC91CC /* WODImageScrollViewController.m */; };
+		39C1D58E1859891200BC91CC /* WODBendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D58D1859891200BC91CC /* WODBendViewController.m */; };
+		39C1D5911859892A00BC91CC /* WODFreeDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5901859892A00BC91CC /* WODFreeDrawViewController.m */; };
+		39C1D5941859893700BC91CC /* WODShapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5931859893700BC91CC /* WODShapeViewController.m */; };
+		39C1D59B185989AC00BC91CC /* WODShapeTypeSetFillSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D59A185989AC00BC91CC /* WODShapeTypeSetFillSelectViewController.m */; };
+		39C1D59F18598A9A00BC91CC /* WODShapePatchCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D59E18598A9A00BC91CC /* WODShapePatchCollection.m */; };
+		39C1D5A218598BA700BC91CC /* WODColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5A118598BA700BC91CC /* WODColorPicker.m */; };
+		39C1D5A518598C9400BC91CC /* WODPatternPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5A418598C9400BC91CC /* WODPatternPicker.m */; };
+		39C1D5AC1859960E00BC91CC /* WODFontPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5AB1859960E00BC91CC /* WODFontPicker.m */; };
+		39C1D5AF1859962100BC91CC /* WODFontManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5AE1859962100BC91CC /* WODFontManager.m */; };
+		39C1D5B21859963F00BC91CC /* WODTextLayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5B11859963F00BC91CC /* WODTextLayerManager.m */; };
+		39C1D5B51859967300BC91CC /* WODTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5B41859967300BC91CC /* WODTextView.m */; };
+		39C1D5BC1859A4B700BC91CC /* WODRotateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5BB1859A4B700BC91CC /* WODRotateHandler.m */; };
+		39C1D5BF1859A4CF00BC91CC /* WODMoveHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5BE1859A4CF00BC91CC /* WODMoveHandler.m */; };
+		39C1D5C21859A4DC00BC91CC /* WOD3DTransformHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5C11859A4DC00BC91CC /* WOD3DTransformHandler.m */; };
+		39C1D5C5185AA30000BC91CC /* WODTypeSetterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5C4185AA30000BC91CC /* WODTypeSetterViewController.m */; };
+		39C1D5CB185AA81900BC91CC /* WODEffectPackageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5CA185AA81900BC91CC /* WODEffectPackageManager.m */; };
+		39C1D5CE185AA85900BC91CC /* WODEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5CD185AA85900BC91CC /* WODEffect.m */; };
+		39C1D5D2185AA88500BC91CC /* WODEffectReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5D1185AA88500BC91CC /* WODEffectReader.m */; };
+		39C1D5D5185AA89A00BC91CC /* WODResourceDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5D4185AA89A00BC91CC /* WODResourceDownloader.m */; };
+		39C1D5D9185AAB0D00BC91CC /* WODExportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5D8185AAB0D00BC91CC /* WODExportManager.m */; };
+		39C1D5DF185AAB4F00BC91CC /* WODSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5DE185AAB4F00BC91CC /* WODSlider.m */; };
+		39C1D5E2185AAB6100BC91CC /* WODButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5E1185AAB6100BC91CC /* WODButton.m */; };
+		39C1D5E5185AAB8800BC91CC /* WODActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5E4185AAB8800BC91CC /* WODActionSheet.m */; };
+		39C1D5E8185AABA700BC91CC /* WODActivityIndecator.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5E7185AABA700BC91CC /* WODActivityIndecator.m */; };
+		39C1D5ED185B004C00BC91CC /* WODScrollTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5EC185B004C00BC91CC /* WODScrollTab.m */; };
+		39C1D5F0185B01A100BC91CC /* WODRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5EF185B01A100BC91CC /* WODRuntime.m */; };
+		39C1D5F3185B022D00BC91CC /* WODConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1D5F2185B022D00BC91CC /* WODConstants.m */; };
+		39C893A2186A6C2400D761A1 /* WODInputTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C893A1186A6C2400D761A1 /* WODInputTextViewController.m */; };
+		39E18555190DE53000386CEB /* WODUserGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E18554190DE53000386CEB /* WODUserGuide.m */; };
+		39E18559190E12AC00386CEB /* WODUserGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E18558190E12AC00386CEB /* WODUserGuideView.m */; };
+		39E1855C190E67CD00386CEB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39C1D56C185984AF00BC91CC /* InfoPlist.strings */; };
+		39EC253019A49071004A8821 /* WODEditHomeActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EC252F19A49071004A8821 /* WODEditHomeActions.m */; };
+		39F4A65D1903FDA700C2BC24 /* CECrossfadeAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F4A65C1903FDA700C2BC24 /* CECrossfadeAnimationController.m */; };
+		39F4A6601903FDC500C2BC24 /* CEReversibleAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F4A65F1903FDC500C2BC24 /* CEReversibleAnimationController.m */; };
+		39F4A6631903FEE100C2BC24 /* WODAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F4A6621903FEE100C2BC24 /* WODAnimationManager.m */; };
+		39F4A66519040C3800C2BC24 /* extraFonts in Resources */ = {isa = PBXBuildFile; fileRef = 39F4A66419040C3800C2BC24 /* extraFonts */; };
+		39F6B0991910B2D9004D5BCD /* SaveToMyDirectoryActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F6B0981910B2D9004D5BCD /* SaveToMyDirectoryActivity.m */; };
+		6F2C44648436427684440132 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B32CED22EE74455E9683289A /* libPods.a */; };
+		E49956FD19F2BC9400B7281E /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = E49956FC19F2BC9400B7281E /* UIView+Layout.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		39C1D567185984AF00BC91CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39C1D53F185984AE00BC91CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39C1D546185984AE00BC91CC;
+			remoteInfo = TOP;
+		};
+		E403CA5019E589B3005B5AE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39C1D53F185984AE00BC91CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39C1D546185984AE00BC91CC;
+			remoteInfo = TOP;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3901164319A5AD8E00F04E49 /* WODFullSizeExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODFullSizeExportViewController.h; sourceTree = "<group>"; };
+		3901164419A5AD8E00F04E49 /* WODFullSizeExportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODFullSizeExportViewController.m; sourceTree = "<group>"; };
+		39029530188575D800124E36 /* WODTextConfigureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODTextConfigureView.h; sourceTree = "<group>"; };
+		39029531188575D800124E36 /* WODTextConfigureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODTextConfigureView.m; sourceTree = "<group>"; };
+		3903536B19153B3B00E55B18 /* input_text.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = input_text.m4v; sourceTree = "<group>"; };
+		3903536D19153D4B00E55B18 /* 3d_rotation.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3d_rotation.m4v; sourceTree = "<group>"; };
+		3903536F19153DD900E55B18 /* apply_effect.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = apply_effect.m4v; sourceTree = "<group>"; };
+		390353711915437000E55B18 /* layout.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = layout.m4v; sourceTree = "<group>"; };
+		3903C37218E15C86008FE017 /* OpenImageInOtherApps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenImageInOtherApps.h; sourceTree = "<group>"; };
+		3903C37318E15C86008FE017 /* OpenImageInOtherApps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenImageInOtherApps.m; sourceTree = "<group>"; };
+		3903C37518E174D2008FE017 /* WODExportToOtherAppviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODExportToOtherAppviewController.h; sourceTree = "<group>"; };
+		3903C37618E174D2008FE017 /* WODExportToOtherAppviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODExportToOtherAppviewController.m; sourceTree = "<group>"; };
+		39076AC51929CB2A009585A3 /* emboss_shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = emboss_shader.fsh; sourceTree = "<group>"; };
+		39076AC81929D007009585A3 /* WODFilterSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODFilterSelector.h; sourceTree = "<group>"; };
+		39076AC91929D007009585A3 /* WODFilterSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODFilterSelector.m; sourceTree = "<group>"; };
+		39076ACB192A1ED2009585A3 /* refraction_shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = refraction_shader.fsh; sourceTree = "<group>"; };
+		39076ACD192A20F1009585A3 /* image.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = image.vsh; sourceTree = "<group>"; };
+		3909212718D1A669005E97EC /* WODRenderingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODRenderingEngine.h; sourceTree = "<group>"; };
+		3909212818D1A669005E97EC /* WODRenderingEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODRenderingEngine.m; sourceTree = "<group>"; };
+		3909212A18D1A9ED005E97EC /* WODOpenGLESDrawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODOpenGLESDrawable.h; sourceTree = "<group>"; };
+		3909212B18D1A9ED005E97EC /* WODOpenGLESDrawable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODOpenGLESDrawable.m; sourceTree = "<group>"; };
+		3909213018D1B9FA005E97EC /* WODOpenGLESAppEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODOpenGLESAppEngine.h; sourceTree = "<group>"; };
+		3909213118D1B9FA005E97EC /* WODOpenGLESAppEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODOpenGLESAppEngine.m; sourceTree = "<group>"; };
+		390B056119063EF700301591 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		390D61F018B7079C00973289 /* GLCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLCommon.h; sourceTree = "<group>"; };
+		3919CFF9186B1A8D001970CD /* WODSimpleScrollItemPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODSimpleScrollItemPicker.h; sourceTree = "<group>"; };
+		3919CFFA186B1A8D001970CD /* WODSimpleScrollItemPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODSimpleScrollItemPicker.m; sourceTree = "<group>"; };
+		391FB56318A6223F002541AE /* WODFontRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODFontRegisterViewController.h; sourceTree = "<group>"; };
+		391FB56418A6223F002541AE /* WODFontRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODFontRegisterViewController.m; sourceTree = "<group>"; };
+		391FB56918A6442C002541AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		393207E1185EEFEF00DE3ADC /* WODCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODCameraViewController.h; sourceTree = "<group>"; };
+		393207E2185EEFEF00DE3ADC /* WODCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODCameraViewController.m; sourceTree = "<group>"; };
+		39333E431913D72C00F89336 /* WODAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODAboutViewController.h; sourceTree = "<group>"; };
+		39333E441913D72C00F89336 /* WODAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODAboutViewController.m; sourceTree = "<group>"; };
+		393C5E1618F39F9E00197EA3 /* WODIAPCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODIAPCenter.h; sourceTree = "<group>"; };
+		393C5E1718F39F9E00197EA3 /* WODIAPCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODIAPCenter.m; sourceTree = "<group>"; };
+		39424FD618ADED3D0038EA08 /* default_shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = default_shader.vsh; sourceTree = "<group>"; };
+		39424FD718ADED3D0038EA08 /* default_shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = default_shader.fsh; sourceTree = "<group>"; };
+		3945451C190960BB002EBB0D /* WODFontCreditViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODFontCreditViewerViewController.h; sourceTree = "<group>"; };
+		3945451D190960BB002EBB0D /* WODFontCreditViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODFontCreditViewerViewController.m; sourceTree = "<group>"; };
+		394589F219CECE2800BB230E /* SocialControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialControl.h; sourceTree = "<group>"; };
+		394589F319CECE2800BB230E /* SocialControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialControl.m; sourceTree = "<group>"; };
+		394589F619CECE6900BB230E /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		394589F719CECE6900BB230E /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		394589F819CECE6900BB230E /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		394C911819AAD9B100390B57 /* WODRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODRootViewController.h; sourceTree = "<group>"; };
+		394C911919AAD9B100390B57 /* WODRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODRootViewController.m; sourceTree = "<group>"; };
+		394C911C19AB141100390B57 /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
+		394C911D19AB141100390B57 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
+		3951C4A0190818BA00904BAB /* WODItemPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODItemPicker.h; sourceTree = "<group>"; };
+		3951C4A1190818BA00904BAB /* WODItemPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODItemPicker.m; sourceTree = "<group>"; };
+		3952DBBD18F77AE700B67FCB /* InstagramActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramActivity.h; sourceTree = "<group>"; };
+		3952DBBE18F77B0900B67FCB /* InstagramActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramActivity.m; sourceTree = "<group>"; };
+		3952DBC018F782D800B67FCB /* ExportToInstagramPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportToInstagramPreviewController.h; sourceTree = "<group>"; };
+		3952DBC118F782E000B67FCB /* ExportToInstagramPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportToInstagramPreviewController.m; sourceTree = "<group>"; };
+		395C5C04188D0E7E00FA47AD /* WODEffectsPackageItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODEffectsPackageItemsViewController.h; sourceTree = "<group>"; };
+		395C5C05188D0E7E00FA47AD /* WODEffectsPackageItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODEffectsPackageItemsViewController.m; sourceTree = "<group>"; };
+		3967732018791D1F00B66D20 /* WODBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODBackgroundLayer.h; sourceTree = "<group>"; };
+		3967732118791D1F00B66D20 /* WODBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODBackgroundLayer.m; sourceTree = "<group>"; };
+		396EEC6D188BBDCD00423CB2 /* WODEffectsPackageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODEffectsPackageViewController.h; sourceTree = "<group>"; };
+		396EEC6E188BBDCD00423CB2 /* WODEffectsPackageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODEffectsPackageViewController.m; sourceTree = "<group>"; };
+		3976E860187468410081B1C8 /* WODBendLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODBendLayout.h; sourceTree = "<group>"; };
+		3976E861187468410081B1C8 /* WODBendLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODBendLayout.m; sourceTree = "<group>"; };
+		39850E71187FC83000A98D88 /* effect_template.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = effect_template.xml; sourceTree = "<group>"; };
+		3985EA4018C0652400DAE533 /* WODBouncingFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODBouncingFlowLayout.h; sourceTree = "<group>"; };
+		3985EA4118C0652400DAE533 /* WODBouncingFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODBouncingFlowLayout.m; sourceTree = "<group>"; };
+		398A79DE1881400500A6B791 /* effects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = effects; sourceTree = "<group>"; };
+		399283B31864187700F36E36 /* WODToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODToolbar.h; sourceTree = "<group>"; };
+		399283B41864187700F36E36 /* WODToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODToolbar.m; sourceTree = "<group>"; };
+		3994865318EC1EF200A1754D /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		3994865418EC1EF200A1754D /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		3994865518EC1EF200A1754D /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		3994865618EC1EF200A1754D /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		399C2D8F18CC6CA200B4D5A8 /* WODOpenGLESStageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODOpenGLESStageView.h; sourceTree = "<group>"; };
+		399C2D9018CC6CA200B4D5A8 /* WODOpenGLESStageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODOpenGLESStageView.m; sourceTree = "<group>"; };
+		399CDA9C19245F20004ADBB8 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		399CDA9D19245F20004ADBB8 /* libFlurry_5.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_5.0.0.a; sourceTree = "<group>"; };
+		399CDA9F192487EC004ADBB8 /* WODBrowseTheworldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODBrowseTheworldViewController.h; sourceTree = "<group>"; };
+		399CDAA0192487EC004ADBB8 /* WODBrowseTheworldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODBrowseTheworldViewController.m; sourceTree = "<group>"; };
+		39A12CB619AC92AB009D1A24 /* ASValuePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValuePopUpView.h; sourceTree = "<group>"; };
+		39A12CB719AC92AB009D1A24 /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
+		39A12CB819AC92AB009D1A24 /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
+		39A12CB919AC92AB009D1A24 /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
+		39A1A6E318D2DE7A00D0D4E8 /* WODPramaticSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODPramaticSurface.h; sourceTree = "<group>"; };
+		39A1A6E418D2DE7A00D0D4E8 /* WODPramaticSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODPramaticSurface.m; sourceTree = "<group>"; };
+		39A1A6E618D2E72400D0D4E8 /* WODPramaticSufaceQuad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODPramaticSufaceQuad.h; sourceTree = "<group>"; };
+		39A1A6E718D2E72400D0D4E8 /* WODPramaticSufaceQuad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODPramaticSufaceQuad.m; sourceTree = "<group>"; };
+		39A20BA518B30B8400CA608A /* GLProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
+		39A20BA618B30BFD00CA608A /* GLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLProgram.m; sourceTree = "<group>"; };
+		39A2F047187CF12A0025DBDB /* WODSystemPatternGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODSystemPatternGenerator.h; sourceTree = "<group>"; };
+		39A2F048187CF12A0025DBDB /* WODSystemPatternGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODSystemPatternGenerator.m; sourceTree = "<group>"; };
+		39A321BC18764E690036A57C /* WODFreeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODFreeLayout.h; sourceTree = "<group>"; };
+		39A321BD18764E690036A57C /* WODFreeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODFreeLayout.m; sourceTree = "<group>"; };
+		39A321BF187650F70036A57C /* WODDrawFreeLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODDrawFreeLineView.h; sourceTree = "<group>"; };
+		39A321C0187650F70036A57C /* WODDrawFreeLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODDrawFreeLineView.m; sourceTree = "<group>"; };
+		39A321C2187680050036A57C /* WODDrawDotLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODDrawDotLineView.h; sourceTree = "<group>"; };
+		39A321C3187680050036A57C /* WODDrawDotLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODDrawDotLineView.m; sourceTree = "<group>"; };
+		39A321C6187686460036A57C /* WODPathDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODPathDrawView.h; sourceTree = "<group>"; };
+		39A321C7187686460036A57C /* WODPathDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODPathDrawView.m; sourceTree = "<group>"; };
+		39A321C9187693C50036A57C /* WODTextViewTextLayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODTextViewTextLayerDelegate.h; sourceTree = "<group>"; };
+		39A321CA187693C50036A57C /* WODTextViewTextLayerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODTextViewTextLayerDelegate.m; sourceTree = "<group>"; };
+		39A79B9C185EBD5B00D45F56 /* WODImagesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODImagesCollectionViewController.h; sourceTree = "<group>"; };
+		39A79B9D185EBD5B00D45F56 /* WODImagesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODImagesCollectionViewController.m; sourceTree = "<group>"; };
+		39B990C118D69AE5001BD510 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		39B990C318D806AD001BD510 /* WODTransformEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODTransformEngine.h; sourceTree = "<group>"; };
+		39B990C418D806AD001BD510 /* WODTransformEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODTransformEngine.m; sourceTree = "<group>"; };
+		39C1D547185984AE00BC91CC /* TOP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39C1D54A185984AE00BC91CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		39C1D54C185984AE00BC91CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		39C1D54E185984AE00BC91CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		39C1D552185984AE00BC91CC /* TOP-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TOP-Info.plist"; sourceTree = "<group>"; };
+		39C1D554185984AE00BC91CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		39C1D556185984AE00BC91CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		39C1D558185984AE00BC91CC /* TOP-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TOP-Prefix.pch"; sourceTree = "<group>"; };
+		39C1D559185984AE00BC91CC /* WODAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WODAppDelegate.h; sourceTree = "<group>"; };
+		39C1D55A185984AE00BC91CC /* WODAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WODAppDelegate.m; sourceTree = "<group>"; };
+		39C1D55C185984AE00BC91CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		39C1D562185984AE00BC91CC /* TOPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TOPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39C1D563185984AE00BC91CC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		39C1D56B185984AF00BC91CC /* TOPTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TOPTests-Info.plist"; sourceTree = "<group>"; };
+		39C1D56D185984AF00BC91CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		39C1D56F185984AF00BC91CC /* TOPTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOPTests.m; sourceTree = "<group>"; };
+		39C1D5791859855F00BC91CC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		39C1D5831859870C00BC91CC /* EditHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditHomeViewController.h; sourceTree = "<group>"; };
+		39C1D5841859870C00BC91CC /* EditHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditHomeViewController.m; sourceTree = "<group>"; };
+		39C1D5861859889300BC91CC /* WODImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODImagePickerViewController.h; sourceTree = "<group>"; };
+		39C1D5871859889300BC91CC /* WODImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODImagePickerViewController.m; sourceTree = "<group>"; };
+		39C1D589185988A600BC91CC /* WODImageScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODImageScrollViewController.h; sourceTree = "<group>"; };
+		39C1D58A185988A600BC91CC /* WODImageScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODImageScrollViewController.m; sourceTree = "<group>"; };
+		39C1D58C1859891200BC91CC /* WODBendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODBendViewController.h; sourceTree = "<group>"; };
+		39C1D58D1859891200BC91CC /* WODBendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODBendViewController.m; sourceTree = "<group>"; };
+		39C1D58F1859892A00BC91CC /* WODFreeDrawViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODFreeDrawViewController.h; sourceTree = "<group>"; };
+		39C1D5901859892A00BC91CC /* WODFreeDrawViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODFreeDrawViewController.m; sourceTree = "<group>"; };
+		39C1D5921859893700BC91CC /* WODShapeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODShapeViewController.h; sourceTree = "<group>"; };
+		39C1D5931859893700BC91CC /* WODShapeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODShapeViewController.m; sourceTree = "<group>"; };
+		39C1D599185989AC00BC91CC /* WODShapeTypeSetFillSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODShapeTypeSetFillSelectViewController.h; sourceTree = "<group>"; };
+		39C1D59A185989AC00BC91CC /* WODShapeTypeSetFillSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODShapeTypeSetFillSelectViewController.m; sourceTree = "<group>"; };
+		39C1D59D18598A9A00BC91CC /* WODShapePatchCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODShapePatchCollection.h; sourceTree = "<group>"; };
+		39C1D59E18598A9A00BC91CC /* WODShapePatchCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODShapePatchCollection.m; sourceTree = "<group>"; };
+		39C1D5A018598BA700BC91CC /* WODColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODColorPicker.h; sourceTree = "<group>"; };
+		39C1D5A118598BA700BC91CC /* WODColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODColorPicker.m; sourceTree = "<group>"; };
+		39C1D5A318598C9400BC91CC /* WODPatternPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODPatternPicker.h; sourceTree = "<group>"; };
+		39C1D5A418598C9400BC91CC /* WODPatternPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODPatternPicker.m; sourceTree = "<group>"; };
+		39C1D5AA1859960E00BC91CC /* WODFontPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODFontPicker.h; sourceTree = "<group>"; };
+		39C1D5AB1859960E00BC91CC /* WODFontPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODFontPicker.m; sourceTree = "<group>"; };
+		39C1D5AD1859962100BC91CC /* WODFontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODFontManager.h; sourceTree = "<group>"; };
+		39C1D5AE1859962100BC91CC /* WODFontManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODFontManager.m; sourceTree = "<group>"; };
+		39C1D5B01859963F00BC91CC /* WODTextLayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODTextLayerManager.h; sourceTree = "<group>"; };
+		39C1D5B11859963F00BC91CC /* WODTextLayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODTextLayerManager.m; sourceTree = "<group>"; };
+		39C1D5B31859967300BC91CC /* WODTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODTextView.h; sourceTree = "<group>"; };
+		39C1D5B41859967300BC91CC /* WODTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODTextView.m; sourceTree = "<group>"; };
+		39C1D5BA1859A4B700BC91CC /* WODRotateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODRotateHandler.h; sourceTree = "<group>"; };
+		39C1D5BB1859A4B700BC91CC /* WODRotateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODRotateHandler.m; sourceTree = "<group>"; };
+		39C1D5BD1859A4CF00BC91CC /* WODMoveHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODMoveHandler.h; sourceTree = "<group>"; };
+		39C1D5BE1859A4CF00BC91CC /* WODMoveHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODMoveHandler.m; sourceTree = "<group>"; };
+		39C1D5C01859A4DC00BC91CC /* WOD3DTransformHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOD3DTransformHandler.h; sourceTree = "<group>"; };
+		39C1D5C11859A4DC00BC91CC /* WOD3DTransformHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOD3DTransformHandler.m; sourceTree = "<group>"; };
+		39C1D5C3185AA30000BC91CC /* WODTypeSetterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODTypeSetterViewController.h; sourceTree = "<group>"; };
+		39C1D5C4185AA30000BC91CC /* WODTypeSetterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODTypeSetterViewController.m; sourceTree = "<group>"; };
+		39C1D5C9185AA81900BC91CC /* WODEffectPackageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODEffectPackageManager.h; sourceTree = "<group>"; };
+		39C1D5CA185AA81900BC91CC /* WODEffectPackageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODEffectPackageManager.m; sourceTree = "<group>"; };
+		39C1D5CC185AA85900BC91CC /* WODEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODEffect.h; sourceTree = "<group>"; };
+		39C1D5CD185AA85900BC91CC /* WODEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODEffect.m; sourceTree = "<group>"; };
+		39C1D5D0185AA88500BC91CC /* WODEffectReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODEffectReader.h; sourceTree = "<group>"; };
+		39C1D5D1185AA88500BC91CC /* WODEffectReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODEffectReader.m; sourceTree = "<group>"; };
+		39C1D5D3185AA89A00BC91CC /* WODResourceDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODResourceDownloader.h; sourceTree = "<group>"; };
+		39C1D5D4185AA89A00BC91CC /* WODResourceDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODResourceDownloader.m; sourceTree = "<group>"; };
+		39C1D5D7185AAB0D00BC91CC /* WODExportManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODExportManager.h; sourceTree = "<group>"; };
+		39C1D5D8185AAB0D00BC91CC /* WODExportManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODExportManager.m; sourceTree = "<group>"; };
+		39C1D5DD185AAB4F00BC91CC /* WODSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODSlider.h; sourceTree = "<group>"; };
+		39C1D5DE185AAB4F00BC91CC /* WODSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODSlider.m; sourceTree = "<group>"; };
+		39C1D5E0185AAB6100BC91CC /* WODButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODButton.h; sourceTree = "<group>"; };
+		39C1D5E1185AAB6100BC91CC /* WODButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODButton.m; sourceTree = "<group>"; };
+		39C1D5E3185AAB8800BC91CC /* WODActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODActionSheet.h; sourceTree = "<group>"; };
+		39C1D5E4185AAB8800BC91CC /* WODActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODActionSheet.m; sourceTree = "<group>"; };
+		39C1D5E6185AABA700BC91CC /* WODActivityIndecator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODActivityIndecator.h; sourceTree = "<group>"; };
+		39C1D5E7185AABA700BC91CC /* WODActivityIndecator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODActivityIndecator.m; sourceTree = "<group>"; };
+		39C1D5EB185B004C00BC91CC /* WODScrollTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODScrollTab.h; sourceTree = "<group>"; };
+		39C1D5EC185B004C00BC91CC /* WODScrollTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODScrollTab.m; sourceTree = "<group>"; };
+		39C1D5EE185B01A100BC91CC /* WODRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODRuntime.h; sourceTree = "<group>"; };
+		39C1D5EF185B01A100BC91CC /* WODRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODRuntime.m; sourceTree = "<group>"; };
+		39C1D5F1185B022D00BC91CC /* WODConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODConstants.h; sourceTree = "<group>"; };
+		39C1D5F2185B022D00BC91CC /* WODConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODConstants.m; sourceTree = "<group>"; };
+		39C893A0186A6C2400D761A1 /* WODInputTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODInputTextViewController.h; sourceTree = "<group>"; };
+		39C893A1186A6C2400D761A1 /* WODInputTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODInputTextViewController.m; sourceTree = "<group>"; };
+		39E18553190DE53000386CEB /* WODUserGuide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODUserGuide.h; sourceTree = "<group>"; };
+		39E18554190DE53000386CEB /* WODUserGuide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODUserGuide.m; sourceTree = "<group>"; };
+		39E18557190E12AC00386CEB /* WODUserGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODUserGuideView.h; sourceTree = "<group>"; };
+		39E18558190E12AC00386CEB /* WODUserGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODUserGuideView.m; sourceTree = "<group>"; };
+		39E1855A190E673100386CEB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		39E1855D190E67D600386CEB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		39EC252E19A49071004A8821 /* WODEditHomeActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODEditHomeActions.h; sourceTree = "<group>"; };
+		39EC252F19A49071004A8821 /* WODEditHomeActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODEditHomeActions.m; sourceTree = "<group>"; };
+		39F4A65B1903FDA700C2BC24 /* CECrossfadeAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CECrossfadeAnimationController.h; sourceTree = "<group>"; };
+		39F4A65C1903FDA700C2BC24 /* CECrossfadeAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CECrossfadeAnimationController.m; sourceTree = "<group>"; };
+		39F4A65E1903FDC500C2BC24 /* CEReversibleAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEReversibleAnimationController.h; sourceTree = "<group>"; };
+		39F4A65F1903FDC500C2BC24 /* CEReversibleAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEReversibleAnimationController.m; sourceTree = "<group>"; };
+		39F4A6611903FEE100C2BC24 /* WODAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WODAnimationManager.h; sourceTree = "<group>"; };
+		39F4A6621903FEE100C2BC24 /* WODAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WODAnimationManager.m; sourceTree = "<group>"; };
+		39F4A66419040C3800C2BC24 /* extraFonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = extraFonts; sourceTree = "<group>"; };
+		39F6B0971910B2D9004D5BCD /* SaveToMyDirectoryActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveToMyDirectoryActivity.h; sourceTree = "<group>"; };
+		39F6B0981910B2D9004D5BCD /* SaveToMyDirectoryActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveToMyDirectoryActivity.m; sourceTree = "<group>"; };
+		B32CED22EE74455E9683289A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6508D5635A54DC8811CA79F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		E49956FB19F2BC9400B7281E /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
+		E49956FC19F2BC9400B7281E /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		39C1D544185984AE00BC91CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39B990C218D69AE5001BD510 /* OpenGLES.framework in Frameworks */,
+				399CDA9E19245F20004ADBB8 /* libFlurry_5.0.0.a in Frameworks */,
+				394589F919CECE6900BB230E /* libWeChatSDK.a in Frameworks */,
+				39C1D54D185984AE00BC91CC /* CoreGraphics.framework in Frameworks */,
+				39C1D54F185984AE00BC91CC /* UIKit.framework in Frameworks */,
+				39C1D54B185984AE00BC91CC /* Foundation.framework in Frameworks */,
+				39C1D57A1859855F00BC91CC /* StoreKit.framework in Frameworks */,
+				6F2C44648436427684440132 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39C1D55F185984AE00BC91CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39C1D564185984AE00BC91CC /* XCTest.framework in Frameworks */,
+				39C1D566185984AE00BC91CC /* UIKit.framework in Frameworks */,
+				39C1D565185984AE00BC91CC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3903536A19153B2900E55B18 /* videos */ = {
+			isa = PBXGroup;
+			children = (
+				390353711915437000E55B18 /* layout.m4v */,
+				3903536F19153DD900E55B18 /* apply_effect.m4v */,
+				3903536D19153D4B00E55B18 /* 3d_rotation.m4v */,
+				3903536B19153B3B00E55B18 /* input_text.m4v */,
+			);
+			name = videos;
+			sourceTree = "<group>";
+		};
+		39076AC31929CAC3009585A3 /* f_shaders */ = {
+			isa = PBXGroup;
+			children = (
+				39076ACB192A1ED2009585A3 /* refraction_shader.fsh */,
+				39076AC51929CB2A009585A3 /* emboss_shader.fsh */,
+				39424FD718ADED3D0038EA08 /* default_shader.fsh */,
+			);
+			name = f_shaders;
+			sourceTree = "<group>";
+		};
+		39076AC41929CAD2009585A3 /* v_shaders */ = {
+			isa = PBXGroup;
+			children = (
+				39076ACD192A20F1009585A3 /* image.vsh */,
+				39424FD618ADED3D0038EA08 /* default_shader.vsh */,
+			);
+			name = v_shaders;
+			sourceTree = "<group>";
+		};
+		39076AC71929CFC5009585A3 /* adjustment */ = {
+			isa = PBXGroup;
+			children = (
+				39076AC81929D007009585A3 /* WODFilterSelector.h */,
+				39076AC91929D007009585A3 /* WODFilterSelector.m */,
+			);
+			name = adjustment;
+			sourceTree = "<group>";
+		};
+		3909211D18D18E4A005E97EC /* OpenGLES2 */ = {
+			isa = PBXGroup;
+			children = (
+				3909213018D1B9FA005E97EC /* WODOpenGLESAppEngine.h */,
+				3909213118D1B9FA005E97EC /* WODOpenGLESAppEngine.m */,
+				3909212718D1A669005E97EC /* WODRenderingEngine.h */,
+				3909212818D1A669005E97EC /* WODRenderingEngine.m */,
+				3909212A18D1A9ED005E97EC /* WODOpenGLESDrawable.h */,
+				3909212B18D1A9ED005E97EC /* WODOpenGLESDrawable.m */,
+				39A1A6E318D2DE7A00D0D4E8 /* WODPramaticSurface.h */,
+				39A1A6E418D2DE7A00D0D4E8 /* WODPramaticSurface.m */,
+				39A1A6E618D2E72400D0D4E8 /* WODPramaticSufaceQuad.h */,
+				39A1A6E718D2E72400D0D4E8 /* WODPramaticSufaceQuad.m */,
+				39B990C318D806AD001BD510 /* WODTransformEngine.h */,
+				39B990C418D806AD001BD510 /* WODTransformEngine.m */,
+			);
+			name = OpenGLES2;
+			sourceTree = "<group>";
+		};
+		394589F519CECE5B00BB230E /* weichat */ = {
+			isa = PBXGroup;
+			children = (
+				394589F619CECE6900BB230E /* WXApi.h */,
+				394589F719CECE6900BB230E /* libWeChatSDK.a */,
+				394589F819CECE6900BB230E /* WXApiObject.h */,
+			);
+			name = weichat;
+			sourceTree = "<group>";
+		};
+		394C911B19AB141100390B57 /* kxMenu */ = {
+			isa = PBXGroup;
+			children = (
+				394C911C19AB141100390B57 /* KxMenu.h */,
+				394C911D19AB141100390B57 /* KxMenu.m */,
+			);
+			name = kxMenu;
+			path = Source;
+			sourceTree = "<group>";
+		};
+		3994865218EC1EF200A1754D /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				3994865318EC1EF200A1754D /* SVProgressHUD-Prefix.pch */,
+				3994865418EC1EF200A1754D /* SVProgressHUD.bundle */,
+				3994865518EC1EF200A1754D /* SVProgressHUD.h */,
+				3994865618EC1EF200A1754D /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		399CDA9B19245EFB004ADBB8 /* analytics */ = {
+			isa = PBXGroup;
+			children = (
+				399CDA9C19245F20004ADBB8 /* Flurry.h */,
+				399CDA9D19245F20004ADBB8 /* libFlurry_5.0.0.a */,
+			);
+			name = analytics;
+			sourceTree = "<group>";
+		};
+		39A12CB519AC92AB009D1A24 /* ASValueTrackingSlider */ = {
+			isa = PBXGroup;
+			children = (
+				39A12CB619AC92AB009D1A24 /* ASValuePopUpView.h */,
+				39A12CB719AC92AB009D1A24 /* ASValuePopUpView.m */,
+				39A12CB819AC92AB009D1A24 /* ASValueTrackingSlider.h */,
+				39A12CB919AC92AB009D1A24 /* ASValueTrackingSlider.m */,
+			);
+			path = ASValueTrackingSlider;
+			sourceTree = "<group>";
+		};
+		39A321C5187686030036A57C /* PathProvideViews */ = {
+			isa = PBXGroup;
+			children = (
+				39C1D59D18598A9A00BC91CC /* WODShapePatchCollection.h */,
+				39C1D59E18598A9A00BC91CC /* WODShapePatchCollection.m */,
+				39A321BF187650F70036A57C /* WODDrawFreeLineView.h */,
+				39A321C0187650F70036A57C /* WODDrawFreeLineView.m */,
+				39A321C2187680050036A57C /* WODDrawDotLineView.h */,
+				39A321C3187680050036A57C /* WODDrawDotLineView.m */,
+				39A321C6187686460036A57C /* WODPathDrawView.h */,
+				39A321C7187686460036A57C /* WODPathDrawView.m */,
+			);
+			name = PathProvideViews;
+			sourceTree = "<group>";
+		};
+		39C1D53E185984AE00BC91CC = {
+			isa = PBXGroup;
+			children = (
+				39C1D550185984AE00BC91CC /* TOP */,
+				39C1D569185984AF00BC91CC /* TOPTests */,
+				39C1D549185984AE00BC91CC /* Frameworks */,
+				39C1D548185984AE00BC91CC /* Products */,
+				B6508D5635A54DC8811CA79F /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		39C1D548185984AE00BC91CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39C1D547185984AE00BC91CC /* TOP.app */,
+				39C1D562185984AE00BC91CC /* TOPTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		39C1D549185984AE00BC91CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39B990C118D69AE5001BD510 /* OpenGLES.framework */,
+				39C1D5791859855F00BC91CC /* StoreKit.framework */,
+				39C1D54A185984AE00BC91CC /* Foundation.framework */,
+				39C1D54C185984AE00BC91CC /* CoreGraphics.framework */,
+				39C1D54E185984AE00BC91CC /* UIKit.framework */,
+				39C1D563185984AE00BC91CC /* XCTest.framework */,
+				B32CED22EE74455E9683289A /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		39C1D550185984AE00BC91CC /* TOP */ = {
+			isa = PBXGroup;
+			children = (
+				39C1D57B1859860100BC91CC /* classes */,
+				39C1D559185984AE00BC91CC /* WODAppDelegate.h */,
+				39C1D55A185984AE00BC91CC /* WODAppDelegate.m */,
+				39C1D55C185984AE00BC91CC /* Images.xcassets */,
+				39C1D551185984AE00BC91CC /* Supporting Files */,
+			);
+			path = TOP;
+			sourceTree = "<group>";
+		};
+		39C1D551185984AE00BC91CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3903536A19153B2900E55B18 /* videos */,
+				39F4A66419040C3800C2BC24 /* extraFonts */,
+				39076AC41929CAD2009585A3 /* v_shaders */,
+				39076AC31929CAC3009585A3 /* f_shaders */,
+				398A79DE1881400500A6B791 /* effects */,
+				39850E71187FC83000A98D88 /* effect_template.xml */,
+				391FB56A18A6442C002541AE /* Localizable.strings */,
+				39C1D552185984AE00BC91CC /* TOP-Info.plist */,
+				39C1D553185984AE00BC91CC /* InfoPlist.strings */,
+				39C1D556185984AE00BC91CC /* main.m */,
+				39C1D558185984AE00BC91CC /* TOP-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		39C1D569185984AF00BC91CC /* TOPTests */ = {
+			isa = PBXGroup;
+			children = (
+				39C1D56F185984AF00BC91CC /* TOPTests.m */,
+				39C1D56A185984AF00BC91CC /* Supporting Files */,
+			);
+			path = TOPTests;
+			sourceTree = "<group>";
+		};
+		39C1D56A185984AF00BC91CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				39C1D56B185984AF00BC91CC /* TOPTests-Info.plist */,
+				39C1D56C185984AF00BC91CC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		39C1D57B1859860100BC91CC /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				399CDA9B19245EFB004ADBB8 /* analytics */,
+				39C498CE1860226500D6C8A0 /* animation */,
+				39C1D5D6185AA8A800BC91CC /* utils */,
+				39C1D5821859867F00BC91CC /* ViewComponents */,
+				39C1D5811859866F00BC91CC /* ExportAndShare */,
+				39C1D5801859866300BC91CC /* Text */,
+				39C1D57F1859865500BC91CC /* EffectsManage */,
+				39C1D57E1859864C00BC91CC /* FontsManage */,
+				39C1D57D1859863D00BC91CC /* TypeSetterEdit */,
+				39C8939F186A6BFD00D761A1 /* TextInput */,
+				39C1D57C1859862C00BC91CC /* ImagePicker */,
+				394C911819AAD9B100390B57 /* WODRootViewController.h */,
+				394C911919AAD9B100390B57 /* WODRootViewController.m */,
+				39C1D5831859870C00BC91CC /* EditHomeViewController.h */,
+				39C1D5841859870C00BC91CC /* EditHomeViewController.m */,
+				39EC252E19A49071004A8821 /* WODEditHomeActions.h */,
+				39EC252F19A49071004A8821 /* WODEditHomeActions.m */,
+				399C2D8F18CC6CA200B4D5A8 /* WODOpenGLESStageView.h */,
+				399C2D9018CC6CA200B4D5A8 /* WODOpenGLESStageView.m */,
+				39333E431913D72C00F89336 /* WODAboutViewController.h */,
+				39333E441913D72C00F89336 /* WODAboutViewController.m */,
+				399CDA9F192487EC004ADBB8 /* WODBrowseTheworldViewController.h */,
+				399CDAA0192487EC004ADBB8 /* WODBrowseTheworldViewController.m */,
+				39076AC71929CFC5009585A3 /* adjustment */,
+				39E18556190DE6B100386CEB /* UserGuide */,
+				3909211D18D18E4A005E97EC /* OpenGLES2 */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		39C1D57C1859862C00BC91CC /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				39C1D5861859889300BC91CC /* WODImagePickerViewController.h */,
+				39C1D5871859889300BC91CC /* WODImagePickerViewController.m */,
+				39A79B9C185EBD5B00D45F56 /* WODImagesCollectionViewController.h */,
+				39A79B9D185EBD5B00D45F56 /* WODImagesCollectionViewController.m */,
+				393207E1185EEFEF00DE3ADC /* WODCameraViewController.h */,
+				393207E2185EEFEF00DE3ADC /* WODCameraViewController.m */,
+				39C1D589185988A600BC91CC /* WODImageScrollViewController.h */,
+				39C1D58A185988A600BC91CC /* WODImageScrollViewController.m */,
+			);
+			name = ImagePicker;
+			sourceTree = "<group>";
+		};
+		39C1D57D1859863D00BC91CC /* TypeSetterEdit */ = {
+			isa = PBXGroup;
+			children = (
+				39A321C5187686030036A57C /* PathProvideViews */,
+				39D7DC33186BE69500303465 /* Layouts */,
+				39C1D59C185989CB00BC91CC /* Helper */,
+				39C1D5C3185AA30000BC91CC /* WODTypeSetterViewController.h */,
+				39C1D5C4185AA30000BC91CC /* WODTypeSetterViewController.m */,
+				39C1D58C1859891200BC91CC /* WODBendViewController.h */,
+				39C1D58D1859891200BC91CC /* WODBendViewController.m */,
+				39C1D58F1859892A00BC91CC /* WODFreeDrawViewController.h */,
+				39C1D5901859892A00BC91CC /* WODFreeDrawViewController.m */,
+				39C1D5921859893700BC91CC /* WODShapeViewController.h */,
+				39C1D5931859893700BC91CC /* WODShapeViewController.m */,
+				39C1D599185989AC00BC91CC /* WODShapeTypeSetFillSelectViewController.h */,
+				39C1D59A185989AC00BC91CC /* WODShapeTypeSetFillSelectViewController.m */,
+			);
+			name = TypeSetterEdit;
+			sourceTree = "<group>";
+		};
+		39C1D57E1859864C00BC91CC /* FontsManage */ = {
+			isa = PBXGroup;
+			children = (
+				39C1D5AA1859960E00BC91CC /* WODFontPicker.h */,
+				39C1D5AB1859960E00BC91CC /* WODFontPicker.m */,
+				39C1D5AD1859962100BC91CC /* WODFontManager.h */,
+				39C1D5AE1859962100BC91CC /* WODFontManager.m */,
+				391FB56318A6223F002541AE /* WODFontRegisterViewController.h */,
+				391FB56418A6223F002541AE /* WODFontRegisterViewController.m */,
+				3945451C190960BB002EBB0D /* WODFontCreditViewerViewController.h */,
+				3945451D190960BB002EBB0D /* WODFontCreditViewerViewController.m */,
+			);
+			name = FontsManage;
+			sourceTree = "<group>";
+		};
+		39C1D57F1859865500BC91CC /* EffectsManage */ = {
+			isa = PBXGroup;
+			children = (
+				39C1D5CF185AA86900BC91CC /* helper */,
+				396EEC6D188BBDCD00423CB2 /* WODEffectsPackageViewController.h */,
+				396EEC6E188BBDCD00423CB2 /* WODEffectsPackageViewController.m */,
+				395C5C04188D0E7E00FA47AD /* WODEffectsPackageItemsViewController.h */,
+				395C5C05188D0E7E00FA47AD /* WODEffectsPackageItemsViewController.m */,
+				39C1D5CC185AA85900BC91CC /* WODEffect.h */,
+				39C1D5CD185AA85900BC91CC /* WODEffect.m */,
+			);
+			name = EffectsManage;
+			sourceTree = "<group>";
+		};
+		39C1D5801859866300BC91CC /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				39C1D5B9185996C100BC91CC /* TouchHandler */,
+				39C1D5B01859963F00BC91CC /* WODTextLayerManager.h */,
+				39C1D5B11859963F00BC91CC /* WODTextLayerManager.m */,
+				39C1D5B31859967300BC91CC /* WODTextView.h */,
+				39C1D5B41859967300BC91CC /* WODTextView.m */,
+				39A321C9187693C50036A57C /* WODTextViewTextLayerDelegate.h */,
+				39A321CA187693C50036A57C /* WODTextViewTextLayerDelegate.m */,
+				3967732018791D1F00B66D20 /* WODBackgroundLayer.h */,
+				3967732118791D1F00B66D20 /* WODBackgroundLayer.m */,
+			);
+			name = Text;
+			sourceTree = "<group>";
+		};
+		39C1D5811859866F00BC91CC /* ExportAndShare */ = {
+			isa = PBXGroup;
+			children = (
+				39C1D5D7185AAB0D00BC91CC /* WODExportManager.h */,
+				39C1D5D8185AAB0D00BC91CC /* WODExportManager.m */,
+				3903C37218E15C86008FE017 /* OpenImageInOtherApps.h */,
+				3903C37318E15C86008FE017 /* OpenImageInOtherApps.m */,
+				3952DBBD18F77AE700B67FCB /* InstagramActivity.h */,
+				3952DBBE18F77B0900B67FCB /* InstagramActivity.m */,
+				39F6B0971910B2D9004D5BCD /* SaveToMyDirectoryActivity.h */,
+				39F6B0981910B2D9004D5BCD /* SaveToMyDirectoryActivity.m */,
+				3903C37518E174D2008FE017 /* WODExportToOtherAppviewController.h */,
+				3903C37618E174D2008FE017 /* WODExportToOtherAppviewController.m */,
+				3952DBC018F782D800B67FCB /* ExportToInstagramPreviewController.h */,
+				3952DBC118F782E000B67FCB /* ExportToInstagramPreviewController.m */,
+				3901164319A5AD8E00F04E49 /* WODFullSizeExportViewController.h */,
+				3901164419A5AD8E00F04E49 /* WODFullSizeExportViewController.m */,
+			);
+			name = ExportAndShare;
+			sourceTree = "<group>";
+		};
+		39C1D5821859867F00BC91CC /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				39A12CB519AC92AB009D1A24 /* ASValueTrackingSlider */,
+				394C911B19AB141100390B57 /* kxMenu */,
+				3994865218EC1EF200A1754D /* SVProgressHUD */,
+				39C1D5A018598BA700BC91CC /* WODColorPicker.h */,
+				39C1D5A118598BA700BC91CC /* WODColorPicker.m */,
+				39C1D5A318598C9400BC91CC /* WODPatternPicker.h */,
+				39C1D5A418598C9400BC91CC /* WODPatternPicker.m */,
+				39C1D5DD185AAB4F00BC91CC /* WODSlider.h */,
+				39C1D5DE185AAB4F00BC91CC /* WODSlider.m */,
+				39C1D5E0185AAB6100BC91CC /* WODButton.h */,
+				39C1D5E1185AAB6100BC91CC /* WODButton.m */,
+				39C1D5E3185AAB8800BC91CC /* WODActionSheet.h */,
+				39C1D5E4185AAB8800BC91CC /* WODActionSheet.m */,
+				39C1D5E6185AABA700BC91CC /* WODActivityIndecator.h */,
+				39C1D5E7185AABA700BC91CC /* WODActivityIndecator.m */,
+				39C1D5EB185B004C00BC91CC /* WODScrollTab.h */,
+				39C1D5EC185B004C00BC91CC /* WODScrollTab.m */,
+				399283B31864187700F36E36 /* WODToolbar.h */,
+				399283B41864187700F36E36 /* WODToolbar.m */,
+				3919CFF9186B1A8D001970CD /* WODSimpleScrollItemPicker.h */,
+				3919CFFA186B1A8D001970CD /* WODSimpleScrollItemPicker.m */,
+				3985EA4018C0652400DAE533 /* WODBouncingFlowLayout.h */,
+				3985EA4118C0652400DAE533 /* WODBouncingFlowLayout.m */,
+				3951C4A0190818BA00904BAB /* WODItemPicker.h */,
+				3951C4A1190818BA00904BAB /* WODItemPicker.m */,
+			);
+			name = ViewComponents;
+			sourceTree = "<group>";
+		};
+		39C1D59C185989CB00BC91CC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		39C1D5B9185996C100BC91CC /* TouchHandler */ = {
+			isa = PBXGroup;
+			children = (
+				39C1D5BA1859A4B700BC91CC /* WODRotateHandler.h */,
+				39C1D5BB1859A4B700BC91CC /* WODRotateHandler.m */,
+				39C1D5BD1859A4CF00BC91CC /* WODMoveHandler.h */,
+				39C1D5BE1859A4CF00BC91CC /* WODMoveHandler.m */,
+				39C1D5C01859A4DC00BC91CC /* WOD3DTransformHandler.h */,
+				39C1D5C11859A4DC00BC91CC /* WOD3DTransformHandler.m */,
+			);
+			name = TouchHandler;
+			sourceTree = "<group>";
+		};
+		39C1D5CF185AA86900BC91CC /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				39C1D5C9185AA81900BC91CC /* WODEffectPackageManager.h */,
+				39C1D5CA185AA81900BC91CC /* WODEffectPackageManager.m */,
+				39C1D5D0185AA88500BC91CC /* WODEffectReader.h */,
+				39C1D5D1185AA88500BC91CC /* WODEffectReader.m */,
+				39A2F047187CF12A0025DBDB /* WODSystemPatternGenerator.h */,
+				39A2F048187CF12A0025DBDB /* WODSystemPatternGenerator.m */,
+			);
+			name = helper;
+			sourceTree = "<group>";
+		};
+		39C1D5D6185AA8A800BC91CC /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				394589F519CECE5B00BB230E /* weichat */,
+				390D61F018B7079C00973289 /* GLCommon.h */,
+				39A20BA518B30B8400CA608A /* GLProgram.h */,
+				39A20BA618B30BFD00CA608A /* GLProgram.m */,
+				39C1D5D3185AA89A00BC91CC /* WODResourceDownloader.h */,
+				39C1D5D4185AA89A00BC91CC /* WODResourceDownloader.m */,
+				39C1D5F1185B022D00BC91CC /* WODConstants.h */,
+				39C1D5F2185B022D00BC91CC /* WODConstants.m */,
+				39C1D5EE185B01A100BC91CC /* WODRuntime.h */,
+				39C1D5EF185B01A100BC91CC /* WODRuntime.m */,
+				393C5E1618F39F9E00197EA3 /* WODIAPCenter.h */,
+				393C5E1718F39F9E00197EA3 /* WODIAPCenter.m */,
+				394589F219CECE2800BB230E /* SocialControl.h */,
+				394589F319CECE2800BB230E /* SocialControl.m */,
+				E49956FB19F2BC9400B7281E /* UIView+Layout.h */,
+				E49956FC19F2BC9400B7281E /* UIView+Layout.m */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		39C498CE1860226500D6C8A0 /* animation */ = {
+			isa = PBXGroup;
+			children = (
+				39F4A65E1903FDC500C2BC24 /* CEReversibleAnimationController.h */,
+				39F4A65F1903FDC500C2BC24 /* CEReversibleAnimationController.m */,
+				39F4A65B1903FDA700C2BC24 /* CECrossfadeAnimationController.h */,
+				39F4A65C1903FDA700C2BC24 /* CECrossfadeAnimationController.m */,
+				39F4A6611903FEE100C2BC24 /* WODAnimationManager.h */,
+				39F4A6621903FEE100C2BC24 /* WODAnimationManager.m */,
+			);
+			name = animation;
+			sourceTree = "<group>";
+		};
+		39C8939F186A6BFD00D761A1 /* TextInput */ = {
+			isa = PBXGroup;
+			children = (
+				39C893A0186A6C2400D761A1 /* WODInputTextViewController.h */,
+				39C893A1186A6C2400D761A1 /* WODInputTextViewController.m */,
+				39029530188575D800124E36 /* WODTextConfigureView.h */,
+				39029531188575D800124E36 /* WODTextConfigureView.m */,
+			);
+			name = TextInput;
+			sourceTree = "<group>";
+		};
+		39D7DC33186BE69500303465 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				3976E860187468410081B1C8 /* WODBendLayout.h */,
+				3976E861187468410081B1C8 /* WODBendLayout.m */,
+				39A321BC18764E690036A57C /* WODFreeLayout.h */,
+				39A321BD18764E690036A57C /* WODFreeLayout.m */,
+			);
+			name = Layouts;
+			sourceTree = "<group>";
+		};
+		39E18556190DE6B100386CEB /* UserGuide */ = {
+			isa = PBXGroup;
+			children = (
+				39E18553190DE53000386CEB /* WODUserGuide.h */,
+				39E18554190DE53000386CEB /* WODUserGuide.m */,
+				39E18557190E12AC00386CEB /* WODUserGuideView.h */,
+				39E18558190E12AC00386CEB /* WODUserGuideView.m */,
+			);
+			name = UserGuide;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		39C1D546185984AE00BC91CC /* TOP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39C1D573185984AF00BC91CC /* Build configuration list for PBXNativeTarget "TOP" */;
+			buildPhases = (
+				8837EDBCD14C4BA7B4A3D809 /* Check Pods Manifest.lock */,
+				39C1D543185984AE00BC91CC /* Sources */,
+				39C1D544185984AE00BC91CC /* Frameworks */,
+				39C1D545185984AE00BC91CC /* Resources */,
+				F70851D1EDD847E4AA621DB4 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TOP;
+			productName = TOP;
+			productReference = 39C1D547185984AE00BC91CC /* TOP.app */;
+			productType = "com.apple.product-type.application";
+		};
+		39C1D561185984AE00BC91CC /* TOPTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39C1D576185984AF00BC91CC /* Build configuration list for PBXNativeTarget "TOPTests" */;
+			buildPhases = (
+				39C1D55E185984AE00BC91CC /* Sources */,
+				39C1D55F185984AE00BC91CC /* Frameworks */,
+				39C1D560185984AE00BC91CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39C1D568185984AF00BC91CC /* PBXTargetDependency */,
+				E403CA5119E589B3005B5AE8 /* PBXTargetDependency */,
+			);
+			name = TOPTests;
+			productName = TOPTests;
+			productReference = 39C1D562185984AE00BC91CC /* TOPTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39C1D53F185984AE00BC91CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WOD;
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = WOD;
+				TargetAttributes = {
+					39C1D546185984AE00BC91CC = {
+						DevelopmentTeam = 26RSSM9Q9P;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 39C1D542185984AE00BC91CC /* Build configuration list for PBXProject "TOP" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				"zh-Hans",
+			);
+			mainGroup = 39C1D53E185984AE00BC91CC;
+			productRefGroup = 39C1D548185984AE00BC91CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				39C1D546185984AE00BC91CC /* TOP */,
+				39C1D561185984AE00BC91CC /* TOPTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		39C1D545185984AE00BC91CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3903536E19153D4B00E55B18 /* 3d_rotation.m4v in Resources */,
+				39076AC61929CB2A009585A3 /* emboss_shader.fsh in Resources */,
+				39076ACE192A20F1009585A3 /* image.vsh in Resources */,
+				39424FD918ADED3D0038EA08 /* default_shader.fsh in Resources */,
+				391FB56818A6442C002541AE /* Localizable.strings in Resources */,
+				39F4A66519040C3800C2BC24 /* extraFonts in Resources */,
+				398A79DF1881400500A6B791 /* effects in Resources */,
+				3994865718EC1EF200A1754D /* SVProgressHUD.bundle in Resources */,
+				39C1D555185984AE00BC91CC /* InfoPlist.strings in Resources */,
+				3903537019153DD900E55B18 /* apply_effect.m4v in Resources */,
+				39424FD818ADED3D0038EA08 /* default_shader.vsh in Resources */,
+				39850E72187FC83000A98D88 /* effect_template.xml in Resources */,
+				39076ACC192A1ED2009585A3 /* refraction_shader.fsh in Resources */,
+				390353721915437000E55B18 /* layout.m4v in Resources */,
+				39C1D55D185984AE00BC91CC /* Images.xcassets in Resources */,
+				3903536C19153CED00E55B18 /* input_text.m4v in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39C1D560185984AE00BC91CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39E1855C190E67CD00386CEB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8837EDBCD14C4BA7B4A3D809 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		F70851D1EDD847E4AA621DB4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		39C1D543185984AE00BC91CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39C1D58B185988A600BC91CC /* WODImageScrollViewController.m in Sources */,
+				39C1D5B21859963F00BC91CC /* WODTextLayerManager.m in Sources */,
+				39A321C8187686460036A57C /* WODPathDrawView.m in Sources */,
+				39C1D5911859892A00BC91CC /* WODFreeDrawViewController.m in Sources */,
+				39C1D5D2185AA88500BC91CC /* WODEffectReader.m in Sources */,
+				3909212918D1A669005E97EC /* WODRenderingEngine.m in Sources */,
+				39C893A2186A6C2400D761A1 /* WODInputTextViewController.m in Sources */,
+				3945451E190960BB002EBB0D /* WODFontCreditViewerViewController.m in Sources */,
+				39C1D557185984AE00BC91CC /* main.m in Sources */,
+				391FB56518A6223F002541AE /* WODFontRegisterViewController.m in Sources */,
+				3909212C18D1A9ED005E97EC /* WODOpenGLESDrawable.m in Sources */,
+				393207E3185EEFEF00DE3ADC /* WODCameraViewController.m in Sources */,
+				39A1A6E518D2DE7A00D0D4E8 /* WODPramaticSurface.m in Sources */,
+				39076ACA1929D007009585A3 /* WODFilterSelector.m in Sources */,
+				39C1D5F0185B01A100BC91CC /* WODRuntime.m in Sources */,
+				396EEC6F188BBDCD00423CB2 /* WODEffectsPackageViewController.m in Sources */,
+				39C1D5BF1859A4CF00BC91CC /* WODMoveHandler.m in Sources */,
+				39A1A6E818D2E72400D0D4E8 /* WODPramaticSufaceQuad.m in Sources */,
+				39F4A6601903FDC500C2BC24 /* CEReversibleAnimationController.m in Sources */,
+				393C5E1818F39F9E00197EA3 /* WODIAPCenter.m in Sources */,
+				39C1D5E5185AAB8800BC91CC /* WODActionSheet.m in Sources */,
+				39C1D5BC1859A4B700BC91CC /* WODRotateHandler.m in Sources */,
+				39C1D5A218598BA700BC91CC /* WODColorPicker.m in Sources */,
+				39F4A6631903FEE100C2BC24 /* WODAnimationManager.m in Sources */,
+				E49956FD19F2BC9400B7281E /* UIView+Layout.m in Sources */,
+				39C1D5E8185AABA700BC91CC /* WODActivityIndecator.m in Sources */,
+				39C1D58E1859891200BC91CC /* WODBendViewController.m in Sources */,
+				399C2D9118CC6CA300B4D5A8 /* WODOpenGLESStageView.m in Sources */,
+				3951C4A2190818BA00904BAB /* WODItemPicker.m in Sources */,
+				3901164519A5AD8E00F04E49 /* WODFullSizeExportViewController.m in Sources */,
+				3994865818EC1EF200A1754D /* SVProgressHUD.m in Sources */,
+				39C1D55B185984AE00BC91CC /* WODAppDelegate.m in Sources */,
+				394C911A19AAD9B100390B57 /* WODRootViewController.m in Sources */,
+				39A2F049187CF12A0025DBDB /* WODSystemPatternGenerator.m in Sources */,
+				39C1D5DF185AAB4F00BC91CC /* WODSlider.m in Sources */,
+				399283B51864187700F36E36 /* WODToolbar.m in Sources */,
+				39C1D5E2185AAB6100BC91CC /* WODButton.m in Sources */,
+				39C1D5D5185AA89A00BC91CC /* WODResourceDownloader.m in Sources */,
+				39C1D59B185989AC00BC91CC /* WODShapeTypeSetFillSelectViewController.m in Sources */,
+				394589F419CECE2800BB230E /* SocialControl.m in Sources */,
+				3952DBC218F782E000B67FCB /* ExportToInstagramPreviewController.m in Sources */,
+				39EC253019A49071004A8821 /* WODEditHomeActions.m in Sources */,
+				39C1D5ED185B004C00BC91CC /* WODScrollTab.m in Sources */,
+				39029532188575D800124E36 /* WODTextConfigureView.m in Sources */,
+				39E18555190DE53000386CEB /* WODUserGuide.m in Sources */,
+				39C1D5AF1859962100BC91CC /* WODFontManager.m in Sources */,
+				395C5C06188D0E7E00FA47AD /* WODEffectsPackageItemsViewController.m in Sources */,
+				39A321CB187693C50036A57C /* WODTextViewTextLayerDelegate.m in Sources */,
+				39A321C1187650F70036A57C /* WODDrawFreeLineView.m in Sources */,
+				39C1D59F18598A9A00BC91CC /* WODShapePatchCollection.m in Sources */,
+				39C1D5941859893700BC91CC /* WODShapeViewController.m in Sources */,
+				39A79B9E185EBD5B00D45F56 /* WODImagesCollectionViewController.m in Sources */,
+				3903C37718E174D2008FE017 /* WODExportToOtherAppviewController.m in Sources */,
+				39333E451913D72C00F89336 /* WODAboutViewController.m in Sources */,
+				39C1D5A518598C9400BC91CC /* WODPatternPicker.m in Sources */,
+				39C1D5CE185AA85900BC91CC /* WODEffect.m in Sources */,
+				3967732218791D1F00B66D20 /* WODBackgroundLayer.m in Sources */,
+				394C911E19AB141100390B57 /* KxMenu.m in Sources */,
+				39B990C518D806AD001BD510 /* WODTransformEngine.m in Sources */,
+				399CDAA1192487EC004ADBB8 /* WODBrowseTheworldViewController.m in Sources */,
+				3919CFFB186B1A8D001970CD /* WODSimpleScrollItemPicker.m in Sources */,
+				39A12CBB19AC92AB009D1A24 /* ASValueTrackingSlider.m in Sources */,
+				39C1D5D9185AAB0D00BC91CC /* WODExportManager.m in Sources */,
+				39A321BE18764E690036A57C /* WODFreeLayout.m in Sources */,
+				39A12CBA19AC92AB009D1A24 /* ASValuePopUpView.m in Sources */,
+				39C1D5AC1859960E00BC91CC /* WODFontPicker.m in Sources */,
+				3952DBBF18F77B0900B67FCB /* InstagramActivity.m in Sources */,
+				39C1D5C21859A4DC00BC91CC /* WOD3DTransformHandler.m in Sources */,
+				39C1D5B51859967300BC91CC /* WODTextView.m in Sources */,
+				3985EA4218C0652400DAE533 /* WODBouncingFlowLayout.m in Sources */,
+				39C1D5C5185AA30000BC91CC /* WODTypeSetterViewController.m in Sources */,
+				3909213218D1B9FA005E97EC /* WODOpenGLESAppEngine.m in Sources */,
+				39C1D5F3185B022D00BC91CC /* WODConstants.m in Sources */,
+				39A20BA718B30BFD00CA608A /* GLProgram.m in Sources */,
+				39C1D5851859870C00BC91CC /* EditHomeViewController.m in Sources */,
+				39F6B0991910B2D9004D5BCD /* SaveToMyDirectoryActivity.m in Sources */,
+				39F4A65D1903FDA700C2BC24 /* CECrossfadeAnimationController.m in Sources */,
+				3903C37418E15C86008FE017 /* OpenImageInOtherApps.m in Sources */,
+				3976E862187468410081B1C8 /* WODBendLayout.m in Sources */,
+				39A321C4187680050036A57C /* WODDrawDotLineView.m in Sources */,
+				39C1D5CB185AA81900BC91CC /* WODEffectPackageManager.m in Sources */,
+				39C1D5881859889300BC91CC /* WODImagePickerViewController.m in Sources */,
+				39E18559190E12AC00386CEB /* WODUserGuideView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39C1D55E185984AE00BC91CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39C1D570185984AF00BC91CC /* TOPTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		39C1D568185984AF00BC91CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39C1D546185984AE00BC91CC /* TOP */;
+			targetProxy = 39C1D567185984AF00BC91CC /* PBXContainerItemProxy */;
+		};
+		E403CA5119E589B3005B5AE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39C1D546185984AE00BC91CC /* TOP */;
+			targetProxy = E403CA5019E589B3005B5AE8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		391FB56A18A6442C002541AE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				391FB56918A6442C002541AE /* en */,
+				390B056119063EF700301591 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		39C1D553185984AE00BC91CC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39C1D554185984AE00BC91CC /* en */,
+				39E1855D190E67D600386CEB /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		39C1D56C185984AF00BC91CC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39C1D56D185984AF00BC91CC /* en */,
+				39E1855A190E673100386CEB /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		39C1D571185984AF00BC91CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		39C1D572185984AF00BC91CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		39C1D574185984AF00BC91CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6508D5635A54DC8811CA79F /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TOP/TOP-Prefix.pch";
+				INFOPLIST_FILE = "TOP/TOP-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TOP/classes",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		39C1D575185984AF00BC91CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6508D5635A54DC8811CA79F /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TOP/TOP-Prefix.pch";
+				INFOPLIST_FILE = "TOP/TOP-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TOP/classes",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		39C1D577185984AF00BC91CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TOP/TOP-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TOPTests/TOPTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		39C1D578185984AF00BC91CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TOP/TOP-Prefix.pch";
+				INFOPLIST_FILE = "TOPTests/TOPTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		39C1D542185984AE00BC91CC /* Build configuration list for PBXProject "TOP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39C1D571185984AF00BC91CC /* Debug */,
+				39C1D572185984AF00BC91CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39C1D573185984AF00BC91CC /* Build configuration list for PBXNativeTarget "TOP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39C1D574185984AF00BC91CC /* Debug */,
+				39C1D575185984AF00BC91CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39C1D576185984AF00BC91CC /* Build configuration list for PBXNativeTarget "TOPTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39C1D577185984AF00BC91CC /* Debug */,
+				39C1D578185984AF00BC91CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 39C1D53F185984AE00BC91CC /* Project object */;
+}

@@ -1,0 +1,30 @@
+<effect>
+	<fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="150" height="150" alpha="0.7" isStencil="1"><!--0 for generic, 1 for image pattern -->
+				<imagePatternPath>grain1.png</imagePatternPath>
+			</pattern>
+		</patternArray>
+		
+		<gradient type="0" blendMode="9"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="103" green="128" blue="187" alpha="1.0" location="0.15"/>
+			<gradientValue red="254" green="249" blue="121" alpha="1.0" location="0.22"/>
+			<gradientValue red="111" green="108" blue="111" alpha="1.0" location="0.29"/>
+			<gradientValue red="191" green="232" blue="181" alpha="1.0" location="0.36"/>
+			<gradientValue red="164" green="248" blue="214" alpha="1.0" location="0.43"/>
+			<gradientValue red="72" green="106" blue="157" alpha="1.0" location="0.5"/>
+			<gradientValue red="54" green="65" blue="95" alpha="1.0" location="0.57"/>
+			<gradientValue red="92" green="99" blue="129" alpha="1.0" location="0.64"/>
+			<gradientValue red="112" green="220" blue="228" alpha="1.0" location="0.71"/>
+			<gradientValue red="234" green="185" blue="118" alpha="1.0" location="0.78"/>
+			<gradientValue red="100" green="117" blue="125" alpha="1.0" location="0.85"/>
+			
+			<lineGradientAttrs angle="-30"/>
+			<radialGradientAttrs center1XPercentage="" center1YPercentage="" center2XPercentage="" center2YPercentage="" radialGradientRadius1Percentage="" radialGradientRadius2Percentage=""/>
+		</gradient>
+
+    </fillPattern>
+	
+	<strokeWidthPercent value="0.04"/>
+	<strokeColor red="255" green="255" blue="255" alpha="1.0"/>
+</effect>

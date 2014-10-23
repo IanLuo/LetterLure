@@ -1,0 +1,29 @@
+<effect>
+	<fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="150" height="150" alpha="1.0" isStencil="1"><!--0 for generic, 1 for image pattern -->
+				<imagePatternPath>liquid.png</imagePatternPath>
+			</pattern>
+		</patternArray>
+		
+		<gradient type="0" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="190" green="181" blue="116" alpha="1.0" location="0.3"/>
+			<gradientValue red="62" green="68" blue="34" alpha="1.0" location="0.7"/>
+			<lineGradientAttrs angle="90"/>
+			<radialGradientAttrs center1XPercentage="" center1YPercentage="" center2XPercentage="" center2YPercentage="" radialGradientRadius1Percentage="" radialGradientRadius2Percentage=""/>
+		</gradient>
+
+    </fillPattern>
+	
+	<strokePattern alpha="0.5">
+		<strokeGradient type="0" blendMode="0"> <!-- 1 for radial, 0 for line -->
+			<strokeGradientValue red="190" green="181" blue="116" alpha="1.0" location="0.3"/>
+			<strokeGradientValue red="62" green="68" blue="34" alpha="1.0" location="0.7"/>
+			<lineStrokeGradientAttrs angle=""/>
+		</strokeGradient>
+	</strokePattern>
+	
+	<strokeWidthPercent value="0.03"/>
+	<shadowColor red="65" green="79" blue="41" alpha="1.0"/>
+	<shadowOffset widthPercentage="-0.01" heightPercentage="-0.02"/>
+</effect>

@@ -1,0 +1,25 @@
+<effect>
+	<fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="100" height="100" alpha="1.0"><!--0 for generic, 1 for image pattern -->
+				<imagePatternPath>grainDirtBW.png</imagePatternPath>
+			</pattern>
+			<pattern type="1" width="50" height="50" alpha="0.8"><!--0 for generic, 1 for image pattern -->
+				<imagePatternPath>grain1.png</imagePatternPath>
+			</pattern>
+		</patternArray>
+		
+		<gradient type="0" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="22" green="20" blue="23" alpha="1.0" location="0.2"/>
+			<gradientValue red="76" green="74" blue="77" alpha="1.0" location="0.4"/>
+			<gradientValue red="22" green="20" blue="23" alpha="1.0" location="0.8"/>
+			<lineGradientAttrs angle="90.0"/>
+			<radialGradientAttrs center1XPercentage="1.0" center1YPercentage="1.0" center2XPercentage="1.0" center2YPercentage="1.0" radialGradientRadius1Percentage="1.0" radialGradientRadius2Percentage="0.0"/>
+		</gradient>
+    </fillPattern>
+		
+	<strokeWidthPercent value="0.00"/>
+	<shadowColor red="0" green="0" blue="0" alpha="1.0"/>
+	<shadowOffset widthPercentage="-0.01" heightPercentage="-0.01"/>
+	<shadowBlur value="0"/>
+</effect>

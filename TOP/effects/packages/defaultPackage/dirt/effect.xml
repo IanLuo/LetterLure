@@ -1,0 +1,29 @@
+<effect>
+	<fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="150" height="150" alpha="1.0"><!--0 for generic, 1 for image pattern -->
+				<imagePatternPath>grainWater.png</imagePatternPath>
+			</pattern>
+		</patternArray>
+		
+		<gradient type="1" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="157" green="149" blue="135" alpha="1.0" location="0.0"/>
+			<gradientValue red="89" green="77" blue="69" alpha="1.0" location="1.0"/>
+			<radialGradientAttrs center1XPercentage="0.5" center1YPercentage="1.0" center2XPercentage="0.5" center2YPercentage="1.0" radialGradientRadius1Percentage="1.0" radialGradientRadius2Percentage="0.0"/>
+		</gradient>
+
+    </fillPattern>
+	
+	<strokePattern alpha="1.0">
+		<strokeGradient type="0" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<strokeGradientValue red="157" green="149" blue="135" alpha="1.0" location="0.0"/>
+			<strokeGradientValue red="89" green="77" blue="69" alpha="1.0" location="1.0"/>
+			<lineStrokeGradientAttrs angle="180.0"/>
+		</strokeGradient>
+	</strokePattern>
+	
+	<strokeWidthPercent value="0.01"/>
+	<shadowColor red="0" green="0" blue="0" alpha="0.5"/>
+	<shadowOffset widthPercentage="0.002" heightPercentage="0.002"/>
+	<shadowBlur value="2"/>
+</effect>

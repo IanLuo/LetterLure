@@ -1,0 +1,15 @@
+<effect>
+	<fillPattern alpha="1">
+		<gradient type="0" blendMode="0"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="109" green="191" blue="185" alpha="1.0" location="0.0"/>
+			<gradientValue red="157" green="214" blue="208" alpha="1.0" location="0.5"/>
+			<gradientValue red="197" green="227" blue="229" alpha="1.0" location="0.9"/>
+			<gradientValue red="221" green="255" blue="254" alpha="1.0" location="1.0"/>
+			<lineGradientAttrs angle="90"/>
+			<radialGradientAttrs center1XPercentage="0.5" center1YPercentage="0.5" center2XPercentage="0.5" center2YPercentage="0.5" radialGradientRadius1Percentage="0.0" radialGradientRadius2Percentage="1.0"/>
+		</gradient>
+    </fillPattern>
+		
+    <strokeWidthPercent value="0.01"/>
+	<strokeColor red="221" green="255" blue="254" alpha="1.0"/><!-- if stroke gradient is defined above, this will not work -->
+</effect>

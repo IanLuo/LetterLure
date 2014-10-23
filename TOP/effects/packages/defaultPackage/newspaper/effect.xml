@@ -1,0 +1,40 @@
+<effect>
+	<fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="50" height="50" alpha="1">
+                <imagePatternPath>45degreee_fabric.png</imagePatternPath>
+            </pattern>
+			<pattern type="1" width="50" height="50" alpha="1" isStencil="0"><!--0 for generic, 1 for image pattern -->
+                <imagePatternPath>omate.png</imagePatternPath>
+                <systemPatternKey></systemPatternKey>
+            </pattern>
+        </patternArray>
+		<gradient type="0"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="255" green="255" blue="255" alpha="1" location="0"/>
+			<gradientValue red="255" green="255" blue="255" alpha="1" location="1"/>
+			<lineGradientAttrs angle="0"/>
+			<radialGradientAttrs center1XPercentage="" center1YPercentage="" center2XPercentage="" center2YPercentage="" radialGradientRadius1Percentage="" radialGradientRadius2Percentage=""/>
+		</gradient>
+    </fillPattern>
+	
+	<strokePattern alpha="1">
+        <patternArray>
+			<pattern type="1" width="50" height="50" alpha="1">
+                <imagePatternPath>45degreee_fabric.png</imagePatternPath>
+            </pattern>
+        </patternArray>
+		
+		<strokeGradient type="0"> <!-- 1 for radial, 0 for line -->
+			<strokeGradientValue red="255" green="255" blue="255" alpha="0.5" location="0"/>
+			<strokeGradientValue red="255" green="255" blue="255" alpha="0.5" location="1"/>
+			<lineStrokeGradientAttrs angle="0"/>
+			<radialStrokeGradientAttrs center1XPercentage="0.5" center1YPercentage="0.5" center2XPercentage="0.5" center2YPercentage="0.5" radialGradientRadius1Percentage="1" radialGradientRadius2Percentage="0"/>
+		</strokeGradient>
+    </strokePattern>
+	
+    <strokeWidthPercent value="0.07"/>
+	<strokeColor red="10" green="200" blue="100" alpha="1"/><!-- if stroke gradient is defined above, this will not work -->
+    <shadowColor red="176" green="176" blue="176" alpha="0"/>
+    <shadowOffset widthPercentage="0.0" heightPercentage="0.0"/>
+    <shadowBlur value="0"/>
+</effect>

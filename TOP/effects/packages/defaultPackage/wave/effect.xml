@@ -1,0 +1,35 @@
+<effect>
+    <fillPattern alpha="1">
+        <patternArray>
+			<pattern type="1" width="50" height="50" alpha="1" isStencil = "0">
+                <imagePatternPath>gray_mosac.png</imagePatternPath>
+                <systemPatternKey></systemPatternKey>
+            </pattern>
+        </patternArray>
+        <gradient type="0"> <!-- 1 for radial, 0 for line -->
+		   <gradientValue red="235" green="144" blue="31" alpha="1" location="0"/>
+		   <gradientValue red="235" green="144" blue="31" alpha="1" location="0.4"/>
+		   <gradientValue red="244" green="219" blue="106" alpha="1" location="0.5"/>
+		   <gradientValue red="190" green="76" blue="107" alpha="1" location="0.6"/>
+		   <gradientValue red="190" green="76" blue="107" alpha="1" location="1"/>
+		   <lineGradientAttrs angle="90"/>
+	   </gradient>
+    </fillPattern>
+
+    <strokePattern alpha="1">
+		<strokeGradient type="0">
+			<strokeGradientValue red="247" green="184" blue="35" alpha="1" location="0"/>
+			<strokeGradientValue red="247" green="184" blue="35" alpha="1" location="0.4"/>
+			<strokeGradientValue red="234" green="204" blue="90" alpha="1" location="0.5"/>
+			<strokeGradientValue red="206" green="113" blue="143" alpha="1" location="0.6"/>
+			<strokeGradientValue red="206" green="113" blue="143" alpha="1" location="1"/>
+			<lineStrokeGradientAttrs angle="90"/>
+		</strokeGradient>
+    </strokePattern>
+		
+    <strokeWidthPercent value="0.05"/>
+	<strokeColor red="0" green="0" blue="0" alpha="1"/>
+    <shadowColor red="0" green="0" blue="0" alpha="0.3"/>
+    <shadowOffset widthPercentage="0.0" heightPercentage="0.0"/>
+    <shadowBlur value="0"/>
+</effect>

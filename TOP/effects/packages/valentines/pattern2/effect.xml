@@ -1,0 +1,16 @@
+<effect>
+    <fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="50" height="49" alpha="1" isStencil="1"><!--0 for generic, 1 for image pattern -->
+                <imagePatternPath>pink_polka.png</imagePatternPath>
+                <systemPatternKey></systemPatternKey>
+            </pattern>
+        </patternArray>
+    </fillPattern>
+
+    <strokeWidthPercent value="0.02"/>
+	<strokeColor red="255" green="145" blue="192" alpha="1"/>
+    <shadowColor red="0" green="0" blue="0" alpha="0.5"/>
+    <shadowOffset widthPercentage="0.0" heightPercentage="0.0"/>
+    <shadowBlur value="0"/>
+</effect>

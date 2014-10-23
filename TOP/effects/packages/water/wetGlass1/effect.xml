@@ -1,0 +1,16 @@
+<effect>
+    <fillPattern alpha="1">
+        <patternArray>
+			<pattern type="1" width="100" height="100" alpha="1">
+                <imagePatternPath>wetGlass1.png</imagePatternPath>
+                <systemPatternKey></systemPatternKey>
+            </pattern>
+        </patternArray>
+    </fillPattern>
+		
+    <strokeWidthPercent value="0.00"/>
+	<strokeColor red="255" green="255" blue="255" alpha="0"/>
+    <shadowColor red="255" green="255" blue="255" alpha="0.0"/>
+    <shadowOffset widthPercentage="0.02" heightPercentage="0.02"/>
+    <shadowBlur value="0"/>
+</effect>

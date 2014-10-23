@@ -1,0 +1,16 @@
+<effect>
+	<fillPattern alpha="0">
+		<patternArray>
+			<pattern type="1" width="50" height="50" alpha="1" isStencil="0"><!--0 for generic, 1 for image pattern -->
+                <imagePatternPath>banboo.png</imagePatternPath>
+                <systemPatternKey></systemPatternKey>
+            </pattern>
+        </patternArray>
+    </fillPattern>
+	
+    <strokeWidthPercent value="0.03"/>
+	<strokeColor red="241" green="241" blue="241" alpha="1"/><!-- if stroke gradient is defined above, this will not work -->
+    <shadowColor red="176" green="176" blue="176" alpha="0"/>
+    <shadowOffset widthPercentage="0.0" heightPercentage="0.0"/>
+    <shadowBlur value="0"/>
+</effect>

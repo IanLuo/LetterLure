@@ -1,0 +1,23 @@
+<effect>
+    <fillPattern alpha="1">
+        <patternArray>
+			<pattern type="1" width="19" height="28" alpha="1.0">
+                <imagePatternPath>dot_metal.png</imagePatternPath>
+            </pattern>
+        </patternArray>
+    </fillPattern>
+
+    <strokePattern alpha="1">
+		<strokeGradient type="0">
+			<strokeGradientValue red="192" green="192" blue="192" alpha="1" location="0.0"/>
+			<strokeGradientValue red="221" green="222" blue="223" alpha="1" location="0.4"/>
+			<strokeGradientValue red="192" green="192" blue="192" alpha="1" location="1.0"/>
+			<lineStrokeGradientAttrs angle="0"/>
+		</strokeGradient>
+    </strokePattern>
+		
+    <strokeWidthPercent value="0.05"/>
+    <shadowColor red="233" green="234" blue="233" alpha=""/>
+    <shadowOffset widthPercentage="0.0" heightPercentage="0.0"/>
+    <shadowBlur value="0"/>
+</effect>

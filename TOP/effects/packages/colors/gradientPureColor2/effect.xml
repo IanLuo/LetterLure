@@ -1,0 +1,15 @@
+<effect>
+	<fillPattern alpha="1">
+	   <gradient type="1" blendMode="1"> <!-- 1 for radial, 0 for line -->
+		   <gradientValue red="224" green="63" blue="227" alpha="1.0" location="0.0"/>
+		   <gradientValue red="134" green="48" blue="137" alpha="1.0" location="0.4"/>
+		   <gradientValue red="83" green="45" blue="120" alpha="1.0" location="0.7"/>
+		   <gradientValue red="44" green="33" blue="81" alpha="1.0" location="1.0"/>
+		   <lineGradientAttrs angle="0"/>
+		   <radialGradientAttrs center1XPercentage="0.5" center1YPercentage="0.8" center2XPercentage="0.5" center2YPercentage="0.6" radialGradientRadius1Percentage="0.0" radialGradientRadius2Percentage="1.0"/>
+	   </gradient>
+    </fillPattern>
+	<shadowColor red="255" green="255" blue="255" alpha="1.0"/>
+    <shadowOffset widthPercentage="-0.02" heightPercentage="-0.01"/>
+    <shadowBlur value="0"/>
+</effect>

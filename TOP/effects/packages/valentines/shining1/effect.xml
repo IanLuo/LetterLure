@@ -1,0 +1,16 @@
+<effect>
+    <fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="50" height="50" alpha="1" isStencil="1"><!--0 for generic, 1 for image pattern -->
+                <imagePatternPath>shining_color.png</imagePatternPath>
+                <systemPatternKey></systemPatternKey>
+            </pattern>
+        </patternArray>
+    </fillPattern>
+			
+    <strokeWidthPercent value="0.01"/>
+	<strokeColor red="0" green="0" blue="0" alpha="1"/>
+    <shadowColor red="0" green="0" blue="0" alpha="0.5"/>
+    <shadowOffset widthPercentage="0.02" heightPercentage="0.02"/>
+    <shadowBlur value="2"/>
+</effect>

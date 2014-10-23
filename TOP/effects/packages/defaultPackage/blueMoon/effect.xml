@@ -1,0 +1,33 @@
+<effect>
+	<fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="150" height="150" alpha="0.5" isStencil="1"><!--0 for generic, 1 for image pattern -->
+				<imagePatternPath>cloud1.png</imagePatternPath>
+			</pattern>
+		</patternArray>
+		
+		<gradient type="1" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="197" green="249" blue="214" alpha="1.0" location="0.2"/>
+			<gradientValue red="170" green="247" blue="228" alpha="1.0" location="0.29"/>
+			<gradientValue red="7" green="193" blue="183" alpha="1.0" location="0.34"/>
+			<gradientValue red="0" green="147" blue="173" alpha="1.0" location="0.40"/>
+			<gradientValue red="0" green="100" blue="166" alpha="1.0" location="0.46"/>
+			<gradientValue red="0" green="54" blue="140" alpha="1.0" location="0.47"/>
+			<radialGradientAttrs center1XPercentage="0.75" center1YPercentage="0.75" center2XPercentage="0.75" center2YPercentage="0.75" radialGradientRadius1Percentage="1.0" radialGradientRadius2Percentage="0.0"/>
+		</gradient>
+
+    </fillPattern>
+	
+	<strokePattern alpha="1.0">
+		<strokeGradient type="0" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<strokeGradientValue red="197" green="249" blue="214" alpha="1.0" location="0.2"/>
+			<strokeGradientValue red="0" green="54" blue="140" alpha="1.0" location="0.47"/>
+			<lineStrokeGradientAttrs angle="180.0"/>
+		</strokeGradient>
+	</strokePattern>
+	
+	<strokeWidthPercent value="0.01"/>
+	<shadowColor red="0" green="0" blue="0" alpha="1.0"/>
+	<shadowOffset widthPercentage="-0.0" heightPercentage="-0.0"/>
+	<shadowBlur value="0"/>
+</effect>

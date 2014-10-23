@@ -1,0 +1,25 @@
+<effect>
+	<fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="50" height="50" alpha="1.0">
+                <imagePatternPath>45degreee_fabric.png</imagePatternPath>
+            </pattern>
+        </patternArray>
+
+		<gradient type="0" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="213" green="177" blue="108" alpha="1" location="0.2"/>
+			<gradientValue red="224" green="203" blue="156" alpha="1" location="0.4"/>
+			<gradientValue red="181" green="174" blue="124" alpha="1" location="0.45"/>
+			<gradientValue red="160" green="161" blue="121" alpha="1" location="0.55"/>
+			<gradientValue red="67" green="108" blue="109" alpha="1" location="0.7"/>
+			<gradientValue red="17" green="42" blue="69" alpha="1" location="0.8"/>
+			<lineGradientAttrs angle="90.0"/>
+			<radialGradientAttrs center1XPercentage="1.0" center1YPercentage="1.0" center2XPercentage="1.0" center2YPercentage="1.0" radialGradientRadius1Percentage="1.0" radialGradientRadius2Percentage="0.0"/>
+		</gradient>
+    </fillPattern>
+
+	<strokeWidthPercent value="0.00"/>
+	<shadowColor red="196" green="106" blue="101" alpha="0.0"/>
+	<shadowOffset widthPercentage="-0.0" heightPercentage="-0.0"/>
+	<shadowBlur value="0"/>
+</effect>

@@ -1,0 +1,35 @@
+<effect>
+	<fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="150" height="150" alpha="0.7" isStencil="0"><!--0 for generic, 1 for image pattern -->
+                <imagePatternPath>grain2.png</imagePatternPath>
+                <systemPatternKey></systemPatternKey>
+            </pattern>
+        </patternArray>
+		<gradient type="0" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="44" green="34" blue="15" alpha="1.0" location="0.35"/>
+			<gradientValue red="72" green="45" blue="20" alpha="1.0" location="0.45"/>
+			<gradientValue red="133" green="80" blue="31" alpha="1.0" location="0.5"/>
+			<gradientValue red="162" green="108" blue="54" alpha="1.0" location="0.6"/>
+			<lineGradientAttrs angle="-90"/>
+			<radialStrokeGradientAttrs center1XPercentage="0.5" center1YPercentage="0.5" center2XPercentage="0.5" center2YPercentage="0.5" radialGradientRadius1Percentage="1" radialGradientRadius2Percentage="0"/>
+		</gradient>
+    </fillPattern>
+	
+	<strokePattern alpha="1.0">
+		<strokeGradient type="0" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<strokeGradientValue red="52" green="35" blue="15" alpha="1.0" location="0.3"/>
+			<strokeGradientValue red="122" green="48" blue="27" alpha="1.0" location="0.4"/>
+			<strokeGradientValue red="168" green="94" blue="54" alpha="1.0" location="0.65"/>
+			<strokeGradientValue red="226" green="174" blue="78" alpha="1.0" location="0.7"/>
+			<lineStrokeGradientAttrs angle="-90"/>
+			<radialStrokeGradientAttrs center1XPercentage="0.5" center1YPercentage="0.5" center2XPercentage="0.5" center2YPercentage="0.5" radialGradientRadius1Percentage="1" radialGradientRadius2Percentage="0"/>
+		</strokeGradient>
+    </strokePattern>
+
+    <strokeWidthPercent value="0.02"/>
+	<strokeColor red="165" green="165" blue="165" alpha="0.0"/><!-- if stroke gradient is defined above, this will not work -->
+    <shadowColor red="213" green="174" blue="80" alpha="0.7"/>
+    <shadowOffset widthPercentage="-0.0" heightPercentage="-0.0"/>
+    <shadowBlur value="2"/>
+</effect>

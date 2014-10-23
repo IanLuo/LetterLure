@@ -1,0 +1,39 @@
+<effect>
+	<fillPattern alpha="1">	
+		<gradient type="0" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="148" green="148" blue="159" alpha="1.0" location="0.2"/>
+			<gradientValue red="145" green="156" blue="163" alpha="1.0" location="0.3"/>
+			<gradientValue red="118" green="126" blue="151" alpha="1.0" location="0.4"/>
+			<gradientValue red="158" green="168" blue="195" alpha="1.0" location="0.5"/>
+			<gradientValue red="138" green="161" blue="182" alpha="1.0" location="0.6"/>
+			<gradientValue red="97" green="148" blue="141" alpha="1.0" location="0.7"/>
+			<gradientValue red="119" green="127" blue="181" alpha="1.0" location="0.75"/>
+			<gradientValue red="133" green="145" blue="189" alpha="1.0" location="0.8"/>
+			<gradientValue red="88" green="114" blue="164" alpha="1.0" location="0.9"/>
+
+			<lineGradientAttrs angle="-45"/>
+			<radialGradientAttrs center1XPercentage="" center1YPercentage="" center2XPercentage="" center2YPercentage="" radialGradientRadius1Percentage="" radialGradientRadius2Percentage=""/>
+		</gradient>
+
+    </fillPattern>
+	
+	<strokePattern alpha="1.0">
+		<strokeGradient type="0" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<strokeGradientValue red="148" green="148" blue="159" alpha="1.0" location="0.2"/>
+			<strokeGradientValue red="145" green="156" blue="163" alpha="1.0" location="0.3"/>
+			<strokeGradientValue red="118" green="126" blue="151" alpha="1.0" location="0.4"/>
+			<strokeGradientValue red="158" green="168" blue="195" alpha="1.0" location="0.5"/>
+			<strokeGradientValue red="138" green="161" blue="182" alpha="1.0" location="0.6"/>
+			<strokeGradientValue red="97" green="148" blue="141" alpha="1.0" location="0.7"/>
+			<strokeGradientValue red="119" green="127" blue="181" alpha="1.0" location="0.75"/>
+			<strokeGradientValue red="133" green="145" blue="189" alpha="1.0" location="0.8"/>
+			<strokeGradientValue red="88" green="114" blue="164" alpha="1.0" location="0.9"/>
+			<lineStrokeGradientAttrs angle="135"/>
+		</strokeGradient>
+	</strokePattern>
+	
+	<strokeWidthPercent value="0.01"/>
+	<shadowColor red="253" green="253" blue="263" alpha="0.7"/>
+	<shadowOffset widthPercentage="-0.0" heightPercentage="-0.0"/>
+	<shadowBlur value="0"/>
+</effect>

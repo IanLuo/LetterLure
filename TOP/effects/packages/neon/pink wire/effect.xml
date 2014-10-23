@@ -1,0 +1,16 @@
+<effect>
+    <fillPattern alpha="0">
+		<patternArray>
+			<pattern type="1" width="50" height="50" alpha="1" isStencil="1"><!--0 for generic, 1 for image pattern -->
+                <imagePatternPath>pattern3.png</imagePatternPath>
+                <systemPatternKey></systemPatternKey>
+            </pattern>
+        </patternArray>
+    </fillPattern>
+		
+    <strokeWidthPercent value="0.03"/>
+	<strokeColor red="203" green="117" blue="154" alpha="1"/>
+    <shadowColor red="203" green="117" blue="154" alpha="1"/>
+    <shadowOffset widthPercentage="0" heightPercentage="0"/>
+    <shadowBlur value="7"/>
+</effect>

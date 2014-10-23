@@ -1,0 +1,17 @@
+<effect>
+	<fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="36" height="40" alpha="1" isStencil="0"><!--0 for generic, 1 for image pattern -->
+                <imagePatternPath>honeycomb.png</imagePatternPath>
+                <systemPatternKey></systemPatternKey>
+            </pattern>
+        </patternArray>
+		
+    </fillPattern>
+	
+    <strokeWidthPercent value="0.03"/>
+	<strokeColor red="254" green="228" blue="80" alpha="1"/><!-- if stroke gradient is defined above, this will not work -->
+    <shadowColor red="176" green="176" blue="176" alpha="0"/>
+    <shadowOffset widthPercentage="0.0" heightPercentage="0.0"/>
+    <shadowBlur value="0"/>
+</effect>

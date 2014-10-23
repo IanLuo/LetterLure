@@ -1,0 +1,53 @@
+<effect>
+    <fillPattern alpha="1">
+        <patternArray>
+			<pattern type="1" width="138" height="76" alpha="0.8">
+                <imagePatternPath>scratch.png</imagePatternPath>
+            </pattern>
+        </patternArray>
+        <gradient type="0"> <!-- 1 for radial, 0 for line -->
+		   <gradientValue red="77" green="3" blue="44" alpha="1" location="0.0"/>
+		   <gradientValue red="128" green="7" blue="50" alpha="1" location="0.903"/>
+		   <gradientValue red="165" green="33" blue="109" alpha="1" location="0.172"/>
+		   <gradientValue red="71" green="1" blue="26" alpha="1" location="0.24"/>
+		   <gradientValue red="99" green="13" blue="60" alpha="1" location="0.289"/>
+		   <gradientValue red="163" green="39" blue="107" alpha="1" location="0.33"/>
+		   <gradientValue red="99" green="13" blue="60" alpha="1" location="0.384"/>
+		   <gradientValue red="143" green="19" blue="94" alpha="1" location="0.455"/>
+		   <gradientValue red="175" green="41" blue="138" alpha="1" location="0.51"/>
+		   <gradientValue red="240" green="86" blue="206" alpha="1" location="0.57"/>
+		   <gradientValue red="145" green="16" blue="64" alpha="1" location="0.64"/>
+		   <gradientValue red="188" green="46" blue="152" alpha="1" location="0.75"/>
+		   <gradientValue red="161" green="29" blue="106" alpha="1" location="0.796"/>
+		   <gradientValue red="128" green="7" blue="50" alpha="1" location="0.902"/>
+		   <gradientValue red="77" green="3" blue="44" alpha="1" location="1"/>
+		   <lineGradientAttrs angle="0"/>
+	   </gradient>
+    </fillPattern>
+
+    <strokePattern alpha="1">
+		<strokeGradient type="0">
+			<strokeGradientValue red="77" green="3" blue="44" alpha="1" location="0.0"/>
+			<strokeGradientValue red="128" green="7" blue="50" alpha="1" location="0.903"/>
+			<strokeGradientValue red="165" green="33" blue="109" alpha="1" location="0.172"/>
+			<strokeGradientValue red="71" green="1" blue="26" alpha="1" location="0.24"/>
+			<strokeGradientValue red="99" green="13" blue="60" alpha="1" location="0.289"/>
+			<strokeGradientValue red="163" green="39" blue="107" alpha="1" location="0.33"/>
+			<strokeGradientValue red="99" green="13" blue="60" alpha="1" location="0.384"/>
+			<strokeGradientValue red="143" green="19" blue="94" alpha="1" location="0.455"/>
+			<strokeGradientValue red="175" green="41" blue="138" alpha="1" location="0.51"/>
+			<strokeGradientValue red="240" green="86" blue="206" alpha="1" location="0.57"/>
+			<strokeGradientValue red="145" green="16" blue="64" alpha="1" location="0.64"/>
+			<strokeGradientValue red="188" green="46" blue="152" alpha="1" location="0.75"/>
+			<strokeGradientValue red="161" green="29" blue="106" alpha="1" location="0.796"/>
+			<strokeGradientValue red="128" green="7" blue="50" alpha="1" location="0.902"/>
+			<strokeGradientValue red="77" green="3" blue="44" alpha="1" location="1"/>
+			<lineStrokeGradientAttrs angle="180"/>
+		</strokeGradient>
+    </strokePattern>
+		
+    <strokeWidthPercent value="0.01"/>
+    <shadowColor red="255" green="255" blue="255" alpha="1"/>
+    <shadowOffset widthPercentage="-0.01" heightPercentage="-0.01"/>
+    <shadowBlur value="0"/>
+</effect>

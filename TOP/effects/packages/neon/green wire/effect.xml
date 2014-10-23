@@ -1,0 +1,15 @@
+<effect>
+    <fillPattern alpha="0">
+        <patternArray>
+			<pattern type="1" width="50" height="50" alpha="0.5">
+                <imagePatternPath>45degreee_fabric.png</imagePatternPath>
+            </pattern>
+        </patternArray>
+    </fillPattern>
+		
+    <strokeWidthPercent value="0.03"/>
+	<strokeColor red="102" green="255" blue="102" alpha="1"/>
+    <shadowColor red="102" green="255" blue="102" alpha="1"/>
+    <shadowOffset widthPercentage="0.0" heightPercentage="0.0"/>
+    <shadowBlur value="7"/>
+</effect>

@@ -1,0 +1,25 @@
+<effect>
+    <fillPattern alpha="1">
+        <patternArray>
+			<pattern type="1" width="50" height="50" alpha="1">
+                <imagePatternPath>dusty.png</imagePatternPath>
+                <systemPatternKey></systemPatternKey>
+            </pattern>
+        </patternArray>
+		
+		<gradient type="0" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="105" green="64" blue="36" alpha="1" location="0.2"/>
+			<gradientValue red="128" green="89" blue="61" alpha="1" location="0.5"/>
+			<gradientValue red="105" green="64" blue="36" alpha="1" location="0.8"/>
+			<lineGradientAttrs angle="90.0"/>
+			<radialGradientAttrs center1XPercentage="1.0" center1YPercentage="1.0" center2XPercentage="1.0" center2YPercentage="1.0" radialGradientRadius1Percentage="1.0" radialGradientRadius2Percentage="0.0"/>
+		</gradient>
+
+    </fillPattern>
+		
+    <strokeWidthPercent value="0.002"/>
+	<strokeColor red="255" green="255" blue="255" alpha="0"/>
+    <shadowColor red="128" green="89" blue="61" alpha="1.0"/>
+    <shadowOffset widthPercentage="0.02" heightPercentage="0.02"/>
+    <shadowBlur value="0"/>
+</effect>

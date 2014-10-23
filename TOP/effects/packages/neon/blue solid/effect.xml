@@ -1,0 +1,16 @@
+<effect>
+    <fillPattern alpha="1.0">
+		<gradient type="0" blendMode="0"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="255" green="255" blue="255" alpha="1" location="0"/>
+			<gradientValue red="255" green="255" blue="255" alpha="1" location="1"/>
+			<lineGradientAttrs angle="0"/>
+			<radialGradientAttrs center1XPercentage="" center1YPercentage="" center2XPercentage="" center2YPercentage="" radialGradientRadius1Percentage="" radialGradientRadius2Percentage=""/>
+		</gradient>
+    </fillPattern>
+		
+    <strokeWidthPercent value="0.03"/>
+	<strokeColor red="153" green="217" blue="244" alpha="1"/>
+    <shadowColor red="153" green="217" blue="244" alpha="1"/>
+    <shadowOffset widthPercentage="0.0" heightPercentage="0.0"/>
+    <shadowBlur value="7"/>
+</effect>

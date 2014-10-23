@@ -1,0 +1,24 @@
+<effect>
+    <fillPattern alpha="1">
+        <patternArray>
+			<pattern type="1" width="138" height="76" alpha="0.2">
+                <imagePatternPath>scratch.png</imagePatternPath>
+            </pattern>
+        </patternArray>
+        <gradient type="0"> <!-- 1 for radial, 0 for line -->
+		   <gradientValue red="54" green="30" blue="18" alpha="1" location="0"/>
+		   <gradientValue red="174" green="138" blue="44" alpha="1" location="0.2"/>
+		   <gradientValue red="230" green="215" blue="158" alpha="1" location="0.4"/>
+		   <gradientValue red="226" green="215" blue="159" alpha="1" location="0.5"/>
+		   <gradientValue red="201" green="224" blue="114" alpha="1" location="0.6"/>
+		   <gradientValue red="120" green="91" blue="30" alpha="1" location="0.8"/>
+		   <gradientValue red="54" green="30" blue="18" alpha="1" location="1"/>
+		   <lineGradientAttrs angle="135"/>
+	   </gradient>
+    </fillPattern>
+			
+    <strokeWidthPercent value="0.00"/>
+    <shadowColor red="0" green="0" blue="0" alpha="1"/>
+    <shadowOffset widthPercentage="0.01" heightPercentage="-0.01"/>
+    <shadowBlur value="0"/>
+</effect>

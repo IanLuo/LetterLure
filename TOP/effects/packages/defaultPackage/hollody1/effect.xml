@@ -1,0 +1,16 @@
+<effect>
+    <fillPattern alpha="1">
+        <patternArray>
+			<pattern type="1" width="50" height="50" alpha="1">
+                <imagePatternPath>shingSquare_red.png</imagePatternPath>
+                <systemPatternKey></systemPatternKey>
+            </pattern>
+        </patternArray>
+    </fillPattern>
+		
+    <strokeWidthPercent value="0.03"/>
+	<strokeColor red="255" green="255" blue="255" alpha="0.5"/>
+    <shadowColor red="0" green="0" blue="0" alpha="0.7"/>
+    <shadowOffset widthPercentage="0.002" heightPercentage="0.002"/>
+    <shadowBlur value="2"/>
+</effect>

@@ -1,0 +1,36 @@
+<effect>
+	<fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="25" height="25" alpha="0.5" isStencil="1"><!--0 for generic, 1 for image pattern -->
+				<imagePatternPath>circles1.png</imagePatternPath>
+			</pattern>
+		</patternArray>
+		
+		<gradient type="0" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<gradientValue red="255" green="178" blue="5" alpha="1.0" location="0.2"/>
+			<gradientValue red="255" green="159" blue="7" alpha="1.0" location="0.26"/>
+			<gradientValue red="189" green="145" blue="58" alpha="1.0" location="0.33"/>
+			<gradientValue red="132" green="142" blue="115" alpha="1.0" location="0.49"/>
+			<gradientValue red="89" green="106" blue="121" alpha="1.0" location="0.8"/>
+			<lineGradientAttrs angle="-30"/>
+			<radialGradientAttrs center1XPercentage="" center1YPercentage="" center2XPercentage="" center2YPercentage="" radialGradientRadius1Percentage="" radialGradientRadius2Percentage=""/>
+		</gradient>
+
+    </fillPattern>
+	
+	<strokePattern alpha="1.0">
+		<strokeGradient type="0" blendMode="1"> <!-- 1 for radial, 0 for line -->
+			<strokeGradientValue red="255" green="178" blue="5" alpha="1.0" location="0.2"/>
+			<strokeGradientValue red="255" green="159" blue="7" alpha="1.0" location="0.26"/>
+			<strokeGradientValue red="189" green="145" blue="58" alpha="1.0" location="0.33"/>
+			<strokeGradientValue red="132" green="142" blue="115" alpha="1.0" location="0.49"/>
+			<strokeGradientValue red="89" green="106" blue="121" alpha="1.0" location="0.8"/>
+			<lineStrokeGradientAttrs angle="135"/>
+		</strokeGradient>
+	</strokePattern>
+	
+	<strokeWidthPercent value="0.01"/>
+	<shadowColor red="0" green="0" blue="0" alpha="1.0"/>
+	<shadowOffset widthPercentage="-0.0" heightPercentage="-0.0"/>
+	<shadowBlur value="0"/>
+</effect>

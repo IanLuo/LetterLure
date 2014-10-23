@@ -1,0 +1,38 @@
+<effect>
+    <fillPattern alpha="1">
+        <patternArray>
+			<pattern type="0" width="2" height="2" alpha="1">
+                <systemPatternKey>patternGrid</systemPatternKey>
+            </pattern>
+			<pattern type="1" width="63" height="38" alpha="0.8">
+                <imagePatternPath>dirty_bw.png</imagePatternPath>
+            </pattern>
+        </patternArray>
+        <gradient type="0"> <!-- 1 for radial, 0 for line -->
+		   <gradientValue red="255" green="255" blue="255" alpha="0.8" location="0"/>
+            <gradientValue red="0" green="0" blue="0" alpha="0.8" location="1"/>
+		   <lineGradientAttrs angle="45"/>
+	   </gradient>
+    </fillPattern>
+
+    <strokePattern alpha="1">
+        <patternArray>
+			<pattern type="1" width="63" height="38" alpha="0.8">
+                <imagePatternPath>dirty_bw.png</imagePatternPath>
+            </pattern>
+        </patternArray>
+        
+		<strokeGradient type="0">
+			<strokeGradientValue red="10" green="10" blue="10" alpha="0.5" location="0"/>
+			<strokeGradientValue red="255" green="255" blue="255" alpha="0.5" location="0.5"/>
+			<strokeGradientValue red="255" green="255" blue="255" alpha="0.5" location="0.55"/>
+			<strokeGradientValue red="0" green="0" blue="0" alpha="0.5" location="1"/>
+			<lineStrokeGradientAttrs angle="45"/>
+		</strokeGradient>
+    </strokePattern>
+		
+    <strokeWidthPercent value="0.07"/>
+    <shadowColor red="0" green="0" blue="0" alpha="0.5"/>
+    <shadowOffset widthPercentage="0.02" heightPercentage="0.02"/>
+    <shadowBlur value="5"/>
+</effect>

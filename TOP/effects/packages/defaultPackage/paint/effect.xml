@@ -1,0 +1,28 @@
+<effect>
+	<fillPattern alpha="1">
+       <patternArray>
+			<pattern type="1" width="150" height="150" alpha="0.5" isStencil="1"><!--0 for generic, 1 for image pattern -->
+                <imagePatternPath>grain3.png</imagePatternPath>
+                <systemPatternKey></systemPatternKey>
+            </pattern>
+        </patternArray>
+	   <gradient type="0" blendMode="1"> <!-- 1 for radial, 0 for line -->
+		   <gradientValue red="108" green="123" blue="73" alpha="1.0" location="0"/>
+		   <gradientValue red="108" green="123" blue="73" alpha="1.0" location="0.2"/>
+		   <gradientValue red="153" green="157" blue="109" alpha="1.0" location="0.3"/>
+		   <gradientValue red="191" green="191" blue="150" alpha="1.0" location="0.5"/>
+		   <gradientValue red="204" green="202" blue="179" alpha="1.0" location="0.7"/>
+		   <gradientValue red="202" green="206" blue="179" alpha="1.0" location="0.8"/>
+		   <gradientValue red="169" green="180" blue="180" alpha="1.0" location="0.9"/>
+		   <gradientValue red="169" green="180" blue="180" alpha="1.0" location="1"/>
+		   <lineGradientAttrs angle="90"/>
+		   <radialGradientAttrs center1XPercentage="" center1YPercentage="" center2XPercentage="" center2YPercentage="" radialGradientRadius1Percentage="" radialGradientRadius2Percentage=""/>
+	   </gradient>
+    </fillPattern>
+	
+    <strokeWidthPercent value="0.01"/>
+	<strokeColor red="143" green="149" blue="112" alpha="1"/><!-- if stroke gradient is defined above, this will not work -->
+    <shadowColor red="10" green="20" blue="30" alpha="0.0"/>
+    <shadowOffset widthPercentage="0.0" heightPercentage="0.0"/>
+    <shadowBlur value="0"/>
+</effect>

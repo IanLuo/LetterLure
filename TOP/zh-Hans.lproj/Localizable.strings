@@ -1,0 +1,100 @@
+/* 
+  Localizable.strings
+  TOP
+
+  Created by ianluo on 14-2-8.
+  Copyright (c) 2014年 WOD. All rights reserved.
+*/
+
+"CANCEL" = "取消";
+"OK" = "确定";
+"FREE" = "免费";
+
+"SAVE_COMPLETE" = "保存完成";
+
+"ABOUT" = "技术支持";
+
+"RATE" = "给个好评";
+"RATE_TITLE" = "如果你觉得我们的应用还不错哦，请给我们一个好评，让我们做得更好。";
+"SUPPORT" = "联络帮助";
+"SUPPORT_TITLE" = "任何你想问的，或者想告诉我们的，请让我们知道。";
+
+"SHARE_TO_FRIEND_MSG" = "如果你觉得很好玩，把“字言字语”告诉你的朋友。";
+
+"PURCHASE_SUCCESS" = "付款成功";
+
+
+"PURCHASE" = "付款";
+"Restore" = "恢复付款";
+
+"SAVE_IMAGE" = "保存图片";
+
+"CHANGE_THEME" = "更改主题";
+
+"IMAGE_ROLL_GROUP_NAME" = "字言字语";
+
+"COMFIRM_PURCHASEING" = "您是否确认要购买: ";
+
+"IMAGE_PICKER" = "导入图片";
+"PASTE_IMAGE" = "粘贴图片";
+"OPEN_WITH_APP" = "在应用中打开";
+"INSTAGRAM" = "Instagram";
+
+"FONTS_ALL" = "全部字体";
+"FONTS_EXTRA"  = "更多字体";
+"FONTS_CUSTOM" = "我的字体";
+
+"VC_TITLE_HOME" = "TEXT";
+"VC_TITLE_INPUT_TEXT" = "输入文字";
+"VC_TITLE_MANAGE_FONT" = "管理字体";
+
+"VC_TITLE_TYPESETTER_FREE_DRAW" = "手绘排列";
+"VC_TITLE_TYPESETTER_BEND" = "弯曲排列";
+"VC_TITLE_TYPESETTER_SHAPE" = "形状包围";
+
+"VC_TITLE_PICK_AN_APP" = "选择一个应用";
+"VC_TITLE_SEND_TO_INSTAGRAM" = "发送到 Instagram";
+"VC_TITLE_CHOOSE_EFFECT_PACKAGE" = "选择效果包";
+"VC_TITLE_EFFECT_PREVIEW" = "预览效果";
+
+"VC_TITLE_IMAGEPICKER" = "选择图片";
+"VC_TITLE_CAMERA" = "照相机";
+
+"ACTION_SHEET_NEW" = "新建";
+"ALERTVIEW_NEW" = "新建";
+"ALERTVIEW_NEW_MSG" = "确定删除目前的然后重新开始?";
+
+"NAVIGATIONBAR_ITEM_USE_IT" = "使用";
+
+"EDIT_HOME_MANAGE_FONT" = "管理字体";
+"EDIT_HOME_SHARE_IMAGE" = "导出";
+
+"EFFECT_HUD_APPLYING_EFFECT" = "应用效果";
+"TYPESETTER_HUD_CALCULATING" = "绘制中";
+
+"PURCHASE_EXTRA_FONTS" = "购买更多字体";
+"PURCHASE_EXTRA_FONTS_MSG" = "是否确认购买更多字体 $0.99 ?";
+
+"USERGUIDE" = "教程";
+"USERGUIDE_SKIP" = "跳过";
+"USERGUIDE_NEXT" = "下一步";
+"USERGUIDE_INPUT_TEXT" = "输入文字";
+"USERGUIDE_INPUT_TEXT_DESC" = "输入文字的同时，可以使用不用字体，颜色和大小的文字，也可以选中文字然后重新选择。简单，但强大。";
+"USERGUIDE_ADJUST_TEXT" = "调整文字";
+"USERGUIDE_ADJUST_TEXT_DESC" = "移动，缩放，旋转，就像你一直知道的那样，并且您拥有了全新的特技 - 3D旋转。";
+"USERGUIDE_LAYOUT_TEXT" = "排列文字";
+"USERGUIDE_LAYOUT_TEXT_DESC" = "排列文字不再是死板的直线和方块，3种灵活的文字排列布局方式，让你创意无限，无与伦比。";
+"USERGUIDE_TEXT_EFFECT" = "文字特效";
+"USERGUIDE_TEXT_EFFECT_DESC" = "眼花缭乱的复杂特效，竟然只需要区区一下点击。";
+
+
+"extralFonts" = "更多字体";
+"animals" = "动物皮肤";
+"colors" = "纯色";
+"defaultPackage" = "经典";
+"glass" = "玻璃特效";
+"gradient" = "色彩渐变特效";
+"metal" = "金属特效";
+"neon" = "霓虹灯特效";
+"valentines" = "情人节";
+"water" = "液体特效";

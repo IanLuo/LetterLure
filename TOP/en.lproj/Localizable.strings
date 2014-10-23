@@ -1,0 +1,96 @@
+/* 
+  Localizable.strings
+  TOP
+
+  Created by ianluo on 14-2-8.
+  Copyright (c) 2014年 WOD. All rights reserved.
+*/
+
+"CANCEL" = "Cancel";
+"OK" = "OK";
+"FREE" = "Free";
+
+"SAVE_COMPLETE" = "Save Complete";
+
+"ABOUT" = "Feedback & support";
+
+"RATE" = "Give a good rate";
+"SUPPORT" = "Ask for Support";
+"RATE_TITLE" = "If you find our app useful and you like it, please give us a good rate, that will be very helpful, Thank you.";
+"SUPPORT_TITLE" = "Anything you want to know, or want us to know, Please contact us.";
+
+"SHARE_TO_FRIEND_MSG" = "If you enjoy \"Letter Lure\", don't hold it to yourself.";
+
+"PURCHASE_SUCCESS" = "Purchase Success";
+
+"PURCHASE" = "Purchase";
+"Restore" = "Restore";
+
+"SAVE_IMAGE" = "Save Image";
+
+"CHANGE_THEME" = "Change Theme";
+
+"IMAGE_ROLL_GROUP_NAME" = "Letter Lure";
+
+"COMFIRM_PURCHASEING" = "World you like to purchase for: ";
+
+"IMAGE_PICKER" = "Import Image";
+"PASTE_IMAGE" = "Paste Image";
+"OPEN_WITH_APP" = "Open In App";
+"INSTAGRAM" = "Instagram";
+
+"FONTS_ALL" = "All Fonts";
+"FONTS_EXTRA"  = "Extra Fonts";
+"FONTS_CUSTOM" = "My Fonts";
+
+"VC_TITLE_HOME" = "TEXT";
+"VC_TITLE_INPUT_TEXT" = "Input Text";
+"VC_TITLE_MANAGE_FONT" = "Manage Fonts";
+"VC_TITLE_TYPESETTER_FREE_DRAW" = "Free Layout";
+"VC_TITLE_TYPESETTER_BEND" = "Bend Layout";
+"VC_TITLE_TYPESETTER_SHAPE" = "Shape Wrap";
+"VC_TITLE_PICK_AN_APP" = "Pick An App";
+"VC_TITLE_SEND_TO_INSTAGRAM" = "Send to Instagram";
+"VC_TITLE_CHOOSE_EFFECT_PACKAGE" = "Choose a package";
+"VC_TITLE_EFFECT_PREVIEW" = "Preview Effect";
+
+"VC_TITLE_IMAGEPICKER" = "Image Picker";
+"VC_TITLE_CAMERA" = "Camera";
+
+"ACTION_SHEET_NEW" = "New";
+"ALERTVIEW_NEW" = "New";
+"ALERTVIEW_NEW_MSG" = "Delete current and restart a new one?";
+
+"NAVIGATIONBAR_ITEM_USE_IT" = "Use it";
+
+"EDIT_HOME_MANAGE_FONT" = "Manage Font";
+"EDIT_HOME_SHARE_IMAGE" = "Export";
+
+"EFFECT_HUD_APPLYING_EFFECT" = "Applying Effect";
+"TYPESETTER_HUD_CALCULATING" = "Calculating";
+
+"PURCHASE_EXTRA_FONTS" = "Purchase Extra Fonts";
+"PURCHASE_EXTRA_FONTS_MSG" = "Would you like to purchase for the extra fonts for $0.99 ?";
+
+"USERGUIDE" = "User Guide";
+"USERGUIDE_SKIP" = "Skip";
+"USERGUIDE_NEXT" = "Next";
+"USERGUIDE_INPUT_TEXT" = "Input Text";
+"USERGUIDE_INPUT_TEXT_DESC" = "Input text with different types of font, size and color. Simple, yet Powerful.";
+"USERGUIDE_ADJUST_TEXT" = "Adjust Text";
+"USERGUIDE_ADJUST_TEXT_DESC" = "Move, Scale, Rotate you text like you always do, and use your two fingers move together, you get a great new skill - 3D Rotation.";
+"USERGUIDE_LAYOUT_TEXT" = "Layout Text";
+"USERGUIDE_LAYOUT_TEXT_DESC" = "Arrange your text with 3 amazing layout methods, like magic.";
+"USERGUIDE_TEXT_EFFECT" = "Apply Effects";
+"USERGUIDE_TEXT_EFFECT_DESC" = "Tons of beautiful and unique effects, all you need is a simple touch";
+
+"extralFonts" = "Extra Fonts";
+"animals" = "Animal";
+"colors" = "Color";
+"defaultPackage" = "Classic";
+"glass" = "Glass";
+"gradient" = "Gradient";
+"metal" = "Metal";
+"neon" = "Neon";
+"valentines" = "Valentines";
+"water" = "Water";

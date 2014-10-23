@@ -1,0 +1,20 @@
+<effect>
+    <fillPattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="50" height="50" alpha="0.6"><!--0 for generic, 1 for image pattern -->
+                <imagePatternPath>black_jeans.png</imagePatternPath>
+            </pattern>
+        </patternArray>
+
+        <gradient type="0"> <!-- 1 for radial, 0 for line -->
+            <gradientValue red="255" green="255" blue="255" alpha="1" location="0"/>
+		   <gradientValue red="163" green="172" blue="174" alpha="1" location="1"/>
+		   <lineGradientAttrs angle="45"/>
+	   </gradient>
+    </fillPattern>
+		
+    <strokeWidthPercent value="0.00"/>
+    <shadowColor red="255" green="255" blue="255" alpha="0.5"/>
+    <shadowOffset widthPercentage="-0.01" heightPercentage="-0.01"/>
+    <shadowBlur value="1"/>
+</effect>

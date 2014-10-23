@@ -1,0 +1,46 @@
+<effect>
+    <fillPattern alpha="1">
+        <patternArray>
+			<pattern type="1" width="50" height="50" alpha="1" isStencil = "1">
+                <imagePatternPath>45degreee_fabric.png</imagePatternPath>
+                <systemPatternKey></systemPatternKey>
+            </pattern>
+        </patternArray>
+        <gradient type="0"> <!-- 1 for radial, 0 for line -->
+		   <gradientValue red="0" green="0" blue="0" alpha="1" location="0"/>
+		   <gradientValue red="96" green="53" blue="24" alpha="1" location="0.3"/>
+		   <gradientValue red="204" green="133" blue="31" alpha="1" location="0.5"/>
+		   <gradientValue red="255" green="255" blue="255" alpha="1" location="0.7"/>
+		   <gradientValue red="204" green="133" blue="31" alpha="1" location="0.8"/>
+		   <gradientValue red="96" green="53" blue="24" alpha="1" location="0.9"/>
+		   <gradientValue red="204" green="133" blue="31" alpha="1" location="1"/>
+
+		   <lineGradientAttrs angle="135"/>
+		   <radialGradientAttrs center1XPercentage="" center1YPercentage="" center2XPercentage="" center2YPercentage="" radialGradientRadius1Percentage="" radialGradientRadius2Percentage=""/>
+	   </gradient>
+    </fillPattern>
+
+    <strokePattern alpha="1">
+		<patternArray>
+			<pattern type="1" width="50" height="50" alpha="1" isStencil="1">
+                <imagePatternPath>45degreee_fabric.png</imagePatternPath>
+                <systemPatternKey></systemPatternKey>
+            </pattern>
+        </patternArray>
+		<strokeGradient type="0">
+			<strokeGradientValue red="255" green="255" blue="255" alpha="0.2" location="0"/>
+			<strokeGradientValue red="255" green="255" blue="255" alpha="0.2" location="0.4"/>
+			<strokeGradientValue red="96" green="53" blue="24" alpha="0.2" location="0.5"/>
+			<strokeGradientValue red="96" green="53" blue="24" alpha="0.2" location="0.6"/>
+			<strokeGradientValue red="0" green="0" blue="0" alpha="0.2" location="1"/>
+			<lineStrokeGradientAttrs angle="90"/>
+			<radialStrokeGradientAttrs center1XPercentage="0.5" center1YPercentage="0.5" center2XPercentage="0.5" center2YPercentage="0.5" radialGradientRadius1Percentage="1" radialGradientRadius2Percentage="0"/>
+		</strokeGradient>
+    </strokePattern>
+		
+    <strokeWidthPercent value="0.05"/>
+	<strokeColor red="0" green="0" blue="0" alpha="1"/>
+    <shadowColor red="0" green="0" blue="0" alpha="0.5"/>
+    <shadowOffset widthPercentage="0.01" heightPercentage="0.01"/>
+    <shadowBlur value="0"/>
+</effect>
