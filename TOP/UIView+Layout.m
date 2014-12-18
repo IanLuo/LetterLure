@@ -100,8 +100,6 @@
     return self.frame.origin;
 }
 
-
-
 - (CGPoint)boundsCenter{
     return CGPointMake(self.bounds.origin.x+self.bounds.size.width/2,self.bounds.origin.y+self.bounds.size.height/2);
 }
@@ -111,37 +109,57 @@
     self.frame = CGRectIntegral(self.frame);
 }
 
+- (CGPoint)leftBottomCorner
+{
+    return CGPointMake(self.frame.origin.x, self.frame.origin.y + self.frame.size.height);
+}
+
+- (CGPoint)leftTopCorner
+{
+    return self.frame.origin;
+}
+
+- (CGPoint)rightTopCorner
+{
+    return CGPointMake(self.frame.origin.x + self.frame.size.width, self.frame.origin.y);
+}
+
+- (CGPoint)rightBottomCorner
+{
+    return CGPointMake(self.frame.origin.x + self.frame.size.width, self.frame.origin.y + self.frame.size.height);
+}
+
 //-------------------------
 #pragma mark View Alignment
 //-------------------------
 
--(void)align:(PLKViewAlignment)alignment relativeToPoint:(CGPoint)point{
+-(void)align:( ViewAlignment)alignment relativeToPoint:(CGPoint)point{
     switch (alignment) {
-        case PLKViewAlignmentTopLeft:
+        case  ViewAlignmentTopLeft:
             self.viewOrigin = CGPointMake(point.x, point.y);
             break;
-        case PLKViewAlignmentTopCenter:
+        case  ViewAlignmentTopCenter:
             self.viewOrigin = CGPointMake(point.x-self.viewWidth/2, point.y);
             break;
-        case PLKViewAlignmentTopRight:
+        case  ViewAlignmentTopRight:
             self.viewOrigin = CGPointMake(point.x-self.viewWidth, point.y);
             break;
-        case PLKViewAlignmentMiddleLeft:
+        case  ViewAlignmentMiddleLeft:
             self.viewOrigin = CGPointMake(point.x, point.y-self.viewHeight/2);
             break;
-        case PLKViewAlignmentCenter:
+        case  ViewAlignmentCenter:
             self.center     = CGPointMake(point.x, point.y);
             break;
-        case PLKViewAlignmentMiddleRight:
+        case  ViewAlignmentMiddleRight:
             self.viewOrigin = CGPointMake(point.x-self.viewWidth, point.y-self.viewHeight/2);
             break;
-        case PLKViewAlignmentBottomLeft:
+        case  ViewAlignmentBottomLeft:
             self.viewOrigin = CGPointMake(point.x, point.y-self.viewHeight);
             break;
-        case PLKViewAlignmentBottomCenter:
+        case  ViewAlignmentBottomCenter:
             self.viewOrigin = CGPointMake(point.x-self.viewWidth/2, point.y-self.viewHeight);
             break;
-        case PLKViewAlignmentBottomRight:
+        case  ViewAlignmentBottomRight:
             self.viewOrigin = CGPointMake(point.x-self.viewWidth, point.y-self.viewHeight);
             break;
         default:
@@ -153,34 +171,34 @@
 }
 
 
--(void)align:(PLKViewAlignment)alignment relativeToRect:(CGRect)rect{
+-(void)align:( ViewAlignment)alignment relativeToRect:(CGRect)rect{
     CGPoint point = CGPointZero;
     switch (alignment){
-        case PLKViewAlignmentTopLeft:
+        case  ViewAlignmentTopLeft:
             point = rect.origin;
             break;
-        case PLKViewAlignmentTopCenter:
+        case  ViewAlignmentTopCenter:
             point = CGPointMake(rect.origin.x+rect.size.width/2, rect.origin.y);
             break;
-        case PLKViewAlignmentTopRight:
+        case  ViewAlignmentTopRight:
             point = CGPointMake(rect.origin.x+rect.size.width, rect.origin.y);
             break;
-        case PLKViewAlignmentMiddleLeft:
+        case  ViewAlignmentMiddleLeft:
             point = CGPointMake(rect.origin.x, rect.origin.y +rect.size.height/2);
             break;
-        case PLKViewAlignmentCenter:
+        case  ViewAlignmentCenter:
             point = CGPointMake(rect.origin.x+rect.size.width/2, rect.origin.y+rect.size.height/2);
             break;
-        case PLKViewAlignmentMiddleRight:
+        case  ViewAlignmentMiddleRight:
             point = CGPointMake(rect.origin.x+rect.size.width, rect.origin.y+rect.size.height/2);
             break;
-        case PLKViewAlignmentBottomLeft:
+        case  ViewAlignmentBottomLeft:
             point = CGPointMake(rect.origin.x, rect.origin.y+rect.size.height);
             break;
-        case PLKViewAlignmentBottomCenter:
+        case  ViewAlignmentBottomCenter:
             point = CGPointMake(rect.origin.x+rect.size.width/2, rect.origin.y+rect.size.height);
             break;
-        case PLKViewAlignmentBottomRight:
+        case  ViewAlignmentBottomRight:
             point = CGPointMake(rect.origin.x+rect.size.width, rect.origin.y+rect.size.height);
             break;
         default:

@@ -9,16 +9,16 @@
 #import <Foundation/Foundation.h>
 
 typedef enum{
-    PLKViewAlignmentTopLeft,
-    PLKViewAlignmentTopCenter,
-    PLKViewAlignmentTopRight,
-    PLKViewAlignmentMiddleLeft,
-    PLKViewAlignmentCenter,
-    PLKViewAlignmentMiddleRight,
-    PLKViewAlignmentBottomLeft,
-    PLKViewAlignmentBottomCenter,
-    PLKViewAlignmentBottomRight,
-} PLKViewAlignment;
+    ViewAlignmentTopLeft,
+    ViewAlignmentTopCenter,
+    ViewAlignmentTopRight,
+    ViewAlignmentMiddleLeft,
+    ViewAlignmentCenter,
+    ViewAlignmentMiddleRight,
+    ViewAlignmentBottomLeft,
+    ViewAlignmentBottomCenter,
+    ViewAlignmentBottomRight,
+}ViewAlignment;
 
 @interface UIView(Layout)
 
@@ -35,7 +35,15 @@ typedef enum{
 
 - (void)frameIntegral;
 
--(void)align:(PLKViewAlignment)alignment relativeToPoint:(CGPoint)point;
+- (CGPoint)leftBottomCorner;
+
+- (CGPoint)leftTopCorner;
+
+- (CGPoint)rightTopCorner;
+
+- (CGPoint)rightBottomCorner;
+
+-(void)align:(ViewAlignment)alignment relativeToPoint:(CGPoint)point;
 //position the view relative to a rectangle
--(void)align:(PLKViewAlignment)alignment relativeToRect:(CGRect)rect;
+-(void)align:(ViewAlignment)alignment relativeToRect:(CGRect)rect;
 @end
