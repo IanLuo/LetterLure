@@ -26,7 +26,7 @@
 	
 	self.edgesForExtendedLayout = UIRectEdgeNone;
 	
-	self.view.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
+	self.view.backgroundColor = color_black;
 	self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
 
 	UIBarButtonItem * skip = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"USERGUIDE_SKIP",nil) style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
@@ -36,7 +36,7 @@
 	_pageControl.numberOfPages = 4;
 	_pageControl.currentPage = 0;
 	_pageControl.translatesAutoresizingMaskIntoConstraints = NO;
-	_pageControl.backgroundColor = WODConstants.COLOR_CONTROLLER;
+	_pageControl.backgroundColor = color_black;
 	
 	self.navigationItem.rightBarButtonItem = [self rightBarItem:self.pageControl.currentPage];
 	
@@ -48,7 +48,7 @@
 	flowLayout.minimumLineSpacing = 0;
 	
 	_collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-	_collectionView.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
+	_collectionView.backgroundColor = color_black;
 	_collectionView.showsHorizontalScrollIndicator = NO;
 	_collectionView.translatesAutoresizingMaskIntoConstraints = NO;
 	_collectionView.pagingEnabled = YES;

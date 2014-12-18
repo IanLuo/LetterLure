@@ -11,7 +11,6 @@
 #import "WODOpenGLESAppEngine.h"
 #import "WODExportManager.h"
 #import "Flurry.h"
-#import "SVProgressHUD.h"
 #import "ExportToInstagramPreviewController.h"
 #import "SocialControl.h"
 
@@ -41,7 +40,7 @@
 		_appEngine = [WODOpenGLESAppEngine new];
 		_activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 		self.activityIndicator.center = CGPointMake(self.view.bounds.size.width/2, 100);
-		self.view.backgroundColor = [WODConstants COLOR_VIEW_BACKGROUND];
+		self.view.backgroundColor = color_black;
 
 		_imageView = [UIImageView new];
 		[self.imageView setContentMode:UIViewContentModeScaleAspectFit];
@@ -70,8 +69,11 @@
 		
 		self.imageView.image = self.fullScreenImage;
 		
+        ws(wself);
 		[UIView animateWithDuration:0.3 animations:^{
-			self.imageView.alpha = 1.0;
+            
+			wself.imageView.alpha = 1.0;
+            
 		}];
 	}
 }
@@ -105,9 +107,10 @@
 				 if (image)
 				 {
 					 //stop animation and show share buttons
+                     ws(wself);
 					 dispatch_async(dispatch_get_main_queue(), ^{
-						 [self.activityIndicator removeFromSuperview];
-						 [self showImageShareActions];
+						 [wself.activityIndicator removeFromSuperview];
+						 [wself showImageShareActions];
 					 });
 					 
 					 [self setOutputImage:image];
@@ -262,16 +265,12 @@
 	[self.socailControl shareToWeibo:nil];
 }
 
-//- (void)shareToWeixin
-//{
-//	[self.socailControl shareToWeChat:nil];
-//}
-
 - (void)shareToInstagram
 {
 	ExportToInstagramPreviewController * etovc = [ExportToInstagramPreviewController new];
 	etovc.image = self.outputImage;
 	etovc.delegate = self;
+    
 	UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:etovc];
 	[self presentViewController:nav animated:YES completion:nil];
 }

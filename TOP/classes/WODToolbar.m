@@ -24,27 +24,26 @@
     self = [super init];
     if (self)
 	{
-        self.backgroundColor = WODConstants.COLOR_TOOLBAR_BACKGROUND;
 		[self setTranslatesAutoresizingMaskIntoConstraints:NO];
 		
-		_scrollView = [[UIScrollView alloc]init];
-		[self.scrollView setTranslatesAutoresizingMaskIntoConstraints:NO];
 		[self addSubview:self.scrollView];
 		
 		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateTheme) name:NOTIFICATION_THEME_CHANGED object:nil];
-		
     }
+    
     return self;
 }
 
 - (void)dealloc
 {
+    WODDebug(@"deallocing..");
+    
 	[[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 - (void)updateTheme
 {
-	self.backgroundColor = WODConstants.COLOR_TOOLBAR_BACKGROUND;
+	self.backgroundColor = color_black;
 }
 
 - (void)setItems:(NSArray *)items
@@ -90,7 +89,6 @@
 	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[scrollView]|" options:0 metrics:nil views:@{@"scrollView":self.scrollView}]];
 
 	int seperatorWidth = 10;
-	int itemHeight = [self toolbarHeight] - 8;
 	int itemWidth = ([WODConstants currentSize].width - seperatorWidth)/self.items.count - seperatorWidth;
 	int totalWidth = seperatorWidth;
 	int vOffset = 4;
@@ -101,13 +99,13 @@
 		{
 			UIView * subView = self.items[i];
 			[self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-leading-[subView(>=width)]" options:0 metrics:@{@"width":@(itemWidth),@"leading":@(totalWidth)} views:@{@"subView":subView}]];
-			[self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-vOffset-[subView(height)]-vOffset-|" options:NSLayoutFormatAlignAllCenterY metrics:@{@"height":@(itemHeight),@"vOffset":@(vOffset)} views:@{@"subView":subView}]];
+			[self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-vOffset-[subView(height)]-vOffset-|" options:NSLayoutFormatAlignAllCenterY metrics:@{@"height":@(self.viewHeight),@"vOffset":@(vOffset)} views:@{@"subView":subView}]];
 			totalWidth += itemWidth + seperatorWidth;
 		}
 		
 		UIView * lastItem = self.items[self.items.count - 1];
 		[self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-leading-[lastItem(>=width)]-seperatorWidth-|" options:0 metrics:@{@"width":@(itemWidth),@"leading":@(totalWidth),@"seperatorWidth":@(seperatorWidth)} views:@{@"lastItem":lastItem}]];
-		[self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-vOffset-[lastItem(height)]-vOffset-|" options:NSLayoutFormatAlignAllCenterY metrics:@{@"height":@(itemHeight),@"vOffset":@(vOffset)} views:@{@"lastItem":lastItem}]];
+		[self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-vOffset-[lastItem(height)]-vOffset-|" options:NSLayoutFormatAlignAllCenterY metrics:@{@"height":@(self.viewHeight),@"vOffset":@(vOffset)} views:@{@"lastItem":lastItem}]];
 		totalWidth += itemWidth + seperatorWidth;
 	}
 	
@@ -125,17 +123,6 @@
 	}
 	
 	[super layoutSubviews];
-}
-
-- (float)toolbarHeight
-{
-	UIInterfaceOrientation toInterfaceOrientation = [[UIApplication sharedApplication]statusBarOrientation];
-	float toolbarHeight = self.customeHeight ? self.customeHeight : 50;
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-	{
-		toolbarHeight = toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown ? 50 : 30;
-	}
-	return toolbarHeight;
 }
 
 - (void)checkItemsIndecator
@@ -157,4 +144,16 @@
 	[self checkItemsIndecator];
 }
 
+#pragma mark - getter
+
+- (UIScrollView *)scrollView
+{
+    if (!_scrollView)
+    {
+        _scrollView = [[UIScrollView alloc]init];
+        [self.scrollView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    }
+    
+    return _scrollView;
+}
 @end

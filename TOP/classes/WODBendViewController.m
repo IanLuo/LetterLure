@@ -46,11 +46,11 @@
 	if (!_bendValueLabel)
 	{
 		_bendValueLabel = [UILabel new];
-		_bendValueLabel.backgroundColor = [WODConstants.COLOR_CONTROLLER_HIGHTLIGHT colorWithAlphaComponent:0.7];
-		_bendValueLabel.textColor = WODConstants.COLOR_TEXT_TITLE;
-		_bendValueLabel.font = [UIFont boldFlatFontOfSize:16];
+		_bendValueLabel.backgroundColor = [color_black colorWithAlphaComponent:0.7];
+		_bendValueLabel.textColor = color_white;
+		_bendValueLabel.font = [UIFont boldSystemFontOfSize:16];
 		_bendValueLabel.layer.borderWidth = 1.0;
-		_bendValueLabel.layer.borderColor = WODConstants.COLOR_LINE_COLOR.CGColor;
+		_bendValueLabel.layer.borderColor = color_white.CGColor;
 		_bendValueLabel.textAlignment = NSTextAlignmentCenter;
 	}
 	return _bendValueLabel;

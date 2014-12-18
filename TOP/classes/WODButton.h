@@ -15,9 +15,8 @@ typedef enum
 }WODButtonStyle;
 
 #import <UIKit/UIKit.h>
-#import "FUIButton.h"
 
-@interface WODButton : FUIButton
+@interface WODButton : UIButton
 {
 	UIColor * _buttonColor;
 }

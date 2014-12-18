@@ -27,7 +27,8 @@
 - (id)init
 {
 	self = [super init];
-	if(self)
+	
+    if(self)
 	{
 		contentScale = [UIScreen mainScreen].scale;
 		mode.scale = CGPointMake(1.0, 1.0);
@@ -54,9 +55,7 @@ Create the renderbuffers for the rendering engine
 
 - (void)dealloc
 {
-#ifdef DEBUGMODE
-	NSLog(@"deallocing... %@",[[NSString stringWithUTF8String:__FILE__]lastPathComponent]);
-#endif
+    WODDebug(@"deallocing..");
 }
 
 /*
@@ -67,7 +66,8 @@ Set the viewport, and snapshot viewport(snapshot may only take part of the whole
 {
 	initSize = size;
 	mode.scale = CGPointMake(1.0, 1.0);
-	[self.renderingEngine setEnviroment:[self createRenderEnviroment:size andOrigin:CGPointZero]];
+	
+    [self.renderingEngine setEnviroment:[self createRenderEnviroment:size andOrigin:CGPointZero]];
 	[self.renderingEngine initialize];
 }
 
@@ -99,8 +99,11 @@ Set the viewport, and snapshot viewport(snapshot may only take part of the whole
 	if (self.isFullSizeRender)
 	{
 		newDrawable.scale = GLKVector2Make(newDrawable.scale.x, newDrawable.scale.y);
+        
+        ws(wself);
 		[textView generateFullSizeImageScale:self.fullSizeScale Complete:^(UIImage *image) {
-			float imageScale = image.scale;
+			
+            float imageScale = image.scale;
 			float screenScale = contentScale;
 			
 			CGSize size = CGSizeMake(image.size.width * imageScale / screenScale, image.size.height * imageScale / screenScale);
@@ -108,11 +111,12 @@ Set the viewport, and snapshot viewport(snapshot may only take part of the whole
 			newDrawable.frame = CGRectMake(0, 0, size.width, size.height);
 			
 			newDrawable.image = image;
-			[self.renderingEngine createDrawingElement:newDrawable];
+			[wself.renderingEngine createDrawingElement:newDrawable];
 		}];
 	}
 	else
 	{
+        ws(wself);
 		[textView displayTextHideFeatures:textView.hideFeatures complete:^(UIImage *image) {
 			float imageScale = image.scale;
 			float screenScale = contentScale;
@@ -122,7 +126,7 @@ Set the viewport, and snapshot viewport(snapshot may only take part of the whole
 			newDrawable.frame = CGRectMake(0, 0, size.width * screenScale, size.height * screenScale);
 			
 			newDrawable.image = image;
-			[self.renderingEngine createDrawingElement:newDrawable];
+			[wself.renderingEngine createDrawingElement:newDrawable];
 		}];
 	}
 }
@@ -146,16 +150,19 @@ Set the viewport, and snapshot viewport(snapshot may only take part of the whole
 	updateDrawable.name = textView.name;
 	updateDrawable.alpha = textView.alpha;
 	
+    ws(wself);
 	[textView displayTextHideFeatures:textView.hideFeatures complete:^(UIImage *image) {
-		float imageScale = image.scale;
+		
+        float imageScale = image.scale;
 		float screenScale = contentScale;
 		CGSize size = CGSizeMake(image.size.width * imageScale / screenScale, image.size.height * imageScale / screenScale);
 		
 		updateDrawable.surface = [[WODPramaticSufaceQuad alloc]initWithSize:CGSizeMake(size.width/initSize.height, size.height/initSize.height)];
 		updateDrawable.frame = CGRectMake(0, 0, size.width * screenScale, size.height * screenScale);
 		updateDrawable.image = image;
-		[self.renderingEngine updateElementImage:updateDrawable];
-	}];
+		[wself.renderingEngine updateElementImage:updateDrawable];
+	
+    }];
 }
 
 - (void)selectTextView:(WODTextView *)textView
@@ -251,7 +258,8 @@ Set the viewport, and snapshot viewport(snapshot may only take part of the whole
 	{
 		_renderingEngine = [WODRenderingEngine new];
 	}
-	return _renderingEngine;
+	
+    return _renderingEngine;
 }
 
 - (RenderEnviroment)createRenderEnviroment:(CGSize)size andOrigin:(CGPoint)o

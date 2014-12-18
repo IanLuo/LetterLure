@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CEReversibleAnimationController.h"
+
+@class CEReversibleAnimationController;
 
 typedef enum
 {

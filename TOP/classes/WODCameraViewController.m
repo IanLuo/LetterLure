@@ -9,7 +9,7 @@
 #import "WODCameraViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "WODImageScrollViewController.h"
-#import "SVProgressHUD.h"
+#import "MBProgressHUD.h"
 
 @interface WODCameraViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
@@ -38,10 +38,10 @@
     self = [super init];
     if (self) {
         // Custom initialization
-#ifdef DEBUGMODE
-		NSLog(@"(%@,%i):initing",[[NSString stringWithUTF8String:__FILE__]lastPathComponent],__LINE__);
-#endif
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+
+        WODDebug(@"initing..");
+        
+		if (isPad())
 		{
 			[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didRotateInterface:) name:UIApplicationWillChangeStatusBarOrientationNotification object:nil];
 		}
@@ -51,11 +51,9 @@
 
 - (void)dealloc
 {
-#ifdef DEBUGMODE
-NSLog(@"deallocing... %@",[[NSString stringWithUTF8String:__FILE__]lastPathComponent]);
-#endif
+    WODDebug(@"deallocing..");
 
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+	if (isPad())
 	{
 		[[NSNotificationCenter defaultCenter]removeObserver:self];
 	}
@@ -69,7 +67,7 @@ NSLog(@"deallocing... %@",[[NSString stringWithUTF8String:__FILE__]lastPathCompo
 
 - (void)viewDidLoad
 {
-	self.edgesForExtendedLayout = UIRectEdgeNone;
+//	self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 #define shutterViewTag 999
@@ -172,7 +170,7 @@ NSLog(@"deallocing... %@",[[NSString stringWithUTF8String:__FILE__]lastPathCompo
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-	[SVProgressHUD show];
+	[MBProgressHUD showHUDAddedTo:self.view animated:YES];
 
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
 		WODAsset * asset = [[WODAsset alloc]initWithImage:[info objectForKey:UIImagePickerControllerOriginalImage]];
@@ -182,9 +180,13 @@ NSLog(@"deallocing... %@",[[NSString stringWithUTF8String:__FILE__]lastPathCompo
 		[chooseImageScrollView setCurrentPage:0];
 		[chooseImageScrollView setImages:@[asset]];
 		
+        ws(wself);
 		dispatch_sync(dispatch_get_main_queue(), ^{
-			[self.imagePickerViewController.navigationController pushViewController:chooseImageScrollView animated:YES];
-			[SVProgressHUD dismiss];
+            
+			[wself.imagePickerViewController.navigationController pushViewController:chooseImageScrollView animated:YES];
+            
+			[MBProgressHUD hideHUDForView:wself.view animated:YES];
+            
 		});
 	});
 }

@@ -11,12 +11,14 @@
 #import "WODEffectsPackageItemsViewController.h"
 #import "WODButton.h"
 #import "WODIAPCenter.h"
-#import "SVProgressHUD.h"
+#import "MBProgressHUD.h"
+
+#import <BlocksKit/BlocksKit+UIKit.h>
 
 //static float adViewHight = 200.0;
 static float rowViewHight = 100.0;
 
-@interface WODEffectsPackageViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,FUIAlertViewDelegate>
+@interface WODEffectsPackageViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
 @property (nonatomic, strong) UITableView * tableView;
 
@@ -31,29 +33,15 @@ static float rowViewHight = 100.0;
 
 @property (nonatomic, strong) WODIAPCenter * iapCenter;
 
+@property (nonatomic, strong) MBProgressHUD * hud;
+
 @end
 
 #define tableCellID @"packageCell"
 
+static int selectedPackageIdx;
+
 @implementation WODEffectsPackageViewController
-
-- (WODEffectPackageManager *)effectsManager
-{
-	if (!_effectsManager)
-	{
-		_effectsManager = [WODEffectPackageManager new];
-	}
-	return _effectsManager;
-}
-
-- (WODIAPCenter *)iapCenter
-{
-	if (!_iapCenter)
-	{
-		_iapCenter = [WODIAPCenter sharedSingleton];
-	}
-	return _iapCenter;
-}
 
 - (id)init
 {
@@ -65,26 +53,15 @@ static float rowViewHight = 100.0;
 		self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
 		self.tableView.delegate = self;
 		self.tableView.dataSource = self;
-		self.tableView.separatorColor = WODConstants.COLOR_VIEW_BACKGROUND;
-		[self.tableView setBackgroundColor:WODConstants.COLOR_VIEW_BACKGROUND];
+		self.tableView.separatorColor = color_black;
+		[self.tableView setBackgroundColor:color_black];
 
-		//TODO: used in updated versions
-//		_adView = [UIScrollView new];
-//		self.adView.translatesAutoresizingMaskIntoConstraints = NO;
-//		self.adView.delegate = self;
-//		self.adView.backgroundColor = COLOR_NAV_BAR;
-		
 		[self.view addSubview:self.tableView];
-//		[self.view addSubview:self.adView];TODO: used in updated versions
-		
-		NSDictionary * views = @{/*@"adView":self.adView,TODO: used in updated versions*/@"tableView":self.tableView};
-		
-//		[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[adView]|" options:0 metrics:nil views:views]];TODO: used in updated versions
-		[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[tableView]-10-|" options:0 metrics:nil views:views]];
-		/*[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[adView(adViewHight)]" options:0 metrics:@{@"adViewHight":@(adViewHight)} views:views]];TODO: used in updated versions*/
-		[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[tableView]|" options:0 metrics:nil views:views]];
-
+        
+        _hud = [MBProgressHUD HUDForView:self.view];
+        self.hud.mode = MBProgressHUDModeIndeterminate;
     }
+    
     return self;
 }
 
@@ -92,11 +69,10 @@ static float rowViewHight = 100.0;
 {
     [super viewDidLoad];
 	
-	self.view.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
+	self.view.backgroundColor = color_black;
 	
 	self.title = NSLocalizedString(@"VC_TITLE_CHOOSE_EFFECT_PACKAGE", nil);
 	
-	[self setEdgesForExtendedLayout:UIRectEdgeNone];
 	self.automaticallyAdjustsScrollViewInsets = NO;
 	
 	self.packages = [self.effectsManager packageList];
@@ -115,18 +91,30 @@ static float rowViewHight = 100.0;
 		
 		if (status)
 		{
-			[SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Restore Complete", nil)];
+			[self.hud setLabelText:iStr(@"Restore Complete")];
+            [self.hud show:YES];
 			
-			[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(dismissHUD) userInfo:nil repeats:NO];
+            [self performSelector:@selector(dismissHUD) withObject:nil afterDelay:2.0];
 			
 			[self.tableView reloadData];
 		}
 	}];
 }
 
-- (void)viewDidLayoutSubviews
+- (void)viewWillLayoutSubviews
 {
-//	self.adView.frame = CGRectMake(0, self.adViewOffsetY, self.adView.frame.size.width, self.adView.frame.size.height);TODO: used in updated versions
+    NSUInteger topOffset = HEIGHT_STATUS_AND_NAV_BAR;
+    
+    if (!isVertical())
+    {
+        topOffset = HEIGHT_STATUS_AND_NAV_BAR_LANDSCAPE;
+    }
+    
+    NSDictionary * views = @{@"tableView":self.tableView};
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[tableView]-10-|" options:0 metrics:nil views:views]];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-topOffset-[tableView]|" options:0 metrics:@{@"topOffset":@(topOffset + 10)} views:views]];
 }
 
 - (void)complete
@@ -143,16 +131,6 @@ static float rowViewHight = 100.0;
     // Dispose of any resources that can be recreated.
 }
 
-//TODO: used in updated versions
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-//{
-//	if (scrollView.contentOffset.y > -self.tableView.contentInset.top && scrollView.contentOffset.y < 0)
-//	{
-//		self.adViewOffsetY = -(scrollView.contentOffset.y + self.tableView.contentInset.top);
-//		self.adView.frame = CGRectMake(0, self.adViewOffsetY, self.adView.frame.size.width, self.adView.frame.size.height);
-//	}
-//}
-
 #pragma mark - tableview delegate and datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -168,19 +146,15 @@ static float rowViewHight = 100.0;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:tableCellID forIndexPath:indexPath];
-	[cell configureFlatCellWithColor:WODConstants.COLOR_CONTROLLER selectedColor:[UIColor cloudsColor] roundingCorners:UIRectCornerAllCorners];
-	
-	cell.cornerRadius = 5.0f; // optional
-	cell.separatorHeight = 2.0f;
 	
 	NSString * packageName = self.packages[indexPath.row];
 	NSString * selectedPackageName = [[NSUserDefaults standardUserDefaults]valueForKey:kCurrentSelectedEffectPackageName];
 	[cell.textLabel setText:NSLocalizedString(packageName, nil)];
 	[cell setSelectionStyle:UITableViewCellSelectionStyleGray];
-	[cell setTintColor:WODConstants.COLOR_TEXT_TITLE];
-	[cell.textLabel setTextColor:WODConstants.COLOR_TEXT_TITLE];
-	[cell.textLabel setFont:[UIFont boldFlatFontOfSize:16]];
-	[cell setBackgroundColor:WODConstants.COLOR_VIEW_BACKGROUND];
+	[cell setTintColor:color_white];
+	[cell.textLabel setTextColor:color_white];
+	[cell.textLabel setFont:[UIFont boldSystemFontOfSize:16]];
+	[cell setBackgroundColor:color_black];
 	
 	UIImage * icon = [self.effectsManager iconForEffect:([self.effectsManager effectsInPackage:packageName].count > 0 ? [self.effectsManager effectsInPackage:packageName][0] : nil)];
 	[cell.imageView setImage:icon];
@@ -224,31 +198,9 @@ static float rowViewHight = 100.0;
 	return cell;
 }
 
-static int selectedPackageIdx;
-
-- (void)alertView:(FUIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-	if (buttonIndex == 1)
-	{
-		[self.iapCenter purchasePackage:self.packages[selectedPackageIdx] complete:^(NSString *completeMessage) {
-			if (completeMessage)
-			{
-				[SVProgressHUD showSuccessWithStatus:completeMessage];
-				
-				[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(dismissHUD) userInfo:nil repeats:NO];
-				
-				WODButton * button = [WODButton new];
-				button.tag = selectedPackageIdx;
-				[self changeSelectedPackage:button];
-				[self.tableView reloadData];
-			}
-		}];
-	}
-}
-
 - (void)dismissHUD
 {
-	[SVProgressHUD dismiss];
+	[self.hud hide:YES];
 }
 
 - (void)changeSelectedPackage:(WODButton *)button
@@ -267,17 +219,29 @@ static int selectedPackageIdx;
 {
 	selectedPackageIdx = (int)button.tag;
 	
-	FUIAlertView * alertView = [[FUIAlertView alloc]initWithTitle:NSLocalizedString(@"PURCHASE", nil) message:[NSLocalizedString(@"COMFIRM_PURCHASEING", nil) stringByAppendingFormat:@"%@ (%@)",NSLocalizedString(self.packages[selectedPackageIdx],nil),[button titleForState:UIControlStateNormal]] delegate:self cancelButtonTitle:NSLocalizedString(@"CANCEL", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
-	alertView.titleLabel.textColor = [UIColor cloudsColor];
-	alertView.titleLabel.font = [UIFont boldFlatFontOfSize:16];
-	alertView.messageLabel.textColor = [UIColor cloudsColor];
-	alertView.messageLabel.font = [UIFont flatFontOfSize:14];
-	alertView.backgroundOverlay.backgroundColor = [[UIColor cloudsColor] colorWithAlphaComponent:0.8];
-	alertView.alertContainer.backgroundColor = WODConstants.COLOR_DIALOG_BACKGROUND;
-	alertView.defaultButtonColor = [UIColor cloudsColor];
-	alertView.defaultButtonShadowColor = [UIColor asbestosColor];
-	alertView.defaultButtonFont = [UIFont boldFlatFontOfSize:16];
-	alertView.defaultButtonTitleColor = [UIColor asbestosColor];
+	UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"PURCHASE", nil) message:[NSLocalizedString(@"COMFIRM_PURCHASEING", nil) stringByAppendingFormat:@"%@ (%@)",NSLocalizedString(self.packages[selectedPackageIdx],nil),[button titleForState:UIControlStateNormal]] delegate:self cancelButtonTitle:NSLocalizedString(@"CANCEL", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+
+    ws(wself);
+    [alertView bk_addButtonWithTitle:iStr(@"OK") handler:^{
+        
+        ss(sself);
+        [wself.iapCenter purchasePackage:self.packages[selectedPackageIdx] complete:^(NSString *completeMessage) {
+            if (completeMessage)
+            {
+                [sself.hud setLabelText:completeMessage];
+                [sself.hud show:YES];
+                
+                [NSTimer scheduledTimerWithTimeInterval:2.0 target:sself selector:@selector(dismissHUD) userInfo:nil repeats:NO];
+                
+                WODButton * button = [WODButton new];
+                button.tag = selectedPackageIdx;
+                [sself changeSelectedPackage:button];
+                [sself.tableView reloadData];
+            }
+        }];
+        
+    }];
+    
 	[alertView show];
 
 }
@@ -291,6 +255,26 @@ static int selectedPackageIdx;
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	[self.navigationController pushViewController:itemsViewController animated:YES];
+}
+
+#pragma mark - getter
+
+- (WODEffectPackageManager *)effectsManager
+{
+    if (!_effectsManager)
+    {
+        _effectsManager = [WODEffectPackageManager new];
+    }
+    return _effectsManager;
+}
+
+- (WODIAPCenter *)iapCenter
+{
+    if (!_iapCenter)
+    {
+        _iapCenter = [WODIAPCenter sharedSingleton];
+    }
+    return _iapCenter;
 }
 
 @end

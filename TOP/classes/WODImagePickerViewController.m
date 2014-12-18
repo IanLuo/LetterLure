@@ -33,7 +33,7 @@
 	
     if (self)
 	{
-		self.view.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
+		self.view.backgroundColor = color_black;
     }
 	
     return self;
@@ -64,7 +64,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self setEdgesForExtendedLayout:UIRectEdgeNone];
+    
+    [self setAutomaticallyAdjustsScrollViewInsets:NO];
+    
 	// Do any additional setup after loading the view.
 	
 	_tab = [[WODScrollTab alloc]init];
@@ -107,7 +109,6 @@
 	[self.navigationItem setRightBarButtonItem:done];
 }
 
-
 - (void)setupTab
 {
 	NSMutableArray * groupButtons = [NSMutableArray array];
@@ -117,7 +118,7 @@
 	[camera setTitle:@"Camera" forState:UIControlStateNormal];
 	[camera.titleLabel setFont:[UIFont systemFontOfSize:.1]];
 	[camera.titleLabel setAlpha:0.0];
-	[camera setTintColor:WODConstants.COLOR_TEXT_TITLE];
+	[camera setTintColor:color_white];
 	[groupButtons addObject:camera];
 	
 	NSEnumerator * enumerator = [self.assetsGourps objectEnumerator];
@@ -183,6 +184,7 @@
 		{
 			[(WODCameraViewController *)weakSelf.currentDisplayingViewPickController removeShutter];
 		}
+        
 		[weakSelf.currentDisplayingViewPickController.view removeFromSuperview];
 		weakSelf.currentDisplayingViewPickController = nil;
 		weakSelf.currentDisplayingViewPickController = newController;
@@ -205,7 +207,8 @@
 		{
 			[weakSelf.currentDisplayingViewPickController.view setFrame:CGRectMake(endPositionHidden, 0, weakSelf.view.bounds.size.width, weakSelf.view.bounds.size.height - weakSelf.tab.bounds.size.height)];
 		}
-	} completion:^(BOOL finished)
+	}
+    completion:^(BOOL finished)
 	{
 		block();
 	}];
@@ -247,7 +250,6 @@
 		[self loadImageFromGroup:nextGroupKey];
 	}
 }
-
 
 - (void)cancel
 {

@@ -26,7 +26,7 @@
 	
 	if (self)
 	{
-		self.view.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
+		self.view.backgroundColor = color_black;
 		needUpdateUIAfterLayout = YES;
 	}
 	
@@ -35,9 +35,7 @@
 
 - (void)dealloc
 {
-#ifdef DEBUGMODE
-	NSLog(@"deallocing %@...",[[NSString stringWithUTF8String:__FILE__] lastPathComponent]);
-#endif
+    WODDebug(@"deallocing..");
 
 	[[NSNotificationCenter defaultCenter]removeObserver:self];
 }
@@ -46,7 +44,7 @@
 {
 	[super viewDidLoad];
 	
-	self.edgesForExtendedLayout = UIRectEdgeNone;
+    [self setAutomaticallyAdjustsScrollViewInsets:NO];
 	
 	UIBarButtonItem * cancel = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"cross_mark.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
 	[self.navigationItem setLeftBarButtonItem:cancel];
@@ -56,17 +54,8 @@
 	
 	_toolbar = [UIView new];
 	self.toolbar.translatesAutoresizingMaskIntoConstraints = NO;
-	self.toolbar.backgroundColor = WODConstants.COLOR_TOOLBAR_BACKGROUND_SECONDARY;
+	self.toolbar.backgroundColor = color_black;
 	[self.view addSubview:self.toolbar];
-	
-//	_previewButton = [WODButton new];
-//	[self.previewButton setImage:[[UIImage imageNamed:@"preview.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-//	[self.previewButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-//	[self.previewButton addTarget:self action:@selector(startPreview) forControlEvents:UIControlEventTouchDown];
-//	[self.previewButton addTarget:self action:@selector(stopPreview) forControlEvents:UIControlEventTouchUpInside];
-//	[self.previewButton addTarget:self action:@selector(stopPreview) forControlEvents:UIControlEventTouchUpOutside];
-//	[self.previewButton setStyle:WODButtonStyleCircle];
-//	[self.view addSubview:self.previewButton];
 	
 	[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleOpengleStageRebuildComplete) name:kNotificationOpenGLStageViewRebuildComplete object:nil];
 	[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleOpengleStageRebuildComplete) name:kNotificationOpenGLStageViewInitComplete object:nil];
@@ -133,15 +122,18 @@
 	UIInterfaceOrientation toInterfaceOrientation = [[UIApplication sharedApplication]statusBarOrientation];
 	float toolbarHeight = 50;
 	
-	if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone)
+	if (!isPad())
 		toolbarHeight = toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown ? 50 : 30;
+    
+    NSUInteger topOffset = HEIGHT_STATUS_AND_NAV_BAR;
+    if (isVertical())
+    {
+        topOffset = HEIGHT_STATUS_AND_NAV_BAR_LANDSCAPE;
+    }
 	
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[toolbar]|" options:0 metrics:nil views:@{@"toolbar":self.toolbar}]];
-	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[openGLESStageView]-10-|" options:0 metrics:nil views:@{@"openGLESStageView":self.openGLESStageView}]];
-	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[openGLESStageView]-10-[toolbar(hight)]|" options:0 metrics:@{@"hight":@(toolbarHeight)} views:@{@"toolbar":self.toolbar,@"openGLESStageView":self.openGLESStageView}]];
-	
-//	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[previewButton(size)]-|" options:0 metrics:@{@"size":@(control_button_size)} views:@{@"previewButton":self.previewButton}]];
-//	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[previewButton(size)]-toolbarHeight-|" options:0 metrics:@{@"toolbarHeight":@(toolbarHeight+8),@"size":@(control_button_size)} views:@{@"previewButton":self.previewButton}]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-topOffset-[openGLESStageView]-10-|" options:0 metrics:@{@"topOffset":@(topOffset)} views:@{@"openGLESStageView":self.openGLESStageView}]];
+	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-topOffset-[openGLESStageView]-10-[toolbar(hight)]|" options:0 metrics:@{@"hight":@(toolbarHeight),@"topOffset":@(topOffset)} views:@{@"toolbar":self.toolbar,@"openGLESStageView":self.openGLESStageView}]];
 
 }
 

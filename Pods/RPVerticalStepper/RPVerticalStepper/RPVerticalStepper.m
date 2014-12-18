@@ -24,16 +24,16 @@
 // THE SOFTWARE.
 
 // These constants define the control frame of 35.0 width and 63.0 height
-
-#import "RPVerticalStepper.h"
-
 float const kRPStepperWidth = 35.0;
 float const kRPStepperTopButtonHeight = 31.0;
 float const kRPStepperBottomButtonHeight = 32.0;
-float const kRPStepperHeight = kRPStepperTopButtonHeight + kRPStepperBottomButtonHeight;;
+float const kRPStepperHeight = kRPStepperTopButtonHeight + kRPStepperBottomButtonHeight;
+
+#import "RPVerticalStepper.h"
 
 @interface RPVerticalStepper () {
-	
+	UIButton *incrementButton;
+	UIButton *decrementButton;
 }
 @end
 
@@ -45,9 +45,6 @@ float const kRPStepperHeight = kRPStepperTopButtonHeight + kRPStepperBottomButto
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, kRPStepperWidth, kRPStepperHeight)];
-	
-	self.isTemplated = YES;
-	
     if (self) [self setDefaultState];
     return self;
 }
@@ -79,16 +76,16 @@ float const kRPStepperHeight = kRPStepperTopButtonHeight + kRPStepperBottomButto
     self.backgroundColor = [UIColor clearColor];
     
     // Init the increment button
-    self.incrementButton = [self stepperButtonWithFrame:CGRectMake(0.0, 0.0, kRPStepperWidth, kRPStepperTopButtonHeight)
+    incrementButton = [self stepperButtonWithFrame:CGRectMake(0.0, 0.0, kRPStepperWidth, kRPStepperTopButtonHeight)
                                       bgImageNamed:@"stepperTopButton.png"
                                         imageNamed:@"stepperPlusSymbol"];
-	[self addSubview:self.incrementButton];
+	[self addSubview:incrementButton];
     
 	// Init the decrement button
-    self.decrementButton = [self stepperButtonWithFrame:CGRectMake(0.0, kRPStepperTopButtonHeight, kRPStepperWidth, kRPStepperBottomButtonHeight)
+    decrementButton = [self stepperButtonWithFrame:CGRectMake(0.0, kRPStepperTopButtonHeight, kRPStepperWidth, kRPStepperBottomButtonHeight)
                                       bgImageNamed:@"stepperBottomButton.png"
                                         imageNamed:@"stepperMinusSymbol"];
-	[self addSubview:self.decrementButton];
+	[self addSubview:decrementButton];
     
     // Check if we need to enable/disable a button
     [self checkButtonInteraction];
@@ -100,8 +97,8 @@ float const kRPStepperHeight = kRPStepperTopButtonHeight + kRPStepperBottomButto
 - (UIButton *)stepperButtonWithFrame:(CGRect)frame bgImageNamed:(NSString *)bgImageName imageNamed:(NSString *)imageName
 {
     UIButton *stepperButton = [[UIButton alloc] initWithFrame:frame];
-    [stepperButton setBackgroundImage: self.isTemplated ? nil : [UIImage imageNamed:bgImageName] forState:UIControlStateNormal];
-	[stepperButton setImage:self.isTemplated ? [[UIImage imageNamed:imageName]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] : [UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [stepperButton setBackgroundImage:[UIImage imageNamed:bgImageName] forState:UIControlStateNormal];
+	[stepperButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
 	[stepperButton setAutoresizingMask:UIViewAutoresizingNone];
     [stepperButton addTarget:self action:@selector(didPressButton:) forControlEvents:UIControlEventTouchDown];
     [stepperButton addTarget:self action:@selector(didEndButtonPress:) forControlEvents:UIControlEventTouchUpInside];
@@ -193,7 +190,7 @@ float const kRPStepperHeight = kRPStepperTopButtonHeight + kRPStepperBottomButto
 // Check if new value would exceed max or min; if it doesn't, set the new value
 - (void)changeValueForButton:(UIButton *)button
 {
-	double changeValue = (button == self.decrementButton) ? -1 * _stepValue : _stepValue;
+	double changeValue = (button == decrementButton) ? -1 * _stepValue : _stepValue;
 	double newValue = _value + changeValue;
 	if (newValue < _minimumValue || newValue > _maximumValue) return;
 	[self setValue:newValue];
@@ -205,10 +202,10 @@ float const kRPStepperHeight = kRPStepperTopButtonHeight + kRPStepperBottomButto
     BOOL atMax = (_value == _maximumValue);
     BOOL atMin = (_value == _minimumValue);
     
-    [self.incrementButton setUserInteractionEnabled:!atMax];
-    [self.incrementButton setAlpha:(atMax ? 0.5 : 1.0)];
-    [self.decrementButton setUserInteractionEnabled:!atMin];
-    [self.decrementButton setAlpha:(atMin ? 0.5 : 1.0)];
+    [incrementButton setUserInteractionEnabled:!atMax];
+    [incrementButton setAlpha:(atMax ? 0.5 : 1.0)];
+    [decrementButton setUserInteractionEnabled:!atMin];
+    [decrementButton setAlpha:(atMin ? 0.5 : 1.0)];
 }
 
 @end

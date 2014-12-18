@@ -20,24 +20,20 @@
 	[Flurry setCrashReportingEnabled:YES];
 	[Flurry startSession:@"4J7ZCHZYWP73RBRW7Z97"];
 
-//	if ([[NSUserDefaults standardUserDefaults]objectForKey:KEY_SAVED_THEME_INDEX])
-//	{
-//		[WODConstants setUpUITheme:[[[NSUserDefaults standardUserDefaults]objectForKey:KEY_SAVED_THEME_INDEX] intValue]];
-//	}
-//	else
-	{
-		[WODConstants setUpUITheme:0];
-	}
-
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    [[UINavigationBar appearance]setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance]setShadowImage:[UIImage new]];
+    [[UINavigationBar appearance]setTintColor:color_white];
+    [[UINavigationBar appearance]setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:16],NSForegroundColorAttributeName:color_white}];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
 	WODRootViewController * rootViewController = [[WODRootViewController alloc]init];
-	rootViewController.automaticallyAdjustsScrollViewInsets = NO;
-	rootViewController.edgesForExtendedLayout = UIRectEdgeNone;
 	_navigationController = [[UINavigationController alloc]initWithRootViewController:rootViewController];
-	[self.window setRootViewController:self.navigationController];
+    [self.window setRootViewController:self.navigationController];
     [self.window makeKeyAndVisible];
 	
 	WODFontManager * fontManager = [WODFontManager new];

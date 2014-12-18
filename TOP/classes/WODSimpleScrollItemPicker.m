@@ -34,7 +34,7 @@
 		[self setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
 		
 		self.distansFromBottomPortrait = 50;
-		self.distansFromBottomLandscape = 30;
+		self.distansFromBottomLandscape = 50;
 		self.contentSizeShortSide = 44;
 		self.itemOffset = 3;
 		
@@ -46,7 +46,7 @@
 		[self.itemsCollectionView setDelegate:self];
 		[self.itemsCollectionView setContentInset:UIEdgeInsetsMake(0, 10, 0, 10)];
 		[self.itemsCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"itemID"];
-		[self.itemsCollectionView setBackgroundColor:[WODConstants.COLOR_ITEM_PICKER colorWithAlphaComponent:0.7]];
+		[self.itemsCollectionView setBackgroundColor:[color_black colorWithAlphaComponent:0.7]];
 		[self addSubview:self.itemsCollectionView];
 		
 		self.position = BarPostionBotton;
@@ -59,15 +59,15 @@
 
 - (void)dealloc
 {
-#ifdef DEBUGMODE
-	NSLog(@"(%@,%i):deallocing...",[[NSString stringWithUTF8String:__FILE__]lastPathComponent],__LINE__);
-#endif
-	[[NSNotificationCenter defaultCenter]removeObserver:self];
+    
+    WODDebug(@"deallocing..");
+
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 - (void)updateColors
 {
-	[self.itemsCollectionView setBackgroundColor:WODConstants.COLOR_ITEM_PICKER];
+	[self.itemsCollectionView setBackgroundColor:color_black];
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
@@ -325,7 +325,7 @@ typedef enum
 	{
 		_titleLabel = [UILabel new];
 		_titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-		_titleLabel.font = [UIFont flatFontOfSize:18];
+		_titleLabel.font = [UIFont systemFontOfSize:18];
 		_titleLabel.textAlignment = NSTextAlignmentCenter;
 	}
 	return _titleLabel;
@@ -356,13 +356,13 @@ typedef enum
 		{
 			if (self.isSelected)
 			{
-				self.layer.borderColor = WODConstants.COLOR_TEXT_TITLE.CGColor;
+				self.layer.borderColor = color_white.CGColor;
 				self.layer.borderWidth = 2;
 			}
 			else
 			{
 				self.layer.borderWidth = 0;
-				self.layer.borderColor = WODConstants.COLOR_TEXT_TITLE.CGColor;
+				self.layer.borderColor = color_white.CGColor;
 			}
 		}
 		else
@@ -370,16 +370,16 @@ typedef enum
 			self.layer.borderWidth = 0;
 		}
 		
-		self.tintColor = WODConstants.COLOR_TEXT_TITLE;
-		self.titleLabel.textColor = WODConstants.COLOR_TEXT_TITLE;
-		self.backgroundColor = WODConstants.COLOR_ITEM_PICKER_CUSTOM_ITEM;
+		self.tintColor = color_white;
+		self.titleLabel.textColor = color_white;
+		self.backgroundColor = color_black;
 	}
 	else
 	{
-		self.tintColor = WODConstants.COLOR_TEXT_TITLE;
-		self.layer.borderColor = WODConstants.COLOR_TEXT_TITLE.CGColor;
-		self.titleLabel.textColor = WODConstants.COLOR_TEXT_TITLE;
-		self.backgroundColor = WODConstants.COLOR_ITEM_PICKER_CONTROL_ITEM;
+		self.tintColor = color_white;
+		self.layer.borderColor = color_white.CGColor;
+		self.titleLabel.textColor = color_white;
+		self.backgroundColor = color_black;
 	}
 }
 

@@ -48,7 +48,7 @@
 	{
 		_backView = [UIView new];
 		[_backView setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth];
-		_backView.backgroundColor = WODConstants.COLOR_ITEM_PICKER;
+		_backView.backgroundColor = color_black;
 	}
 	return _backView;
 }
@@ -171,15 +171,15 @@
 		_titleView = [UILabel new];
 		[self.titleView setTextAlignment:NSTextAlignmentCenter];
 		self.titleView.translatesAutoresizingMaskIntoConstraints = NO;
-		self.titleView.textColor = WODConstants.COLOR_TEXT_TITLE;
-		self.tintColor = WODConstants.COLOR_TEXT_TITLE;
+		self.titleView.textColor = color_white;
+		self.tintColor = color_white;
 		
 		[self addSubview:self.iconView];
 		[self addSubview:self.titleView];
 		
 		self.translatesAutoresizingMaskIntoConstraints = NO;
 		
-		self.backgroundColor = WODConstants.COLOR_ITEM_PICKER;
+		self.backgroundColor = color_black;
 	}
 	return self;
 }
@@ -221,7 +221,7 @@
 	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-top-[icon(iconSideLength)]-(seperation)-[title(lableHeight)]-bot-|" options:0 metrics:@{@"top":@(insects.top),@"bot":@(insects.bottom),@"seperation":@(seperation),@"iconSideLength":@(iconSideLength),@"lableHeight":@(lableHeight)} views:@{@"icon":self.iconView,@"title":self.titleView}]];
 		
 	float fontSize = 12;//toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown ? 16 : 14;
-	self.titleView.font = [UIFont flatFontOfSize:fontSize];
+	self.titleView.font = [UIFont systemFontOfSize:fontSize];
 	
 	[super layoutSubviews];
 }

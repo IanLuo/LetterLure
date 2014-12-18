@@ -13,6 +13,6 @@
 @property (nonatomic, strong) NSArray * items;
 @property (nonatomic, assign) NSUInteger customeHeight;
 
-- (float)toolbarHeight;
+//- (float)toolbarHeight;
 
 @end

@@ -14,6 +14,9 @@
 
 "ABOUT" = "Feedback & support";
 
+"IMAGE_PICKER" = "Pick Image";
+"PASTE_IMAGE" = "Paste Image";
+
 "RATE" = "Give a good rate";
 "SUPPORT" = "Ask for Support";
 "RATE_TITLE" = "If you find our app useful and you like it, please give us a good rate, that will be very helpful, Thank you.";

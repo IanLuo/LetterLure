@@ -27,10 +27,15 @@
     [super tearDown];
 }
 
-- (void)testExample
+//- (void)testExample
+//{
+//
+//}
+
+
+- (void)testTrue
 {
-	NSString * path = [[NSBundle mainBundle]pathForResource:@"effect_template" ofType:@"xml"];
-	[[WODEffectReader new]readEffect:path complete:nil];
+XCTAssert(1 == 0,@"");
 }
 
 @end

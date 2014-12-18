@@ -9,6 +9,8 @@
 #import "WODImageScrollViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "WODButton.h"
+#import "UIView+Appearance.h"
+#import "UIImage+Generate.h"
 
 @interface WODImageScrollViewController ()<UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 
@@ -21,81 +23,39 @@
 
 @implementation WODImageScrollViewController
 
-- (UICollectionView *)collectionView
-{
-	if (!_collectionView)
-	{
-		UICollectionViewFlowLayout * flowlayout = [UICollectionViewFlowLayout new];
-		[flowlayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-		
-		_collectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:flowlayout];
-		[_collectionView setPagingEnabled:YES];
-		_collectionView.delegate = self;
-		_collectionView.dataSource = self;
-		_collectionView.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
-		_collectionView.translatesAutoresizingMaskIntoConstraints = NO;
-		_collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-		[_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"imageCell"];
-		
-		_leftScrollIndecator = [[UIImageView alloc]initWithImage:[[UIImage imageNamed:@"arrow_left"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-		_leftScrollIndecator.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
-		_leftScrollIndecator.tintColor = WODConstants.COLOR_CONTROLLER;
-		_leftScrollIndecator.center = CGPointMake(5,self.collectionView.bounds.size.height/2);
-		
-		_rightScrollIndecator = [[UIImageView alloc]initWithImage:[[UIImage imageNamed:@"arrow_right"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-		_rightScrollIndecator.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleLeftMargin;
-		_rightScrollIndecator.tintColor = WODConstants.COLOR_CONTROLLER;
-		_rightScrollIndecator.center = CGPointMake(self.collectionView.bounds.size.width - 5,self.collectionView.bounds.size.height/2);
-		
-		self.leftScrollIndecator.alpha = 0.0;
-		self.rightScrollIndecator.alpha = 0.0;
-		
-		[self.view addSubview:self.leftScrollIndecator];
-		[self.view addSubview:self.rightScrollIndecator];
-	}
-	return _collectionView;
-}
-
 - (id)init
 {
     self = [super init];
     if (self)
 	{
-		self.view.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
+		self.view.backgroundColor = color_black;
     }
+    
     return self;
 }
 
 - (void)dealloc
 {
-#ifdef DEBUGMODE
-	NSLog(@"(%@,%i):deallocing...",[[NSString stringWithUTF8String:__FILE__]lastPathComponent],__LINE__);
-#endif
+    WODDebug(@"deallocing..");
 }
 
 - (void)addApplyButton
 {
-	UIView * bar = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height - 50, self.view.bounds.size.width, 50)];
-	[bar setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin];
-	[bar setBackgroundColor:WODConstants.COLOR_TAB_BACKGROUND];
-	[self.view addSubview:bar];
-	
-	WODButton * apply = [[WODButton alloc]initWithFrame: CGRectInset(bar.bounds, 100, 2)];
+	WODButton * apply = [[WODButton alloc]initWithFrame:CGRectMake(10, self.view.bounds.size.height - 50, self.view.bounds.size.width - 20, 40)];
 	[apply setImage:[[UIImage imageNamed:@"check_mark.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-	[apply setTintColor:WODConstants.COLOR_TEXT_TITLE];
-	[apply setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    [apply setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin];
+    [apply setBackgroundImage:[UIImage squareImageWithColor:color_gray andSize:apply.viewSize] forState:UIControlStateNormal];
+	[apply setTintColor:color_black];
 	[apply addTarget:self action:@selector(applyImage) forControlEvents:UIControlEventTouchUpInside];
-	[bar addSubview:apply];
-	
-	[UIView animateWithDuration:0.5 animations:^{
-		bar.frame = CGRectMake(0, self.view.bounds.size.height - 50, self.view.bounds.size.width, 50);
-	}];
+	[self.view addSubview:apply];
 }
 
 - (void)viewDidLoad
 {
 	[self.view addSubview:self.collectionView];
-	[self setEdgesForExtendedLayout:UIRectEdgeNone];
+
+    [self.collectionView setContentInset:UIEdgeInsetsMake(HEIGHT_STATUS_AND_NAV_BAR, 0, 0, 0)];
+    
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-[images]-|" options:0 metrics:nil views:@{@"images":self.collectionView}]];
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[images]-|" options:0 metrics:nil views:@{@"images":self.collectionView}]];
 	
@@ -127,11 +87,15 @@
 	
 	[self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentPage inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
 	
+    ws(wself);
 	[UIView animateWithDuration:0.3 animations:^{
-		self.collectionView.alpha = 1.0;
+        
+		wself.collectionView.alpha = 1.0;
+        
 	}];
 	
 	[self addApplyButton];
+    
 	[self checkScrollIndicatorVisiability];
 }
 
@@ -139,9 +103,12 @@
 {
 	_assetsGroup = assetsGroup;
 	
-	if (!self.assets) {
+	if (!self.assets)
+    {
         _assets = [[NSMutableArray alloc] init];
-    } else {
+    }
+    else
+    {
         [self.assets removeAllObjects];
     }
 	
@@ -181,7 +148,6 @@
 
 - (void)applyImage
 {
-	
 	if ([self.collectionView visibleCells] > 0)
 	{
 		NSIndexPath * indexPath = [self.collectionView indexPathForCell:[self.collectionView visibleCells][0]];
@@ -203,11 +169,14 @@
 						NSString * keyForFullSizeImageInCache = (NSString *)[NSUUID UUID];
 						
 						dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                            
 							UIImage * fullResImage = [WODConstants resizeImage:fullResImage1 maxSide:2048];
 							[WODConstants addOrUpdateImageCache:fullResImage forKey:keyForFullSizeImageInCache];
-						});
+						
+                        });
 						
 						[self.imagePickerViewController.delegate didFinishPickingImage:fullScreenImage originalImagePath:keyForFullSizeImageInCache size:fullResImageSize picker:self.imagePickerViewController];
+                        
 						break;
 					}
 				}
@@ -220,9 +189,11 @@
 						asset.size = [WODConstants calculateNewSizeForImage:asset.originalImage maxSide:2048];
 						
 						dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                            
 							UIImage * originalImage = [WODConstants resizeImage:asset.originalImage maxSide:2048];
 							[WODConstants addOrUpdateImageCache:originalImage forKey:keyForFullSizeImageInCache];
-						});
+						
+                        });
 						
 						[self.imagePickerViewController.delegate didFinishPickingImage:asset.fullScreenImage originalImagePath:keyForFullSizeImageInCache size:asset.size picker:self.imagePickerViewController];
 					}
@@ -254,6 +225,7 @@
 			imageView.frame = imageFrame;
 			
 			[cell.contentView addSubview:imageView];
+            
 			break;
 		}
 		case Custom:
@@ -264,6 +236,7 @@
 			imageView.frame = imageFrame;
 			
 			[cell.contentView addSubview:imageView];
+            
 			break;
 		}
 	}
@@ -274,21 +247,64 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	self.pageSize = CGSizeMake(collectionView.bounds.size.width - 10, collectionView.bounds.size.height - 10);
-	return self.pageSize;
+	
+    return self.pageSize;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 	self.currentPage = floor(self.collectionView.contentOffset.x/self.pageSize.width);
-	[self checkScrollIndicatorVisiability];
+	
+    [self checkScrollIndicatorVisiability];
 }
 
 - (void)checkScrollIndicatorVisiability
 {
+    ws(wself);
 	[UIView animateWithDuration:0.3 animations:^{
-		self.leftScrollIndecator.alpha = self.currentPage == 0 ? 0.0 : 1.0;
-		self.rightScrollIndecator.alpha = self.currentPage == self.assets.count - 1 ? 0.0 : 1.0;
+        
+		wself.leftScrollIndecator.alpha = wself.currentPage == 0 ? 0.0 : 1.0;
+		wself.rightScrollIndecator.alpha = wself.currentPage == wself.assets.count - 1 ? 0.0 : 1.0;
+        
 	}];
+}
+
+#pragma mark - getter
+
+- (UICollectionView *)collectionView
+{
+    if (!_collectionView)
+    {
+        UICollectionViewFlowLayout * flowlayout = [UICollectionViewFlowLayout new];
+        [flowlayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+        
+        _collectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:flowlayout];
+        [_collectionView setPagingEnabled:YES];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        _collectionView.backgroundColor = color_black;
+        _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+        _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"imageCell"];
+        
+        _leftScrollIndecator = [[UIImageView alloc]initWithImage:[[UIImage imageNamed:@"arrow_left"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+        _leftScrollIndecator.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
+        _leftScrollIndecator.tintColor = color_white;
+        _leftScrollIndecator.center = CGPointMake(5,self.collectionView.bounds.size.height/2);
+        
+        _rightScrollIndecator = [[UIImageView alloc]initWithImage:[[UIImage imageNamed:@"arrow_right"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+        _rightScrollIndecator.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleLeftMargin;
+        _rightScrollIndecator.tintColor = color_white;
+        _rightScrollIndecator.center = CGPointMake(self.collectionView.bounds.size.width - 5,self.collectionView.bounds.size.height/2);
+        
+        self.leftScrollIndecator.alpha = 0.0;
+        self.rightScrollIndecator.alpha = 0.0;
+        
+        [self.view addSubview:self.leftScrollIndecator];
+        [self.view addSubview:self.rightScrollIndecator];
+    }
+    
+    return _collectionView;
 }
 
 @end

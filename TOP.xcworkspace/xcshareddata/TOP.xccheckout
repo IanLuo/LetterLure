@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>929E5889-A80B-40EA-8B1D-A6DE33E05AA5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TOP</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C074B230334DE41E3DCE25697F6F9991CEE46CDD</key>
+		<string>https://github.com/WODStudios/Text-On-Picture.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TOP.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C074B230334DE41E3DCE25697F6F9991CEE46CDD</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/WODStudios/Text-On-Picture.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C074B230334DE41E3DCE25697F6F9991CEE46CDD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C074B230334DE41E3DCE25697F6F9991CEE46CDD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TOP</string>
+		</dict>
+	</array>
+</dict>
+</plist>

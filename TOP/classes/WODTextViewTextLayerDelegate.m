@@ -347,7 +347,7 @@
 		if (self.textView.shouldShowPath)
 		{
 			CGContextSaveGState(context);
-			UIColor * color = WODConstants.COLOR_NAV_BAR;
+			UIColor * color = color_black;
 			CGContextSetStrokeColorWithColor(context, color.CGColor);
 			CGContextAddPath(context, path);
 			CGContextStrokePath(context);

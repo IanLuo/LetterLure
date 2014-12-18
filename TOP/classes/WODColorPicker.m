@@ -38,7 +38,7 @@
 		
 		[self setItems:[self colorArray]];
 		
-		self.colorsView.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
+		self.colorsView.backgroundColor = color_black;
 	}
 	return self;
 }
@@ -51,9 +51,9 @@
 	if ([[NSUserDefaults standardUserDefaults]objectForKey:k_lastUsingColor])
 	{
 		NSArray * colorComponents = [[NSUserDefaults standardUserDefaults]objectForKey:k_lastUsingColor];
-		color = [UIColor colorWithRed:[(NSNumber *)colorComponents[0] doubleValue] green:[(NSNumber *)colorComponents[1] doubleValue] blue:[(NSNumber *)colorComponents[2] doubleValue] alpha:1];
+		color = [UIColor colorWithRed:(CGFloat) [(NSNumber *) colorComponents[0] doubleValue] green:(CGFloat) [(NSNumber *) colorComponents[1] doubleValue] blue:(CGFloat) [(NSNumber *) colorComponents[2] doubleValue] alpha:1];
 	}
-	return  color? color : WODConstants.COLOR_CONTROLLER;
+	return  color? color : color_black;
 }
 
 - (void)saveLastUsingColor:(UIColor *)color

@@ -7,138 +7,137 @@
 //
 
 #import "WODConstants.h"
-#import "SVProgressHUD.h"
 
 @implementation WODConstants
 
 static NSArray * CurrentPattern;
 #pragma mark - colors
 
-+ (NSArray *)themes
-{
-	return @[THEME_DARK,THEME_GREEN,THEME_GREEN2,THEME_BLUE,THEME_DEEP_BLUE,THEME_ORGANGE,THEME_PURPLE,THEME_RED,THEME_YELLOW];
-}
-
-+ (void)setUpUITheme:(int)index
-{
-	CurrentPattern = [self themes][index];
-	
-	[UIBarButtonItem configureFlatButtonsWithColor:[UIColor clearColor]
-								  highlightedColor:[UIColor clearColor]
-									  cornerRadius:0];
-	[[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldFlatFontOfSize:12],NSForegroundColorAttributeName:WODConstants.COLOR_TEXT_TITLE} forState:UIControlStateNormal];
-	[[UIBarButtonItem appearance] setTintColor:WODConstants.COLOR_TEXT_TITLE];
-	[[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldFlatFontOfSize:12],NSForegroundColorAttributeName:WODConstants.COLOR_TEXT_TITLE}];
-	[[UINavigationBar appearance] setBarTintColor:WODConstants.COLOR_NAV_BAR];
-	[[UINavigationBar appearance] setTintColor:WODConstants.COLOR_TEXT_TITLE];
-	
-	[[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_THEME_CHANGED object:nil];
-}
-
-+ (void)setTheme:(NSArray *)pattern
-{
-	CurrentPattern = pattern;
-}
-
-+ (NSArray *)CURRENT_THEM
-{
-	return CurrentPattern;
-}
-
-+ (UIColor*) COLOR_TAB_BACKGROUND
-{
-	return [self CURRENT_THEM][0];
-}
-
-+ (UIColor*) COLOR_TOOLBAR_BACKGROUND
-{
-	return [self CURRENT_THEM][0];
-}
-
-+ (UIColor*) COLOR_TOOLBAR_BACKGROUND_SECONDARY
-{
-	return [UIColor cloudsColor];
-}
-
-+ (UIColor*) COLOR_NAV_BAR
-{
-	return [self CURRENT_THEM][0];
-}
-
-+ (UIColor*) COLOR_DIALOG_BACKGROUND
-{
-	return [self CURRENT_THEM][0];
-}
-
-+ (UIColor*) COLOR_VIEW_BACKGROUND
-{
-	return [self CURRENT_THEM][0];
-}
-
-+ (UIColor*) COLOR_VIEW_BACKGROUND_DARK
-{
-	return [self CURRENT_THEM][0];
-}
-
-+ (UIColor*) COLOR_CONTROLLER
-{
-	return [self CURRENT_THEM][0];
-}
-
-+ (UIColor*) COLOR_CONTROLLER_HIGHTLIGHT
-{
-	return [self CURRENT_THEM][0];
-}
-
-+ (UIColor*) COLOR_CONTROLLER_SHADOW
-{
-	return [self CURRENT_THEM][0];
-}
-
-+ (UIColor*) COLOR_CONTROLLER_DISABLED
-{
-	return [UIColor silverColor];
-}
-
-+ (UIColor*) COLOR_CONTROLLER_SELECTED
-{
-	return [self CURRENT_THEM][0];
-}
-
-+ (UIColor*) COLOR_TEXT_TITLE
-{
-	return [UIColor cloudsColor];
-}
-
-+ (UIColor*) COLOR_TEXT_CONTENT
-{
-	return [UIColor concreteColor];
-}
-
-+ (UIColor*) COLOR_TEXT_ACTIONSHEET
-{
-	return [self CURRENT_THEM][1];
-}
-
-+ (UIColor*) COLOR_ITEM_PICKER
-{
-	return [self CURRENT_THEM][1];
-}
-
-+ (UIColor*) COLOR_ITEM_PICKER_CONTROL_ITEM
-{
-	return [self CURRENT_THEM][0];
-}
-
-+ (UIColor*) COLOR_ITEM_PICKER_CUSTOM_ITEM
-{
-	return [self CURRENT_THEM][0];
-}
-
-+ (UIColor*) COLOR_LINE_COLOR
-{
-	return [UIColor cloudsColor];
-}
+//+ (NSArray *)themes
+//{
+//	return @[THEME_DARK,THEME_GREEN,THEME_GREEN2,THEME_BLUE,THEME_DEEP_BLUE,THEME_ORGANGE,THEME_PURPLE,THEME_RED,THEME_YELLOW];
+//}
+//
+//+ (void)setUpUITheme:(int)index
+//{
+//	CurrentPattern = [self themes][index];
+//
+//	[UIBarButtonItem configureFlatButtonsWithColor:[UIColor clearColor]
+//								  highlightedColor:[UIColor clearColor]
+//									  cornerRadius:0];
+//	[[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldFlatFontOfSize:12],NSForegroundColorAttributeName:WODConstants.COLOR_TEXT_TITLE} forState:UIControlStateNormal];
+//	[[UIBarButtonItem appearance] setTintColor:WODConstants.COLOR_TEXT_TITLE];
+//	[[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldFlatFontOfSize:12],NSForegroundColorAttributeName:WODConstants.COLOR_TEXT_TITLE}];
+//	[[UINavigationBar appearance] setBarTintColor:WODConstants.COLOR_NAV_BAR];
+//	[[UINavigationBar appearance] setTintColor:WODConstants.COLOR_TEXT_TITLE];
+//
+//	[[NSNotificationCenter defaultCenter]postNotificationName:NOTIFICATION_THEME_CHANGED object:nil];
+//}
+//
+//+ (void)setTheme:(NSArray *)pattern
+//{
+//	CurrentPattern = pattern;
+//}
+//
+//+ (NSArray *)CURRENT_THEM
+//{
+//	return CurrentPattern;
+//}
+//
+//+ (UIColor*) COLOR_TAB_BACKGROUND
+//{
+//	return [self CURRENT_THEM][0];
+//}
+//
+//+ (UIColor*) COLOR_TOOLBAR_BACKGROUND
+//{
+//	return [self CURRENT_THEM][0];
+//}
+//
+//+ (UIColor*) COLOR_TOOLBAR_BACKGROUND_SECONDARY
+//{
+//	return [UIColor cloudsColor];
+//}
+//
+//+ (UIColor*) COLOR_NAV_BAR
+//{
+//	return [self CURRENT_THEM][0];
+//}
+//
+//+ (UIColor*) COLOR_DIALOG_BACKGROUND
+//{
+//	return [self CURRENT_THEM][0];
+//}
+//
+//+ (UIColor*) COLOR_VIEW_BACKGROUND
+//{
+//	return [self CURRENT_THEM][0];
+//}
+//
+//+ (UIColor*) COLOR_VIEW_BACKGROUND_DARK
+//{
+//	return [self CURRENT_THEM][0];
+//}
+//
+//+ (UIColor*) COLOR_CONTROLLER
+//{
+//	return [self CURRENT_THEM][0];
+//}
+//
+//+ (UIColor*) COLOR_CONTROLLER_HIGHTLIGHT
+//{
+//	return [self CURRENT_THEM][0];
+//}
+//
+//+ (UIColor*) COLOR_CONTROLLER_SHADOW
+//{
+//	return [self CURRENT_THEM][0];
+//}
+//
+//+ (UIColor*) COLOR_CONTROLLER_DISABLED
+//{
+//	return [UIColor silverColor];
+//}
+//
+//+ (UIColor*) COLOR_CONTROLLER_SELECTED
+//{
+//	return [self CURRENT_THEM][0];
+//}
+//
+//+ (UIColor*) COLOR_TEXT_TITLE
+//{
+//	return [UIColor cloudsColor];
+//}
+//
+//+ (UIColor*) COLOR_TEXT_CONTENT
+//{
+//	return [UIColor concreteColor];
+//}
+//
+//+ (UIColor*) COLOR_TEXT_ACTIONSHEET
+//{
+//	return [self CURRENT_THEM][1];
+//}
+//
+//+ (UIColor*) COLOR_ITEM_PICKER
+//{
+//	return [self CURRENT_THEM][1];
+//}
+//
+//+ (UIColor*) COLOR_ITEM_PICKER_CONTROL_ITEM
+//{
+//	return [self CURRENT_THEM][0];
+//}
+//
+//+ (UIColor*) COLOR_ITEM_PICKER_CUSTOM_ITEM
+//{
+//	return [self CURRENT_THEM][0];
+//}
+//
+//+ (UIColor*) COLOR_LINE_COLOR
+//{
+//	return [UIColor cloudsColor];
+//}
 
 #pragma mark - image processing
 
@@ -299,15 +298,15 @@ static NSArray * CurrentPattern;
 +(CGSize) sizeInOrientation:(UIInterfaceOrientation)orientation
 {
     CGSize size = [UIScreen mainScreen].bounds.size;
-    UIApplication *application = [UIApplication sharedApplication];
-    if (UIInterfaceOrientationIsLandscape(orientation))
-    {
-        size = CGSizeMake(size.height, size.width);
-    }
-    if (application.statusBarHidden == NO)
-    {
-        size.height -= MIN(application.statusBarFrame.size.width, application.statusBarFrame.size.height);
-    }
+//    UIApplication *application = [UIApplication sharedApplication];
+//    if (UIInterfaceOrientationIsLandscape(orientation))
+//    {
+//        size = CGSizeMake(size.height, size.width);
+//    }
+//    if (application.statusBarHidden == NO)
+//    {
+//        size.height -= MIN(application.statusBarFrame.size.width, application.statusBarFrame.size.height);
+//    }
     return size;
 }
 

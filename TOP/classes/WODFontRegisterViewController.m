@@ -9,23 +9,24 @@
 #import "WODFontRegisterViewController.h"
 #import "WODFontManager.h"
 #import "WODIAPCenter.h"
-#import "SVProgressHUD.h"
+#import "MBProgressHUD.h"
 #import "WODButton.h"
 #import "WODFontCreditViewerViewController.h"
-#import "FUISegmentedControl.h"
 
 #define segmentHeight 34
 #define purchaseButtonsHeight 44
 #define puchaseButtonsViewTag 10
 
-@interface WODFontRegisterViewController ()<FUIAlertViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface WODFontRegisterViewController ()<UIAlertViewDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong)NSArray * allFontFamilies;
 @property (nonatomic, strong)NSMutableArray * unregisterdFontFamilies;
-@property (nonatomic, strong)FUISegmentedControl * segmented;
+@property (nonatomic, strong)UISegmentedControl * segmented;
 @property (nonatomic, strong)WODFontManager * fontManager;
 @property (nonatomic, strong)WODIAPCenter * iapCenter;
 @property (nonatomic, strong)UITableView * tableView;
+
+@property (nonatomic, strong)MBProgressHUD *hud;
 
 @end
 
@@ -39,8 +40,8 @@
 		_tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		[_tableView setDataSource:self];
 		[_tableView setDelegate:self];
-		[_tableView setBackgroundColor:WODConstants.COLOR_VIEW_BACKGROUND];
-		[_tableView setSeparatorColor:WODConstants.COLOR_VIEW_BACKGROUND];
+		[_tableView setBackgroundColor:color_black];
+		[_tableView setSeparatorColor:color_white];
 	}
 	return _tableView;
 }
@@ -76,20 +77,20 @@
 {
 	if (!_segmented)
 	{
-		_segmented = [[FUISegmentedControl alloc]initWithFrame:CGRectMake(10, 2, self.view.bounds.size.width - 20, segmentHeight)];
+		_segmented = [[UISegmentedControl alloc]initWithFrame:CGRectMake(10, 2, self.view.bounds.size.width - 20, segmentHeight)];
 		_segmented.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 		[_segmented insertSegmentWithTitle:NSLocalizedString(@"FONTS_ALL", nil) atIndex:0 animated:NO];
 		[_segmented insertSegmentWithTitle:NSLocalizedString(@"FONTS_EXTRA", nil) atIndex:1 animated:NO];
 		[_segmented insertSegmentWithTitle:NSLocalizedString(@"FONTS_CUSTOM", nil) atIndex:2 animated:NO];
 	
-		_segmented.selectedFont = [UIFont boldFlatFontOfSize:16];
-		_segmented.selectedFontColor = WODConstants.COLOR_TEXT_TITLE;
-		_segmented.deselectedFont = [UIFont flatFontOfSize:16];
-		_segmented.deselectedFontColor = WODConstants.COLOR_TEXT_TITLE;
-		_segmented.selectedColor = WODConstants.COLOR_CONTROLLER;
-		_segmented.deselectedColor = WODConstants.COLOR_CONTROLLER_DISABLED;
-		_segmented.dividerColor = WODConstants.COLOR_LINE_COLOR;
-		_segmented.cornerRadius = 5.0;
+////		_segmented.selectedFont = [UIFont boldFlatFontOfSize:16];
+//		_segmented.selectedFontColor = WODConstants.COLOR_TEXT_TITLE;
+////		_segmented.deselectedFont = [UIFont flatFontOfSize:16];
+//		_segmented.deselectedFontColor = WODConstants.COLOR_TEXT_TITLE;
+//		_segmented.selectedColor = WODConstants.COLOR_CONTROLLER;
+//		_segmented.deselectedColor = WODConstants.COLOR_CONTROLLER_DISABLED;
+//		_segmented.dividerColor = WODConstants.COLOR_LINE_COLOR;
+//		_segmented.cornerRadius = 5.0;
 	
 		[_segmented addTarget:self action:@selector(fontSourceChanged:) forControlEvents:UIControlEventValueChanged];
 	}
@@ -101,7 +102,7 @@
 	UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, self.segmented.bounds.size.height, self.view.bounds.size.width, purchaseButtonsHeight)];
 	view.tag = puchaseButtonsViewTag;
 	view.alpha = 0.0;
-	view.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
+	view.backgroundColor = color_black;
 	view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	[self.view addSubview:view];
 	
@@ -178,7 +179,7 @@
 {
     [super viewDidLoad];
 	
-	self.view.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
+	self.view.backgroundColor = color_black;
 	
 	[self setEdgesForExtendedLayout:UIRectEdgeNone];
 	
@@ -195,6 +196,9 @@
 	UIBarButtonItem * done = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(close)];
 	
 	[self.navigationItem setRightBarButtonItem:done];
+    
+    _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.mode = MBProgressHUDModeAnnularDeterminate;
 }
 
 - (void)close
@@ -244,7 +248,7 @@
 	NSString * fontFamilyName = self.allFontFamilies[indexPath.row];
 	[cell.textLabel setText:fontFamilyName];
 	[cell.textLabel setFont:[UIFont fontWithName:fontFamilyName size:20]];
-	[cell.textLabel setTextColor:WODConstants.COLOR_TEXT_TITLE];
+	[cell.textLabel setTextColor:color_white];
 	
 	cell.selectionStyle = self.segmented.selectedSegmentIndex == 1 ? UITableViewCellSelectionStyleGray : UITableViewCellSelectionStyleNone;
 	
@@ -280,17 +284,17 @@
 
 - (void)purchase
 {
-	FUIAlertView * alertView = [[FUIAlertView alloc]initWithTitle:NSLocalizedString(@"PURCHASE_EXTRA_FONTS", nil) message:NSLocalizedString(@"PURCHASE_EXTRA_FONTS_MSG", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"CANCEL", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
-	alertView.titleLabel.textColor = [UIColor cloudsColor];
-	alertView.titleLabel.font = [UIFont boldFlatFontOfSize:16];
-	alertView.messageLabel.textColor = [UIColor cloudsColor];
-	alertView.messageLabel.font = [UIFont flatFontOfSize:14];
-	alertView.backgroundOverlay.backgroundColor = [[UIColor cloudsColor] colorWithAlphaComponent:0.8];
-	alertView.alertContainer.backgroundColor = WODConstants.COLOR_DIALOG_BACKGROUND;
-	alertView.defaultButtonColor = [UIColor cloudsColor];
-	alertView.defaultButtonShadowColor = [UIColor asbestosColor];
-	alertView.defaultButtonFont = [UIFont boldFlatFontOfSize:16];
-	alertView.defaultButtonTitleColor = [UIColor asbestosColor];
+	UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"PURCHASE_EXTRA_FONTS", nil) message:NSLocalizedString(@"PURCHASE_EXTRA_FONTS_MSG", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"CANCEL", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+//	alertView.titleLabel.textColor = [UIColor cloudsColor];
+//	alertView.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+//	alertView.messageLabel.textColor = [UIColor cloudsColor];
+//	alertView.messageLabel.font = [UIFont flatFontOfSize:14];
+//	alertView.backgroundOverlay.backgroundColor = [[UIColor cloudsColor] colorWithAlphaComponent:0.8];
+//	alertView.alertContainer.backgroundColor = WODConstants.COLOR_DIALOG_BACKGROUND;
+//	alertView.defaultButtonColor = [UIColor cloudsColor];
+//	alertView.defaultButtonShadowColor = [UIColor asbestosColor];
+//	alertView.defaultButtonFont = [UIFont boldFlatFontOfSize:16];
+//	alertView.defaultButtonTitleColor = [UIColor asbestosColor];
 	[alertView show];
 }
 
@@ -302,7 +306,9 @@
 		{
 			[self hidePurchaseButton];
 		}
-		[SVProgressHUD showSuccessWithStatus:@"Restore Complete"];
+        
+		self.hud.labelText = @"Restore Complete";
+        [self.hud show:YES];
 		
 		[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(dismissHUD) userInfo:nil repeats:NO];
 	}];
@@ -314,7 +320,7 @@
 	{
 		[self.iapCenter purchasePackage:iapExtraFonts complete:^(NSString *completeMessage) {
 		
-			[SVProgressHUD showSuccessWithStatus:completeMessage];
+            [self.hud hide:YES];
 			
 			[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(dismissHUD) userInfo:nil repeats:NO];
 			
@@ -327,7 +333,7 @@
 
 - (void)dismissHUD
 {
-	[SVProgressHUD dismiss];
+	[self.hud hide:YES];
 }
 
 - (void)saveUnregisteredFont
@@ -350,11 +356,11 @@
 	{
 		[self setCellStyle:CellStyleSwitch];
 		
-		[self configureFlatCellWithColor:WODConstants.COLOR_CONTROLLER selectedColor:[UIColor cloudsColor] roundingCorners:UIRectCornerAllCorners];
+//		[self configureFlatCellWithColor:WODConstants.COLOR_CONTROLLER selectedColor:[UIColor cloudsColor] roundingCorners:UIRectCornerAllCorners];
 		
-		self.cornerRadius = 5.0f;
-		self.separatorHeight = 2.0f;
-		self.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
+//		self.cornerRadius = 5.0f;
+//		self.separatorHeight = 2.0f;
+		self.backgroundColor = color_black;
 	}
 	return self;
 }
@@ -366,14 +372,14 @@
 		{
 			if (!self.accessoryView)
 			{
-				_isRigesterd = [FUISwitch new];
-				_isRigesterd.bounds = CGRectMake(0, 0, 60, 30);
-				_isRigesterd.onColor = [UIColor cloudsColor];
-				_isRigesterd.offColor = WODConstants.COLOR_CONTROLLER_SHADOW;
-				_isRigesterd.onBackgroundColor = [UIColor silverColor];
-				_isRigesterd.offBackgroundColor = WODConstants.COLOR_CONTROLLER;
-				_isRigesterd.offLabel.font = [UIFont boldFlatFontOfSize:14];
-				_isRigesterd.onLabel.font = [UIFont boldFlatFontOfSize:14];
+				_isRigesterd = [UISwitch new];
+//				_isRigesterd.bounds = CGRectMake(0, 0, 60, 30);
+//				_isRigesterd.onColor = [UIColor cloudsColor];
+//				_isRigesterd.offColor = WODConstants.COLOR_CONTROLLER_SHADOW;
+//				_isRigesterd.onBackgroundColor = [UIColor silverColor];
+//				_isRigesterd.offBackgroundColor = WODConstants.COLOR_CONTROLLER;
+//				_isRigesterd.offLabel.font = [UIFont boldFlatFontOfSize:14];
+//				_isRigesterd.onLabel.font = [UIFont boldFlatFontOfSize:14];
 				
 				[self.isRigesterd addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
 			}

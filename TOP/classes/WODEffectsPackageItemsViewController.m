@@ -7,112 +7,94 @@
 //
 
 #import "WODEffectsPackageItemsViewController.h"
-#import "WODEffectPackageManager.h"
 #import "WODSimpleScrollItemPicker.h"
 #import "WODEffectPackageManager.h"
 #import "WODTextView.h"
 #import "WODEffect.h"
 #import "WODIAPCenter.h"
-#import "SVProgressHUD.h"
+#import "MBProgressHUD.h"
 
 #define FontSize UIUserInterfaceIdiomPad == UI_USER_INTERFACE_IDIOM() ? 100 : 50
 
-@interface WODEffectsPackageItemsViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,FUIAlertViewDelegate>
+@interface WODEffectsPackageItemsViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSArray * packageItems;
-@property (nonatomic, strong) WODEffectPackageManager * effectPackageManager;
 @property (nonatomic, strong) UIImageView * sampleTextImageView;
 @property (nonatomic, strong) WODEffectPackageManager * effectsManager;
 @property (nonatomic, strong) WODTextView * sampleTextView;
 @property (nonatomic, strong) WODIAPCenter * iapCenter;
 @property (nonatomic, strong) NSArray * allFontFamilies;
 @property (nonatomic, strong) UICollectionView * collectionView;
+@property (nonatomic, strong) WODSimpleScrollItemPicker * effectsPicker;
+@property (nonatomic, strong) MBProgressHUD * hud;
 
 @end
 
 @implementation WODEffectsPackageItemsViewController
-
-- (WODIAPCenter *)iapCenter
-{
-	if (!_iapCenter)
-	{
-		_iapCenter = [WODIAPCenter sharedSingleton];
-	}
-	return _iapCenter;
-}
-
-- (NSArray *)allFontFamilies
-{
-	if (!_allFontFamilies)
-	{
-		_allFontFamilies = [UIFont familyNames];
-	}
-	return _allFontFamilies;
-}
-
-- (WODEffectPackageManager *)effectPackageManager
-{
-	if(!_effectPackageManager)
-	{
-		_effectPackageManager = [WODEffectPackageManager new];
-	}
-	return _effectPackageManager;
-}
-
-- (WODEffectPackageManager *)effectsManager
-{
-	if (!_effectsManager)
-	{
-		_effectsManager = [WODEffectPackageManager new];
-	}
-	return _effectsManager;
-}
-
-- (WODTextView *)sampleTextView
-{
-	if (!_sampleTextView)
-	{
-		_sampleTextView = [WODTextView new];
-		UIFont * font = [UIFont fontWithName:@"ArialHebrew-Bold" size:FontSize];
-		[_sampleTextView setText:[self sampleAttributedStringForFont:font]];
-	}
-	return _sampleTextView;
-}
 
 - (id)init
 {
     self = [super init];
     if (self)
 	{
-		_sampleTextImageView = [[UIImageView alloc] init];
-		[self.sampleTextImageView setContentMode:UIViewContentModeCenter];
-		[self.sampleTextImageView setCenter:self.view.center];
-		[self.sampleTextImageView setTranslatesAutoresizingMaskIntoConstraints:NO];
-		[self.view addSubview:self.sampleTextImageView];
-		
-		UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
-		[flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-		[flowLayout setMinimumInteritemSpacing:0.0];
-		[flowLayout setMinimumLineSpacing:0.0];
-		_collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-		[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"fontCell"];
-		[self.collectionView setDelegate:self];
-		[self.collectionView setDataSource:self];
-		[self.collectionView setTranslatesAutoresizingMaskIntoConstraints:NO];
-		[self.collectionView setAlpha:0.0];
-		[self.collectionView setBackgroundColor:WODConstants.COLOR_VIEW_BACKGROUND];
-		[self.view addSubview:self.collectionView];
+        _hud = [MBProgressHUD HUDForView:self.view];
     }
+    
     return self;
 }
 
 - (void)viewWillLayoutSubviews
 {
-	[self.view removeConstraints:self.view.constraints];
 	
-	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[imageView]|" options:0 metrics:nil views:@{@"collectionView":self.collectionView,@"imageView":self.sampleTextImageView}]];
-	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[collectionView]|" options:0 metrics:nil views:@{@"collectionView":self.collectionView,@"imageView":self.sampleTextImageView}]];
-	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[imageView][collectionView(fontsBarHeight)]-toolbarHeight-|" options:0 metrics:@{@"toolbarHeight":@(76),@"fontsBarHeight":@([WODConstants navigationbarHeight])} views:@{@"collectionView":self.collectionView,@"imageView":self.sampleTextImageView}]];
+}
+
+- (void)makeConstrains
+{
+    ws(wself);
+    [self.sampleTextImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.mas_equalTo(topOffset()+10);
+        
+    }];
+    
+    [self.effectsPicker mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.width.equalTo(wself.view.mas_width);
+        make.height.mas_equalTo(40);
+        make.bottom.equalTo(wself.view.mas_bottom);
+        
+    }];
+    
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.width.equalTo(wself.view.mas_width);
+        make.height.mas_equalTo(40);
+        make.bottom.equalTo(wself.effectsPicker.mas_bottom).offset(10);
+        
+    }];
+}
+
+- (void)updateConstaints
+{
+//    ws(wself);
+//    [self.sampleTextImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        
+//        make.top.mas_equalTo(topOffset()+10);
+//        
+//    }];
+//    
+//    [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        
+//        make.height.mas_equalTo(40);
+//        make.bottom.mas_equalTo(0);
+//        
+//    }];
+//    
+//    [self.effectsPicker mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        
+//        make.bottom.equalTo(wself.collectionView.mas_top).offset(10);
+//        
+//    }];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
@@ -130,42 +112,50 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self setEdgesForExtendedLayout:UIRectEdgeNone];
+
 	[self setAutomaticallyAdjustsScrollViewInsets:NO];
-	// Do any additional setup after loading the view.
-	
-	self.view.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND_DARK;
+
+    self.view.backgroundColor = color_black;
+    
+    [self.view addSubview:self.sampleTextImageView];
+    
+    [self.view addSubview:self.collectionView];
+    
+    ws(wself);
+ 
+    [self.effectsPicker showFrom:self.view withSelection:^(WODSimpleScrollItemPickerItem *selectedItem)
+     {
+         NSString * xmlFilePath = [wself.packageItems[selectedItem.index]stringByAppendingString:@"/effect.xml"];
+         
+         [wself showEffectedText:xmlFilePath];
+         
+     }];
+    
+    [self makeConstrains];
 }
 
 - (void)payPackage:(UIBarButtonItem *)button
 {
-	FUIAlertView * alertView = [[FUIAlertView alloc]initWithTitle:NSLocalizedString(@"PURCHASE", nil) message:[NSLocalizedString(@"COMFIRM_PURCHASEING", nil) stringByAppendingFormat:@"%@ (%@)",NSLocalizedString(self.packageName, nil),button.title] delegate:self cancelButtonTitle:NSLocalizedString(@"CANCEL", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
-	alertView.titleLabel.textColor = [UIColor cloudsColor];
-	alertView.titleLabel.font = [UIFont boldFlatFontOfSize:16];
-	alertView.messageLabel.textColor = [UIColor cloudsColor];
-	alertView.messageLabel.font = [UIFont flatFontOfSize:14];
-	alertView.backgroundOverlay.backgroundColor = [[UIColor cloudsColor] colorWithAlphaComponent:0.8];
-	alertView.alertContainer.backgroundColor = WODConstants.COLOR_DIALOG_BACKGROUND;
-	alertView.defaultButtonColor = [UIColor cloudsColor];
-	alertView.defaultButtonShadowColor = [UIColor asbestosColor];
-	alertView.defaultButtonFont = [UIFont boldFlatFontOfSize:16];
-	alertView.defaultButtonTitleColor = [UIColor asbestosColor];
-	[alertView show];
+	UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"PURCHASE", nil) message:[NSLocalizedString(@"COMFIRM_PURCHASEING", nil) stringByAppendingFormat:@"%@ (%@)",NSLocalizedString(self.packageName, nil),button.title] delegate:self cancelButtonTitle:NSLocalizedString(@"CANCEL", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+
+    [alertView show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 	if (buttonIndex == 1)
 	{
+        ws(wself);
 		[self.iapCenter purchasePackage:self.packageName complete:^(NSString *completeMessage) {
 			if (completeMessage)
 			{
-				[SVProgressHUD showSuccessWithStatus:completeMessage];
+				[wself.hud setLabelText:completeMessage];
+                [wself.hud show:YES];
 				
-				[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(dismissHUD) userInfo:nil repeats:NO];
+                [wself performSelector:@selector(dismissHUD) withObject:nil afterDelay:2.0];
 				
-				UIBarButtonItem * apply = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"NAVIGATIONBAR_ITEM_USE_IT", nil) style:UIBarButtonItemStylePlain target:self action:@selector(applyPackage)];
-				self.navigationItem.rightBarButtonItem = apply;
+				UIBarButtonItem * apply = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"NAVIGATIONBAR_ITEM_USE_IT", nil) style:UIBarButtonItemStylePlain target:wself action:@selector(applyPackage)];
+				wself.navigationItem.rightBarButtonItem = apply;
 			}
 		}];
 	}
@@ -173,7 +163,7 @@
 
 - (void)dismissHUD
 {
-	[SVProgressHUD dismiss];
+    [self.hud hide:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -188,11 +178,7 @@
 	
 	if ( self.packageItems.count > 0)
 	{
-		WODSimpleScrollItemPicker * effectsPicker = [WODSimpleScrollItemPicker new];
-		effectsPicker.distansFromBottomPortrait = 0;
-		effectsPicker.distansFromBottomLandscape = 0;
-		effectsPicker.hideBorder = YES;
-		effectsPicker.displayStyle = DisplayStylePermenante;
+		
 		
 		for (NSString * path in self.packageItems)
 		{
@@ -201,27 +187,25 @@
 			{
 				UIImageView * effecIcon = [[UIImageView alloc]initWithImage:[self.effectsManager iconForEffect:path]];
 				[effecIcon setContentMode:UIViewContentModeCenter];
-				[effectsPicker addItemWithView:effecIcon];
+				[self.effectsPicker addItemWithView:effecIcon];
 			}
 			else
-				[effectsPicker addItem:[path lastPathComponent]];
+				[self.effectsPicker addItem:[path lastPathComponent]];
 		}
 		
 		NSString * xmlFilePath = [self.packageItems[0]stringByAppendingString:@"/effect.xml"];
 		[self showEffectedText:xmlFilePath];
 		
-		__weak typeof (self) wSelf = self;
-		[effectsPicker showFrom:self.view withSelection:^(WODSimpleScrollItemPickerItem *selectedItem)
-		 {
-			 NSString * xmlFilePath = [wSelf.packageItems[selectedItem.index]stringByAppendingString:@"/effect.xml"];
-			 
-			 [wSelf showEffectedText:xmlFilePath];
-		 }];
+        ws(wself);
 		 
 		[UIView animateWithDuration:0.3 animations:^{
-			[self.collectionView setAlpha:1.0];
+            
+			[wself.collectionView setAlpha:1.0];
+            
 		} completion:^(BOOL finished) {
-			[self.view bringSubviewToFront:self.collectionView];
+            
+			[wself.view bringSubviewToFront:self.collectionView];
+            
 		}];
 	}
 }
@@ -234,11 +218,16 @@
 	if(self.sampleTextView.effectProvider != effect)
 	{
 		[effect prepare:^{
+            
 			[wself.sampleTextView setEffectProvider:effect];
 			
 			[wself.sampleTextView displayTextHideFeatures:NO complete:^(UIImage *image) {
+                
 				[wself applyEffectForSampleTextImage:image];
+                [wself updateConstaints];
+                
 			}];
+            
 		}];
 	}
 }
@@ -249,7 +238,7 @@
 	
 	self.title = NSLocalizedString(_packageName, nil);
 	
-	self.packageItems = [self.effectPackageManager effectsInPackage:self.packageName];
+	self.packageItems = [self.effectsManager effectsInPackage:self.packageName];
 	
 	if (![self.iapCenter checkIsPackageReady:self.packageName])
 	{
@@ -298,9 +287,9 @@
 	}
 	
 	UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, [WODConstants navigationbarHeight], [WODConstants navigationbarHeight])];
-	[label setTextColor:WODConstants.COLOR_TEXT_TITLE];
+	[label setTextColor:color_white];
 	[label setTextAlignment:NSTextAlignmentCenter];
-	[label setBackgroundColor:WODConstants.COLOR_CONTROLLER];
+	[label setBackgroundColor:color_black];
 	[cell.contentView addSubview:label];
 	
 	[label setText:@"Aa"];
@@ -323,7 +312,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	return CGSizeMake([WODConstants navigationbarHeight], [WODConstants navigationbarHeight]);
+	return CGSizeMake(30, 30);
 }
 
 #pragma mark - utils
@@ -352,8 +341,7 @@
 
 - (NSString *)sampleTextString
 {
-	UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-	if ((orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+	if (!isVertical())
 	{
 		return @"Sample Effect";
 	}
@@ -366,6 +354,93 @@
 - (void)applyEffectForSampleTextImage:(UIImage *)image
 {
 	self.sampleTextImageView.image = image;
+}
+
+#pragma mark - getter 
+
+- (WODIAPCenter *)iapCenter
+{
+    if (!_iapCenter)
+    {
+        _iapCenter = [WODIAPCenter sharedSingleton];
+    }
+    return _iapCenter;
+}
+
+- (NSArray *)allFontFamilies
+{
+    if (!_allFontFamilies)
+    {
+        _allFontFamilies = [UIFont familyNames];
+    }
+    return _allFontFamilies;
+}
+
+- (WODEffectPackageManager *)effectsManager
+{
+    if (!_effectsManager)
+    {
+        _effectsManager = [WODEffectPackageManager new];
+    }
+    return _effectsManager;
+}
+
+- (WODTextView *)sampleTextView
+{
+    if (!_sampleTextView)
+    {
+        _sampleTextView = [WODTextView new];
+        UIFont * font = [UIFont fontWithName:@"ArialHebrew-Bold" size:FontSize];
+        [_sampleTextView setText:[self sampleAttributedStringForFont:font]];
+    }
+    return _sampleTextView;
+}
+
+- (UIImageView *)sampleTextImageView
+{
+    if (!_sampleTextImageView)
+    {
+        _sampleTextImageView = [[UIImageView alloc] init];
+        [_sampleTextImageView setContentMode:UIViewContentModeCenter];
+        [_sampleTextImageView setCenter:self.view.center];
+        [_sampleTextImageView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    }
+    
+    return _sampleTextImageView;
+}
+
+- (UICollectionView *)collectionView
+{
+    if (!_collectionView)
+    {
+        UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
+        [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+        [flowLayout setMinimumInteritemSpacing:0.0];
+        [flowLayout setMinimumLineSpacing:0.0];
+        
+        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"fontCell"];
+        [_collectionView setDelegate:self];
+        [_collectionView setDataSource:self];
+        [_collectionView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [_collectionView setAlpha:0.0];
+        [_collectionView setBackgroundColor:color_black];
+    }
+    
+    return _collectionView;
+}
+
+- (WODSimpleScrollItemPicker *)effectsPicker
+{
+    if (!_effectsPicker)
+    {
+        _effectsPicker = [WODSimpleScrollItemPicker new];
+        _effectsPicker.distansFromBottomPortrait = 0;
+        _effectsPicker.distansFromBottomLandscape = 0;
+        _effectsPicker.hideBorder = YES;
+        _effectsPicker.displayStyle = DisplayStylePermenante;
+    }
+    return _effectsPicker;
 }
 
 @end

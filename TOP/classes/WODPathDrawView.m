@@ -7,9 +7,11 @@
 //
 
 #import "WODPathDrawView.h"
-#import "SVProgressHUD.h"
+#import "MBProgressHUD.h"
 
 @interface WODPathDrawView()
+
+@property (nonatomic, strong)MBProgressHUD * hud;
 
 @end
 
@@ -27,6 +29,9 @@
 		[self setBackgroundColor:[UIColor clearColor]];
 		
 		[self setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+        
+        _hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+        self.hud.mode = MBProgressHUDModeAnnularDeterminate;
 	}
 	return self;
 }
@@ -103,7 +108,7 @@ static CFTimeInterval currentTime = 0.0;
 	
 	[self.path removeAllPoints];
 	
-	[SVProgressHUD dismiss];
+    [self.hud hide:YES];
 }
 
 - (void)getCurrentPoint:(CADisplayLink *)displayLink
@@ -114,8 +119,7 @@ static CFTimeInterval currentTime = 0.0;
 	[allPoints addObject:[NSValue valueWithCGPoint:currentPosition]];
 		
 	currentTime += dl.duration;
-	[SVProgressHUD showProgress:currentTime/duration status:NSLocalizedString(@"TYPESETTER_HUD_CALCULATING", nil) maskType:SVProgressHUDMaskTypeClear];
-	[SVProgressHUD popActivity];
+    [self.hud setProgress:currentTime/duration];
 }
 
 @end

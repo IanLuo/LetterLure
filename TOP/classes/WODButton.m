@@ -7,6 +7,7 @@
 //
 
 #import "WODButton.h"
+#import "UIView+Appearance.h"
 
 @implementation WODButton
 
@@ -22,12 +23,12 @@
 		[self addObserver:self forKeyPath:@"selected" options:NSKeyValueObservingOptionNew context:nil];
 		[self addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew context:nil];
 		
-		self.buttonColor = WODConstants.COLOR_CONTROLLER;
-		self.cornerRadius = 6.0f;
-		self.titleLabel.font = [UIFont boldFlatFontOfSize:16];
-		[self setTitleColor:[UIColor cloudsColor] forState:UIControlStateNormal];
-		[self setTitleColor:[UIColor cloudsColor] forState:UIControlStateHighlighted];
-		[self setTintColor:[UIColor cloudsColor]];
+//		self.backgroundColor = color_black;
+        [self roundCorner:6.f];
+		self.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+		[self setTitleColor:color_white forState:UIControlStateNormal];
+		[self setTitleColor:color_white forState:UIControlStateHighlighted];
+		[self setTintColor:color_white];
 		
 		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateTheme) name:NOTIFICATION_THEME_CHANGED object:nil];
     }
@@ -46,11 +47,11 @@
 	{
 		if ([[change valueForKey:NSKeyValueChangeNewKey]boolValue])
 		{
-			self.buttonColor = WODConstants.COLOR_CONTROLLER_SELECTED;
+//			self.backgroundColor = color_black;
 		}
 		else
 		{
-			self.buttonColor = WODConstants.COLOR_CONTROLLER;
+//			self.backgroundColor = color_white;
 		}
 	}
 	else if ([keyPath isEqualToString:@"bounds"])
@@ -74,11 +75,11 @@
 	
 	if (self.isSelected)
 	{
-		self.buttonColor = WODConstants.COLOR_CONTROLLER_SELECTED;
+		self.backgroundColor = color_black;
 	}
 	else
 	{
-		self.buttonColor = WODConstants.COLOR_CONTROLLER;
+		self.backgroundColor = color_white;
 	}
 }
 
@@ -96,7 +97,7 @@
 	}
 	else if(style == WODButtonStyleClear)
 	{
-		self.buttonColor = [UIColor clearColor];
+		self.backgroundColor = [UIColor clearColor];
 	}
 	_style = style;
 }

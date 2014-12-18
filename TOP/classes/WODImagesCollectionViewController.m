@@ -20,7 +20,9 @@
 - (id)init
 {
     self = [super init];
-    if (self) {
+    
+    if (self)
+    {
 		
     }
     return self;
@@ -28,9 +30,7 @@
 
 - (void)dealloc
 {
-#ifdef DEBUGMODE
-	NSLog(@"(%@,%i):deallocing...",[[NSString stringWithUTF8String:__FILE__]lastPathComponent],__LINE__);
-#endif
+    WODDebug(@"deallocing..");
 }
 
 - (void)viewDidLoad
@@ -39,7 +39,9 @@
 	// Do any additional setup after loading the view.
 	
 	[self.collectionView registerClass:[WODImageCell class] forCellWithReuseIdentifier:@"cellOfImageCollectionsView"];
-	self.collectionView.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
+	self.collectionView.backgroundColor = color_black;
+    
+    [self.collectionView setContentInset:UIEdgeInsetsMake(HEIGHT_STATUS_AND_NAV_BAR, 0, 0, 0)];
 }
 
 - (void)didReceiveMemoryWarning

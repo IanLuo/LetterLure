@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FUISwitch.h"
 
 @interface WODFontRegisterViewController : UIViewController
 
@@ -22,7 +21,7 @@ typedef enum
 	CellStyleNone,
 }CellStyle;
 
-@property (nonatomic, strong)FUISwitch * isRigesterd;
+@property (nonatomic, strong)UISwitch * isRigesterd;
 
 @property (nonatomic, assign)CellStyle cellStyle;
 

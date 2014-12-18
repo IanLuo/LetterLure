@@ -13,7 +13,6 @@
 #import "WODSimpleScrollItemPicker.h"
 #import "WODEffect.h"
 #import "WODFontRegisterViewController.h"
-#import "SVProgressHUD.h"
 #import "WODAnimationManager.h"
 #import "WODUserGuide.h"
 #import "WODAboutViewController.h"
@@ -22,65 +21,37 @@
 #import "WODFilterSelector.h"
 #import "WODEditHomeActions.h"
 #import "WODFullSizeExportViewController.h"
-#import "kxMenu.h"
+#import "CEReversibleAnimationController.h"
+#import <BlocksKit/BlocksKit+UIKit.h>
 
 #define TAG_ACTIONSHEET_ACTION 20
 #define TAG_ACTIONSHEET_ADD_IMAGE 21
 
-@interface EditHomeViewController ()<UIGestureRecognizerDelegate,FUIAlertViewDelegate>
+@interface EditHomeViewController ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) WODAnimationManager * animatorManager;
 @property (nonatomic, strong) WODEditHomeActions * editActions;
-@property (nonatomic, strong) NSMutableArray * orientationSensibleConstraints;
 
 @end
 
 @implementation EditHomeViewController
 
-- (WODAnimationManager *)animatorManager
-{
-	if (!_animatorManager)
-	{
-		_animatorManager = [WODAnimationManager new];
-	}
-	return _animatorManager;
-}
-
 - (id)init
 {
     self = [super init];
+    
     if (self)
 	{
-		self.view.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
-		self.automaticallyAdjustsScrollViewInsets = NO;
-		self.edgesForExtendedLayout = UIRectEdgeNone;
+		self.view.backgroundColor = color_black;
+        
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleOpenGLStageViewRebuildComplete) name:kNotificationOpenGLStageViewRebuildComplete object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleOpenGLStageViewInitComplete) name:kNotificationOpenGLStageViewInitComplete object:nil];
+
+        self.automaticallyAdjustsScrollViewInsets = NO;
 
 		_textLayerManager = [WODTextLayerManager new];
-		
-		_toolbar = [[WODToolbar alloc]init];
-		[self.toolbar setTranslatesAutoresizingMaskIntoConstraints:NO];
-		[self.view addSubview:self.toolbar];
-		
-		_openGLStageView = [[WODOpenGLESStageView alloc]init];
-		[self.openGLStageView setTranslatesAutoresizingMaskIntoConstraints:NO];
-		[self.view addSubview:self.openGLStageView];
-		
-		_orientationSensibleConstraints = [NSMutableArray array];
-						
-		float toolbarHeight = [self.toolbar toolbarHeight];
-		NSDictionary *viewsDictionary = @{@"openGLStageView":self.openGLStageView,@"toolbar":self.toolbar};
-		[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[openGLStageView]-10-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:viewsDictionary]];
-		[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[toolbar]|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:viewsDictionary]];
-		
-		[self.orientationSensibleConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[openGLStageView]-10-[toolbar(toolbarHeight)]|" options:NSLayoutFormatAlignAllCenterX metrics:@{@"toolbarHeight":@(toolbarHeight)} views:viewsDictionary]];
-				
-		[self.view addConstraints:self.orientationSensibleConstraints];
-		
-		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(orientaitonChanged:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
-		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleOpenGLStageViewRebuildComplete) name:kNotificationOpenGLStageViewRebuildComplete object:nil];
-		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleOpenGLStageViewInitComplete) name:kNotificationOpenGLStageViewInitComplete object:nil];
-		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateTheme) name:NOTIFICATION_THEME_CHANGED object:nil];
     }
+    
     return self;
 }
 
@@ -91,7 +62,7 @@
 	_editActions = [[WODEditHomeActions alloc]init];
 	self.editActions.editHomeController = self;
 	
-	self.view.tintColor = [UIColor whiteColor];
+	self.view.tintColor = color_white;
 	
 	[self.navigationItem setTitleView:[[UIImageView alloc]initWithImage:[[UIImage imageNamed:@"title"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]]];
 	
@@ -103,12 +74,58 @@
 	[self.navigationItem setRightBarButtonItem:action];
 		
 	[self setupGestures];
-	
+    
 	[self deleteSavedBackgroundImage];
-	
-	BOOL isIPad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
-	[KxMenu setTintColor:WODConstants.COLOR_TEXT_ACTIONSHEET];
-	[KxMenu setTitleFont:[UIFont boldSystemFontOfSize:isIPad ? 20 : 12]];
+    
+    _toolbar = [[WODToolbar alloc]init];
+
+    [self.view addSubview:self.toolbar];
+    
+    ws(wself);
+    
+    _openGLStageView = [[WODOpenGLESStageView alloc]init];
+    [self.view addSubview:self.openGLStageView];
+
+    [self.openGLStageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.edges.equalTo(wself.view).with.insets(UIEdgeInsetsMake(HEIGHT_STATUS_AND_NAV_BAR + 10, 10, 60, 10));
+        
+    }];
+    
+    [self.toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.width.equalTo(wself.view.mas_width);
+        make.top.equalTo(wself.openGLStageView.mas_bottom).offset(10);
+        make.bottom.equalTo(wself.view.mas_bottom);
+        
+    }];
+    
+    [self checkControlVisiability];
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    NSUInteger topOffset = HEIGHT_STATUS_AND_NAV_BAR;
+    if (!isVertical())
+    {
+        topOffset = HEIGHT_STATUS_AND_NAV_BAR_LANDSCAPE;
+    }
+    
+    ws(wself);
+    
+    [self.openGLStageView mas_updateConstraints:^(MASConstraintMaker *make) {
+        
+        make.edges.equalTo(wself.view).with.insets(UIEdgeInsetsMake(topOffset + 10, 10, 60, 10));
+        
+    }];
+    
+    [self.toolbar mas_updateConstraints:^(MASConstraintMaker *make) {
+        
+        make.width.equalTo(wself.view.mas_width);
+        make.top.equalTo(wself.openGLStageView.mas_bottom).offset(10);
+        make.bottom.equalTo(wself.view.mas_bottom);
+        
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -123,9 +140,7 @@
 		[self.openGLStageView setupRenderHirarchy];
 	}
 	
-#ifdef DEBUGMODE
-	NSLog(@"(%@,%i):viewWillAppear",[[NSString stringWithUTF8String:__FILE__]lastPathComponent],__LINE__);
-#endif
+    WODDebug(@"viewWillAppear");
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -154,16 +169,14 @@
 		[[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithBool:YES] forKey:KEY_IS_RETURN_LAUNCH];
 	}
 	
-#ifdef DEBUGMODE
-	NSLog(@"(%@,%i):viewDidAppear",[[NSString stringWithUTF8String:__FILE__]lastPathComponent],__LINE__);
-#endif
+    WODDebug(@"OG View Frame: %@",NSStringFromCGRect(self.openGLStageView.frame));
+    WODDebug(@"Toolbar Frame: %@", NSStringFromCGRect(self.toolbar.frame));
 }
 
-- (void)updateTheme
+- (void)viewDidLayoutSubviews
 {
-	[self.navigationController.navigationBar setBarTintColor:WODConstants.COLOR_NAV_BAR];
-	[self.navigationItem.leftBarButtonItem configureFlatButtonWithColor:WODConstants.COLOR_CONTROLLER highlightedColor:WODConstants.COLOR_CONTROLLER_HIGHTLIGHT cornerRadius:3.0f];
-	[self.navigationItem.rightBarButtonItem configureFlatButtonWithColor:WODConstants.COLOR_CONTROLLER highlightedColor:WODConstants.COLOR_CONTROLLER_HIGHTLIGHT cornerRadius:3.0f];
+    WODDebug(@"OG View Frame: %@",NSStringFromCGRect(self.openGLStageView.frame));
+    WODDebug(@"Toolbar Frame: %@", NSStringFromCGRect(self.toolbar.frame));
 }
 
 - (void)handleOpenGLStageViewRebuildComplete
@@ -177,7 +190,7 @@
 
 - (void)handleOpenGLStageViewInitComplete
 {
-	[self.openGLStageView setBackgroundColor:WODConstants.COLOR_VIEW_BACKGROUND];
+	[self.openGLStageView setBackgroundColor:color_black];
 	if(self.openGLStageView.isReadyToRender)
 	{
 		UIImage * bgImage = [self getSavedBackgroundImage];
@@ -224,20 +237,6 @@
 	return YES;
 }
 
-- (void)orientaitonChanged:(NSNotification *)notification
-{
-	float toolbarHeight = [self.toolbar toolbarHeight];
-	
-	[self.view removeConstraints:self.orientationSensibleConstraints];
-	[self.orientationSensibleConstraints removeAllObjects];
-	
-	NSDictionary *viewsDictionary = @{@"openGLStageView":self.openGLStageView,@"toolbar":self.toolbar};
-	[self.orientationSensibleConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[openGLStageView]-10-[toolbar(toolbarHeight)]|" options:NSLayoutFormatAlignAllCenterX metrics:@{@"toolbarHeight":@(toolbarHeight)} views:viewsDictionary]];
-	[self.view addConstraints:self.orientationSensibleConstraints];
-	
-	[self.toolbar layoutIfNeeded];
-}
-
 - (NSArray *)setupInitToolbarItems
 {
 	WODButton * addTextButton = [[WODButton alloc]init];
@@ -247,14 +246,6 @@
 	[addTextButton setImage:[[UIImage imageNamed:@"plus_mark.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateSelected];
 
 	return @[addTextButton];
-}
-
-- (void)addText
-{
-	WODInputTextViewController * textInputViewController = [WODInputTextViewController new];
-	textInputViewController.editType = EditTypeNew;
-	[textInputViewController setDelegate:self];
-	[self fadeNavigationPush:textInputViewController];
 }
 
 - (NSArray *)setupCompleteToolbarItems
@@ -285,6 +276,14 @@
 	[removeText addTarget:self.editActions action:@selector(deleteCurrentText) forControlEvents:UIControlEventTouchUpInside];
 	
 	return @[typeSetterButton,applyEffectButton,opacity,editText,removeText];
+}
+
+- (void)addText
+{
+    WODInputTextViewController * textInputViewController = [WODInputTextViewController new];
+    textInputViewController.editType = EditTypeNew;
+    [textInputViewController setDelegate:self];
+    [self fadeNavigationPush:textInputViewController];
 }
 
 //for now, the controlls are the 'preview, edit, and delete button'
@@ -337,22 +336,32 @@
 		[[NSFileManager defaultManager]removeItemAtPath:path error:&error];
 		if (error)
 		{
-#ifdef DEBUGMODE
-			NSLog(@"errro when deleting saved background image:%@",error);
-#endif
+            WODDebug(@"errro when deleting saved background image:%@",error);
 		}
 	}
 }
 
 - (void)action:(UIBarButtonItem *)item
 {
-	NSMutableArray * items = [NSMutableArray new];
-	KxMenuItem * shareItem = [KxMenuItem menuItem:@"share" image:[[UIImage imageNamed:@"paper_plane.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] target:self action:@selector(shareImage)];
-	[items addObject:shareItem];
-	KxMenuItem * restartItem = [KxMenuItem menuItem:@"restart" image:[[UIImage imageNamed:@"plus_mark.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] target:self action:@selector(restart)];
-	[items addObject:restartItem];
-	
-	[KxMenu showMenuInView:self.view fromRect:CGRectMake(self.view.bounds.size.width - 30, 0, 0, 0) menuItems:items];
+    ws(wself);
+    UIActionSheet * actionsAS = [UIActionSheet new];
+    [actionsAS setTitle:iStr(@"Actions")];
+    
+    [actionsAS bk_addButtonWithTitle:iStr(@"share") handler:^{
+        
+        [wself shareImage];
+        
+    }];
+    
+    [actionsAS bk_addButtonWithTitle:iStr(@"restart") handler:^{
+        
+        [wself restart];
+        
+    }];
+    
+    [actionsAS bk_setCancelButtonWithTitle:iStr(@"CANCEL") handler:nil];
+    
+    [actionsAS showInView:self.view];
 }
 
 - (void)willPresentActionSheet:(UIActionSheet *)actionSheet
@@ -360,8 +369,8 @@
     for (UIView *subview in actionSheet.subviews) {
         if ([subview isKindOfClass:[UIButton class]]) {
             UIButton *button = (UIButton *)subview;
-            [button setTitleColor:WODConstants.COLOR_TEXT_ACTIONSHEET forState:UIControlStateNormal];
-			[button setTitleColor:WODConstants.COLOR_TEXT_ACTIONSHEET forState:UIControlStateHighlighted];
+            [button setTitleColor:color_black forState:UIControlStateNormal];
+			[button setTitleColor:color_white forState:UIControlStateHighlighted];
         }
     }
 }
@@ -451,56 +460,17 @@
 	}
 }
 
-- (void)changeTheme
-{
-	if (self.currentItemPicker)
-	{
-		[self.currentItemPicker dismiss];
-	}
-
-	WODSimpleScrollItemPicker * picker = [WODSimpleScrollItemPicker new];
-	picker.distansFromBottomLandscape = 30;
-	picker.distansFromBottomPortrait = 50;
-	[picker setPosition:BarPostionBotton];
-	
-	picker.selectedIndex = [[NSUserDefaults standardUserDefaults]objectForKey:KEY_SAVED_THEME_INDEX] ? [[[NSUserDefaults standardUserDefaults]objectForKey:KEY_SAVED_THEME_INDEX] intValue] : 0;
-	
-	NSArray * themes = [WODConstants themes];
-	for (NSArray * theme in themes)
-	{
-		if (theme > 0)
-		{
-			UIColor * color = theme[0];
-			UIView * view = [UIView new];
-			view.backgroundColor = color;
-			[picker addItemWithView:view];
-		}
-	}
-	
-	[picker showFrom:self.view withSelection:^(WODSimpleScrollItemPickerItem *selectedItem) {
-		if (selectedItem)
-		{
-			[WODConstants setUpUITheme:(int)selectedItem.index];
-			
-			[[NSUserDefaults standardUserDefaults]setObject:@(selectedItem.index) forKey:KEY_SAVED_THEME_INDEX];
-			[[NSUserDefaults standardUserDefaults]synchronize];
-		}
-	}];
-}
-
 - (void)restart
 {
-	FUIAlertView *alertView = [[FUIAlertView alloc]initWithTitle:NSLocalizedString(@"ALERTVIEW_NEW", nil) message:NSLocalizedString(@"ALERTVIEW_NEW_MSG", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"CANCEL", nil) otherButtonTitles:NSLocalizedString(@"OK", nil),nil];
-	alertView.titleLabel.textColor = [UIColor cloudsColor];
-	alertView.titleLabel.font = [UIFont boldFlatFontOfSize:16];
-	alertView.messageLabel.textColor = [UIColor cloudsColor];
-	alertView.messageLabel.font = [UIFont flatFontOfSize:14];
-	alertView.backgroundOverlay.backgroundColor = [[UIColor cloudsColor] colorWithAlphaComponent:0.8];
-	alertView.alertContainer.backgroundColor = WODConstants.COLOR_DIALOG_BACKGROUND;
-	alertView.defaultButtonColor = [UIColor cloudsColor];
-	alertView.defaultButtonShadowColor = [UIColor asbestosColor];
-	alertView.defaultButtonFont = [UIFont boldFlatFontOfSize:16];
-	alertView.defaultButtonTitleColor = [UIColor asbestosColor];
+	UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"ALERTVIEW_NEW", nil) message:NSLocalizedString(@"ALERTVIEW_NEW_MSG", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"CANCEL", nil) otherButtonTitles:nil];
+
+    ws(wself);
+    [alertView bk_addButtonWithTitle:iStr(@"OK") handler:^{
+        
+        [wself performRestartAction];
+        
+    }];
+    
 	[alertView show];
 }
 
@@ -525,14 +495,6 @@
 	fullSizeExportViewController.fullScreenImage = [self.openGLStageView snapshotScreen];
 	
 	[self.navigationController pushViewController:fullSizeExportViewController animated:YES];
-}
-
-- (void)alertView:(FUIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-	if (buttonIndex == 1)
-	{
-		[self performRestartAction];
-	}
 }
 
 #pragma mark - text input delegate
@@ -568,9 +530,7 @@
 	
 	[self fadeNavigationPop];
 	
-#ifdef DEBUGMODE
-	NSLog(@"(%@,%i):didFinishInputtingText",[[NSString stringWithUTF8String:__FILE__]lastPathComponent],__LINE__);
-#endif
+    WODDebug(@"didFinishInputtingText");
 }
 
 - (void)didCancelInputtingText:(WODInputTextViewController *)inputTextViewController
@@ -597,7 +557,7 @@
 	[self fadeNavigationPop];
 }
 
-#pragma mark - textview layer management
+#pragma mark - *** textview layer management ***
 
 - (void)addTextView:(WODTextView *)textView
 {
@@ -636,7 +596,7 @@
 			[UIImagePNGRepresentation(image) writeToFile:[NSTemporaryDirectory() stringByAppendingString:@"backgroundImage.png"] options:0 error:&error];
 			if (error)
 			{
-				NSLog(@"ERROR %s \n %@",__PRETTY_FUNCTION__,error);
+                WODError(@"ERROR:\n%@",error.description);
 			}
 		});
 	}
@@ -754,4 +714,18 @@
 	customNavigationTransition = NO;
 	return animationController;
 }
+
+#pragma mark - getter
+
+- (WODAnimationManager *)animatorManager
+{
+    if (!_animatorManager)
+    {
+        _animatorManager = [WODAnimationManager new];
+    }
+    return _animatorManager;
+}
+
 @end
+
+

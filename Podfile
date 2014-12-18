@@ -1,5 +1,15 @@
 platform:ios, "6.0"
-pod 'MBProgressHUD', '~> 0.8'
+
+pod 'MBProgressHUD'
+
+
 pod 'RPVerticalStepper', '~> 0.0.1'
-pod 'FlatUIKit'
+
+
 pod 'uservoice-iphone-sdk'
+
+#Auto Layout
+pod 'Masonry'
+
+#
+pod 'BlocksKit'

@@ -7,42 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UIColor+FlatUI.h"
-#import "UIFont+FlatUI.h"
-#import "UIBarButtonItem+FlatUI.h"
-#import "UISlider+FlatUI.h"
-#import "UITableViewCell+FlatUI.h"
-#import "FUIAlertView.h"
 #import "UIView+Layout.h"
+#import "Masonry.h"
 
 #define DEBUGMODE
 
-#define VERSION_NUMBER @"1.01"
+#define VERSION_NUMBER @"2.0"
 
 #pragma mark - colors
-#pragma mark - theme
 
-//themes
-#define THEME_GREEN @[[UIColor greenSeaColor],[UIColor turquoiseColor]]
-#define THEME_GREEN2 @[[UIColor nephritisColor],[UIColor emerlandColor]]
-#define THEME_PURPLE @[[UIColor wisteriaColor],[UIColor amethystColor]]
-#define THEME_YELLOW @[[UIColor tangerineColor],[UIColor sunflowerColor]]
-#define THEME_ORGANGE @[[UIColor pumpkinColor],[UIColor carrotColor]]
-#define THEME_RED @[[UIColor pomegranateColor],[UIColor alizarinColor]]
-#define THEME_BLUE @[[UIColor belizeHoleColor],[UIColor peterRiverColor]]
-#define THEME_DEEP_BLUE @[[UIColor midnightBlueColor],[UIColor wetAsphaltColor]]
-#define THEME_DARK @[[UIColor darkdarkColor],[UIColor darkbrightColor]]
-
-//colors
-#define COLOR_RETRO_BLUE [UIColor retroBlue]
-
-#define FONT_SIZE_NORMAL 12
-#define FONT_SIZE_TITLE 18
-#define FONT_SIZE_LABEL 20
-#define FONT_SIZE_LABEL_BIG 25
+#define color_black                        [UIColor colorWithRed:0.19 green:0.2 blue:0.23 alpha:1]
+#define color_white                        [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1]
+#define color_gray                         [UIColor colorWithRed:0.76 green:0.76 blue:0.76 alpha:1]
 
 #define control_button_size 40
 
+#define HEIGHT_STATUS_AND_NAV_BAR 64
+#define HEIGHT_STATUS_AND_NAV_BAR_LANDSCAPE 30
 #define SIZE_NAVIGATIONBAR_PORTRAIT 44
 #define SIZE_NAVIGATIONBAR_LANDSCAPE 30
 
@@ -67,6 +48,56 @@
 
 #define appStoreID 872341374
 
+/*******************************************************************************/
+/*                               system font                                    */
+/*******************************************************************************/
+
+#define font_name  @""
+#define font_name_bold @""
+
+
+/*******************************************************************************/
+/*                               short cuts                                    */
+/*******************************************************************************/
+
+
+
+#define WODDebug(format, ...) logIMP(format"\n%s (line %d)",##__VA_ARGS__, __FUNCTION__,__LINE__ )
+#define WODError(format, ...) errIMP(format"\n%s (line %d)",##__VA_ARGS__, __FUNCTION__,__LINE__ )
+#define iStr(key) NSLocalizedString(key, nil)
+
+#define ws(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+#define ss(strongSelf)  __strong __typeof(&*self)strongSelf = self;
+
+/*******************************************************************************/
+/*                                  调试输出                                    */
+/*******************************************************************************/
+
+static inline void
+logIMP(NSString * format,...)
+{
+#ifdef DEBUGMODE
+    va_list vars;
+    va_start(vars, format);
+    NSLogv(format, vars);
+    va_end(vars);
+#endif
+}
+
+/*******************************************************************************/
+/*                                  错误输出                                    */
+/*******************************************************************************/
+
+static inline void
+errIMP(NSString * format,...)
+{
+    printf("ERROR \n");
+    va_list vars;
+    va_start(vars, format);
+    NSLogv(format, vars);
+    va_end(vars);
+}
+
 static inline CGPoint
 CenterPoint(CGRect rect)
 {
@@ -79,37 +110,52 @@ radians (double degree)
 	return degree * M_PI / 180;
 }
 
+static inline id
+ObjectOrEmptyString(id obj)
+{
+    BOOL flag = YES;
+    
+    if (obj == nil)
+    {
+        flag = NO;
+    }
+    else if (obj == [NSNull null])
+    {
+        flag = NO;
+    }
+    
+    return flag ? obj : @"";
+}
+
+static inline BOOL
+isPad()
+{
+    return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+}
+
+static inline BOOL
+isVertical()
+{
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication]statusBarOrientation];
+    
+    return (orientation == UIInterfaceOrientationPortrait ||
+                orientation == UIInterfaceOrientationPortraitUpsideDown);
+}
+
+static inline NSUInteger
+topOffset()
+{
+    if (isVertical())
+    {
+        return HEIGHT_STATUS_AND_NAV_BAR;
+    }
+    else
+    {
+        return HEIGHT_STATUS_AND_NAV_BAR_LANDSCAPE;
+    }
+}
+
 @interface WODConstants : NSObject
-
-#pragma mark - image processing
-+ (NSArray *)themes;
-+ (void)setUpUITheme:(int)theme;
-+ (NSArray *)CURRENT_THEM;
-+ (UIColor*) COLOR_TAB_BACKGROUND;
-+ (UIColor*) COLOR_TOOLBAR_BACKGROUND;
-+ (UIColor*) COLOR_TOOLBAR_BACKGROUND_SECONDARY;
-+ (UIColor*) COLOR_NAV_BAR;
-
-+ (UIColor*) COLOR_DIALOG_BACKGROUND;
-
-+ (UIColor*) COLOR_VIEW_BACKGROUND;
-+ (UIColor*) COLOR_VIEW_BACKGROUND_DARK;
-
-+ (UIColor*) COLOR_CONTROLLER;
-+ (UIColor*) COLOR_CONTROLLER_HIGHTLIGHT;
-+ (UIColor*) COLOR_CONTROLLER_SHADOW;
-+ (UIColor*) COLOR_CONTROLLER_DISABLED;
-+ (UIColor*) COLOR_CONTROLLER_SELECTED;
-
-+ (UIColor*) COLOR_TEXT_TITLE;
-+ (UIColor*) COLOR_TEXT_CONTENT;
-+ (UIColor*) COLOR_TEXT_ACTIONSHEET;
-
-+ (UIColor*) COLOR_ITEM_PICKER;
-+ (UIColor*) COLOR_ITEM_PICKER_CONTROL_ITEM;
-+ (UIColor*) COLOR_ITEM_PICKER_CUSTOM_ITEM;
-
-+ (UIColor*) COLOR_LINE_COLOR;
 
 + (CGSize)calculateNewSizeForImage:(UIImage *)image maxSide:(float)s;
 

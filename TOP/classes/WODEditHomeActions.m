@@ -14,8 +14,8 @@
 #import "WODEffectPackageManager.h"
 #import "WODTextLayerManager.h"
 #import "WODEffect.h"
-#import "KxMenu.h"
 #import "ASValueTrackingSlider.h"
+#import <BlocksKit/BlocksKit+UIKit.h>
 
 @interface WODEditHomeActions()
 
@@ -53,22 +53,12 @@
 {
 	if (self.editHomeController.textLayerManager.currentTextView)
 	{
-		FUIAlertView * alertView =  [[FUIAlertView alloc]initWithTitle:@"Delete" message:@"Delete?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
-		alertView.titleLabel.textColor = [UIColor cloudsColor];
-		alertView.titleLabel.font = [UIFont boldFlatFontOfSize:16];
-		alertView.messageLabel.textColor = [UIColor cloudsColor];
-		alertView.messageLabel.font = [UIFont flatFontOfSize:14];
-		alertView.backgroundOverlay.backgroundColor = [[UIColor cloudsColor] colorWithAlphaComponent:0.8];
-		alertView.alertContainer.backgroundColor = WODConstants.COLOR_DIALOG_BACKGROUND;
-		alertView.defaultButtonColor = [UIColor cloudsColor];
-		alertView.defaultButtonShadowColor = [UIColor asbestosColor];
-		alertView.defaultButtonFont = [UIFont boldFlatFontOfSize:16];
-		alertView.defaultButtonTitleColor = [UIColor asbestosColor];
+		UIAlertView * alertView =  [[UIAlertView alloc]initWithTitle:@"Delete" message:@"Delete?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
 		[alertView show];
 	}
 }
 
-- (void)alertView:(FUIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 	if (buttonIndex == 1)
 	{
@@ -83,7 +73,8 @@
 	
 	//remove from text manager
 	[self.editHomeController.textLayerManager removeTextView:self.editHomeController.textLayerManager.currentTextView];
-	if (self.editHomeController.textLayerManager.allTextViews.count > 0)
+	
+    if (self.editHomeController.textLayerManager.allTextViews.count > 0)
 	{
 		[self.editHomeController.textLayerManager selectTextView:self.editHomeController.textLayerManager.allTextViews[0]];
 		[self.editHomeController.openGLStageView selectTextView:self.editHomeController.textLayerManager.currentTextView];
@@ -95,18 +86,38 @@
 - (void)setCurrentItemPicker:(WODItemPicker *)currentItemPicker
 {
 	[self.editHomeController.currentItemPicker dismiss];
+    
 	self.editHomeController.currentItemPicker = currentItemPicker;
 }
 
 - (void)typesetter:(UIButton *)button
-{	
-	NSMutableArray * items = [NSMutableArray new];
-	[items addObject:[KxMenuItem menuItem:@"Bend" image:[[UIImage imageNamed:@"typesetter_bend"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] target:self action:@selector(bendDraw)]];
-	[items addObject:[KxMenuItem menuItem:@"Path" image:[[UIImage imageNamed:@"typesetter_freedraw"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] target:self action:@selector(freeDraw)]];
-	[items addObject:[KxMenuItem menuItem:@"Wrape" image:[[UIImage imageNamed:@"typesetter_shape"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] target:self action:@selector(shapeDraw)]];
-	
-	[KxMenu showMenuInView:self.editHomeController.view fromRect:[button convertRect:button.frame toView:self.editHomeController.view] menuItems:items];
-	[KxMenu setTintColor:WODConstants.COLOR_TEXT_ACTIONSHEET];
+{
+    ws(wself);
+    UIActionSheet * typesetterAS = [UIActionSheet new];
+    
+    [typesetterAS setTitle:iStr(@"Use Typesetting")];
+    
+    [typesetterAS bk_addButtonWithTitle:@"Bend" handler:^{
+        
+        [wself bendDraw];
+        
+    }];
+    
+    [typesetterAS bk_addButtonWithTitle:@"Path" handler:^{
+       
+        [wself freeDraw];
+        
+    }];
+    
+    [typesetterAS bk_addButtonWithTitle:@"Wrape" handler:^{
+        
+        [wself shapeDraw];
+        
+    }];
+    
+    [typesetterAS bk_setCancelButtonWithTitle:iStr(@"CANCEL") handler:nil];
+    
+    [typesetterAS showInView:self.editHomeController.view];
 }
 
 - (void)freeDraw
@@ -150,30 +161,39 @@
 
 - (void)chooseText:(UIBarButtonItem *)sender
 {
-	NSMutableArray * items = [NSMutableArray new];
-	[items addObject:[KxMenuItem menuItem:@"New Text" image:[[UIImage imageNamed:@"plus_mark.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] target:self.editHomeController action:@selector(addText)]];
+    UIActionSheet * chooseTextAS = [UIActionSheet new];
+    
+    [chooseTextAS setTitle:iStr(@"Choose Text")];
+    
+    ws(wself);
+    [chooseTextAS bk_addButtonWithTitle:@"New Text" handler:^{
+        
+        [wself.editHomeController addText];
+        
+    }];
 	
 	BOOL isIPad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
 	int maxTextLength = isIPad ? 20 : 10;
 	
-	int index = 0;
+	__block NSUInteger index = 0;
 	for (WODTextView * textView in [self.editHomeController.textLayerManager allTextViews])
 	{
 		NSString * title = textView.text.string.length < maxTextLength ? textView.text.string : [[textView.text.string substringToIndex:maxTextLength-3] stringByAppendingString:@".."];
+        
+        WODTextView * selectedTextView = [wself.editHomeController.textLayerManager allTextViews][index++];
+        
+        ws(wself);
+        [chooseTextAS bk_addButtonWithTitle:title handler:^{
+            
+            [wself.editHomeController selectTextView:selectedTextView];
+            
+        }];
 		
-		UIImage * selectedImageIndicator = textView == self.editHomeController.textLayerManager.currentTextView ? [[UIImage imageNamed:@"selected_row.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] : nil;
-			
-		[items addObject:[KxMenuItem menuItem:title image:selectedImageIndicator target:self action:@selector(selectText:) index:index++]];
 	}
-	
-	[KxMenu showMenuInView:self.editHomeController.view fromRect:CGRectMake(30, 0, 0, 0) menuItems:items];
-}
-
-- (void)selectText:(KxMenuItem *)item
-{
-	WODTextView * selectedTextView = [self.editHomeController.textLayerManager allTextViews][item.index];
-	[self.editHomeController selectTextView:selectedTextView];
-	[KxMenu dismissMenu];
+    
+    [chooseTextAS bk_setCancelButtonWithTitle:iStr(@"CANCEL") handler:nil];
+    
+    [chooseTextAS showInView:self.editHomeController.view];
 }
 
 static unsigned int effectIndex;
@@ -194,6 +214,7 @@ static unsigned int effectIndex;
 	[showAllImageView setContentMode:UIViewContentModeCenter];
 	[simpleScrollItemPicker addItemWithView:showAllImageView];
 	UIImageView * removeEffectImageView = [[UIImageView alloc]initWithImage:[[UIImage imageNamed:@"trash.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    
 	[removeEffectImageView setContentMode:UIViewContentModeCenter];
 	[simpleScrollItemPicker addItemWithView:removeEffectImageView];
 	[simpleScrollItemPicker setControlItemIndexs:@[@(0),@(1)]];
@@ -251,13 +272,15 @@ static unsigned int effectIndex;
 				 if(weakSelf.editHomeController.textLayerManager.currentTextView.effectProvider != effect)
 				 {
 					 [effect prepare:^{
+                         
 						 effectIndex = (unsigned int)selectedItem.index;
 						 
 						 weakSelf.editHomeController.textLayerManager.currentTextView.effectProvider = nil;
 						 [weakSelf.editHomeController.textLayerManager.currentTextView setEffectProvider:effect];
 						 
 						 [weakSelf.editHomeController.openGLStageView updateTextViewImage:weakSelf.editHomeController.textLayerManager.currentTextView];
-					 }];
+					 
+                     }];
 				 }
 			 }
 		 }
@@ -278,6 +301,7 @@ static unsigned int effectIndex;
 	if (!button.isSelected)
 	{
 		self.currentItemPicker = nil;
+        
 		return;
 	}
 	
@@ -288,6 +312,7 @@ static unsigned int effectIndex;
 	WODTextView * currentTextview = [self.editHomeController.textLayerManager currentTextView];
 	
 	ASValueTrackingSlider * slider = [[ASValueTrackingSlider alloc]initWithFrame:CGRectMake(10, opacityView.bounds.size.height - 40 - [WODConstants navigationbarHeight], opacityView.frame.size.width - 20, 40)];
+    
 	slider.value = currentTextview.alpha.floatValue;
 	slider.maximumValue = 1.0;
 	slider.minimumValue = 0.01;
@@ -309,6 +334,8 @@ static unsigned int effectIndex;
 {
 	WODTextView * currentTextview = [self.editHomeController.textLayerManager currentTextView];
 	[currentTextview setAlpha:@(slider.value)];
+    
 	[self.editHomeController.openGLStageView updateTextViewImage:currentTextview];
 }
+
 @end

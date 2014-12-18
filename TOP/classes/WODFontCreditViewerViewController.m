@@ -35,7 +35,7 @@
 		_infoView = [[UITextView alloc]initWithFrame:self.view.bounds];
 		[_infoView setShowsHorizontalScrollIndicator:NO];
 		[_infoView setAlwaysBounceHorizontal:NO];
-		_infoView.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
+		_infoView.backgroundColor = color_black;
 		_infoView.attributedText = self.creditString;
 		_infoView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		[_infoView setEditable:NO];
@@ -68,7 +68,7 @@
 	if (credit)
 	{
 		self.creditString = [[NSAttributedString alloc]initWithString:credit
-		attributes:@{NSFontAttributeName:font, NSForegroundColorAttributeName:WODConstants.COLOR_TEXT_CONTENT}];
+		attributes:@{NSFontAttributeName:font, NSForegroundColorAttributeName: color_white}];
 	}
 }
 @end

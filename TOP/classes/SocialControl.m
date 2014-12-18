@@ -12,7 +12,7 @@
 #import "WODAppDelegate.h"
 #import "WXApi.h"
 #import <AssetsLibrary/AssetsLibrary.h>
-#import "SVProgressHUD.h"
+#import "MBProgressHUD.h"
 
 @interface SocialControl()<MFMailComposeViewControllerDelegate,UINavigationControllerDelegate>
 
@@ -156,7 +156,8 @@
 				if ([[group valueForProperty:ALAssetsGroupPropertyName]isEqualToString:NSLocalizedString(@"IMAGE_ROLL_GROUP_NAME",nil)])
 				{
 					[self addImage:imageToSave toGroup:group library:wLibrary];
-					[SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SAVE_COMPLETE", nil)];
+                    
+					[[[UIAlertView alloc]initWithTitle:iStr(@"OK") message:iStr(@"SAVE_COMPLETE") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]show];
 				}
 			} failureBlock:^(NSError *error) {
 				NSLog(@"(%@,%i)ERROR: %@",[[NSString stringWithUTF8String:__FILE__]lastPathComponent],__LINE__,error);

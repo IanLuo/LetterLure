@@ -38,7 +38,7 @@
     // Do any additional setup after loading the view.
 	[self setEdgesForExtendedLayout:UIRectEdgeNone];
 	
-	self.view.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND_DARK;
+	self.view.backgroundColor = color_black;
 		
 	WODButton * rate = [WODButton new];
 	rate.translatesAutoresizingMaskIntoConstraints = NO;
@@ -48,8 +48,8 @@
 	
 	UILabel * rateTitle = [UILabel new];
 	[rateTitle setNumberOfLines:3];
-	rateTitle.textColor = WODConstants.COLOR_TEXT_TITLE;
-	rateTitle.font = [UIFont flatFontOfSize:14];
+	rateTitle.textColor = color_white;
+	rateTitle.font = [UIFont systemFontOfSize:14];
 	rateTitle.translatesAutoresizingMaskIntoConstraints = NO;
 	[rateTitle setText:NSLocalizedString(@"RATE_TITLE", nil)];
 	[self.view addSubview:rateTitle];
@@ -62,16 +62,16 @@
 	
 	UILabel * supportTitle = [UILabel new];
 	[supportTitle setNumberOfLines:2];
-	supportTitle.textColor = WODConstants.COLOR_TEXT_TITLE;
-	supportTitle.font = [UIFont flatFontOfSize:14];
+	supportTitle.textColor = color_white;
+	supportTitle.font = [UIFont systemFontOfSize:14];
 	supportTitle.translatesAutoresizingMaskIntoConstraints = NO;
 	[supportTitle setText:NSLocalizedString(@"SUPPORT_TITLE", nil)];
 	[self.view addSubview:supportTitle];
 	
 	UILabel * shareToFriendsTitle = [UILabel new];
 	[shareToFriendsTitle setNumberOfLines:2];
-	shareToFriendsTitle.textColor = WODConstants.COLOR_TEXT_TITLE;
-	shareToFriendsTitle.font = [UIFont flatFontOfSize:14];
+	shareToFriendsTitle.textColor = color_white;
+	shareToFriendsTitle.font = [UIFont systemFontOfSize:14];
 	shareToFriendsTitle.translatesAutoresizingMaskIntoConstraints = NO;
 	[shareToFriendsTitle setText:NSLocalizedString(@"SHARE_TO_FRIEND_MSG", nil)];
 	[self.view addSubview:shareToFriendsTitle];
@@ -83,8 +83,8 @@
 	_version = [UILabel new];
 	[_version setTextAlignment:NSTextAlignmentCenter];
 	[_version setNumberOfLines:2];
-	_version.textColor = WODConstants.COLOR_TEXT_TITLE;
-	_version.font = [UIFont flatFontOfSize:12];
+	_version.textColor = color_white;
+	_version.font = [UIFont systemFontOfSize:12];
 	_version.translatesAutoresizingMaskIntoConstraints = NO;
 	[_version setText:[NSString stringWithFormat:@"Version %@ \n WOD STUDIOS@ 2014 ALL RIGHTS RESERVED",VERSION_NUMBER]];
 	[self.view addSubview:_version];

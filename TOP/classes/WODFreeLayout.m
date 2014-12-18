@@ -25,10 +25,8 @@
 	{
 		totalStringSizeLength += [(NSValue*)glyphsBounds[i] CGRectValue].size.width;
 	}
-	
-#ifdef DEBUGMODE
-	NSLog(@"----->(%d)\n",(int)self.allPoints.count);
-#endif
+
+    WODDebug(@"----->(%d)\n",(int)self.allPoints.count);
 
 	CGRect glyphMatrix;
 	

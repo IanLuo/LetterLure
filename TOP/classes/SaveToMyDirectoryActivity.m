@@ -8,7 +8,7 @@
 
 #import "SaveToMyDirectoryActivity.h"
 #import <AssetsLibrary/AssetsLibrary.h>
-#import "SVProgressHUD.h"
+#import "MBProgressHUD.h"
 
 @implementation SaveToMyDirectoryActivity
 - (id)init
@@ -59,6 +59,11 @@
 
 - (void)prepareWithActivityItems:(NSArray *)activityItems      // override to extract items and set up your HI. default does nothing
 {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication]keyWindow] animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    [hud setLabelText:@"Saving.."];
+    [hud show:YES];
+    
 	if (activityItems > 0)
 	{
 		if ([activityItems[0] isKindOfClass:[UIImage class]])
@@ -77,7 +82,7 @@
 						if ([[group valueForProperty:ALAssetsGroupPropertyName]isEqualToString:NSLocalizedString(@"IMAGE_ROLL_GROUP_NAME",nil)])
 						{
 							[self addImage:imageToSave toGroup:group library:wLibrary];
-							[SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"SAVE_COMPLETE", nil)];
+                            [hud hide:YES];
 						}
 					} failureBlock:^(NSError *error) {
 						NSLog(@"(%@,%i)ERROR: %@",[[NSString stringWithUTF8String:__FILE__]lastPathComponent],__LINE__,error);

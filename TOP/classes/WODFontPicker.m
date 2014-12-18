@@ -47,7 +47,7 @@
     self = [super init];
     if (self)
 	{
-		self.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
+		self.backgroundColor = color_black;
 		self.currentFontSize = [self savedLastUsingFontSize] ? [self savedLastUsingFontSize].intValue : (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? DEFAULT_FONT_SIZE_IPAD : DEFAULT_FONT_SIZE_IPHONE);
 		
 		[self addSubview:self.fontFamilyTable];
@@ -125,7 +125,7 @@
 		_fontSizeSteper.value = self.currentFontSize;
 		_fontSizeSteper.autoRepeatInterval = 0.03;
 		_fontSizeSteper.translatesAutoresizingMaskIntoConstraints = NO;
-		_fontSizeSteper.tintColor = WODConstants.COLOR_TEXT_TITLE;
+		_fontSizeSteper.tintColor = color_white;
 		[_fontSizeSteper addTarget:self action:@selector(fontSizeSteperValueChanged:) forControlEvents:UIControlEventValueChanged];		
 	}
 	return _fontSizeSteper;
@@ -221,7 +221,7 @@
 		cell.textLabel.font = [UIFont fontWithName:cell.textLabel.text size:12];
 	}
 	
-	[cell.textLabel setTextColor:WODConstants.COLOR_TEXT_CONTENT];
+	[cell.textLabel setTextColor:color_white];
 	[cell setBackgroundColor:[UIColor clearColor]];
 	
 	return cell;

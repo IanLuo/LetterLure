@@ -11,13 +11,15 @@
 #import <CoreImage/CoreImage.h>
 #import "WODEffect.h"
 #import "WODTextViewTextLayerDelegate.h"
-#import "SVProgressHUD.h"
+#import "MBProgressHUD.h"
 #import "WODConstants.h"
 
 
 @interface WODTextView()
 //
 @property (nonatomic, strong) WODTextViewTextLayerDelegate * textLayerDelegate;
+
+@property (nonatomic, strong) MBProgressHUD * hud;
 
 @end
 
@@ -39,6 +41,9 @@
 
 		isRendering = NO;
 		self.alpha = @(1.0);
+        
+        _hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+        self.hud.mode = MBProgressHUDModeAnnularDeterminate;
     }
     return self;
 }
@@ -140,7 +145,9 @@ static id semaphore;
 			}
 			else
 			{
-				[SVProgressHUD showProgress:-1 status:NSLocalizedString(@"EFFECT_HUD_APPLYING_EFFECT", nil)];
+				[self.hud setLabelText:NSLocalizedString(@"EFFECT_HUD_APPLYING_EFFECT", nil)];
+                [self.hud show:YES];
+                
 				__weak typeof(self) wSelf = self;
 				
 				dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
@@ -148,11 +155,13 @@ static id semaphore;
 					isRendering = NO;
 					
 					dispatch_async(dispatch_get_main_queue(), ^{
-						[SVProgressHUD dismiss];
+                        
+						[self.hud hide:YES];
 						if (action)
 						{
 							action(image);
 						}
+                        
 					});
 				});
 			}

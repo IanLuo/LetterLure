@@ -8,6 +8,7 @@
 
 #import "WODAnimationManager.h"
 #import "CECrossfadeAnimationController.h"
+#import "CEReversibleAnimationController.h"
 
 @implementation WODAnimationManager
 

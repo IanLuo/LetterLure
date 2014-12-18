@@ -28,7 +28,7 @@
 		[flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
 		
         _filtersView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-		self.filtersView.backgroundColor = [WODConstants COLOR_TOOLBAR_BACKGROUND];
+		self.filtersView.backgroundColor = color_black;
 		self.filtersView.delegate = self;
 		self.filtersView.dataSource = self;
 		self.filtersView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -139,8 +139,8 @@
 	{
 		_title = [UILabel new];
 		[self.title setTextAlignment:NSTextAlignmentCenter];
-		[self.title setBackgroundColor:[[WODConstants COLOR_CONTROLLER]colorWithAlphaComponent:0.5]];
-		[self.title setTextColor:[WODConstants COLOR_TEXT_TITLE]];
+		[self.title setBackgroundColor:[color_black colorWithAlphaComponent:0.5]];
+		[self.title setTextColor:color_white];
 		_title.translatesAutoresizingMaskIntoConstraints = NO;
 		
 		_imageView  = [UIImageView new];

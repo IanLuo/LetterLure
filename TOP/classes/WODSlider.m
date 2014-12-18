@@ -15,9 +15,9 @@
 {
     self = [super init];
     if (self) {
-		[self configureFlatSliderWithTrackColor:WODConstants.COLOR_CONTROLLER_DISABLED
-									  progressColor:WODConstants.COLOR_CONTROLLER_HIGHTLIGHT
-										 thumbColor:WODConstants.COLOR_CONTROLLER_SHADOW];
+//		[self configureFlatSliderWithTrackColor:WODConstants.COLOR_CONTROLLER_DISABLED
+//									  progressColor:WODConstants.COLOR_CONTROLLER_HIGHTLIGHT
+//										 thumbColor:WODConstants.COLOR_CONTROLLER_SHADOW];
 //		[self addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
@@ -32,7 +32,7 @@
 {
 	if ([keyPath isEqualToString:@"bounds"])
 	{
-		self.layer.cornerRadius = [[change objectForKey:@"new"]CGRectValue].size.height/2;
+		self.layer.cornerRadius = [change[@"new"] CGRectValue].size.height/2;
 		
 		UIImage * image = [self createThumbImage];
 		[self setThumbImage:image forState:UIControlStateHighlighted];
@@ -47,7 +47,7 @@
 	
 	UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, size.width-1, size.height-1) cornerRadius:size.width/2];
 	
-	UIColor * color = WODConstants.COLOR_NAV_BAR;
+	UIColor * color = color_black;
 	CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), color.CGColor);
 	
 	[path fill];

@@ -38,17 +38,17 @@
 		self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
 		[self addSubview:self.scrollView];
 		
-		self.backgroundColor = WODConstants.COLOR_TAB_BACKGROUND;
+		self.backgroundColor = color_black;
 		
 		leftIndecator = [[UIImageView alloc]init];
 		leftIndecator.translatesAutoresizingMaskIntoConstraints = NO;
-		leftIndecator.tintColor = WODConstants.COLOR_CONTROLLER;
+		leftIndecator.tintColor = color_white;
 		leftIndecator.contentMode = UIViewContentModeScaleAspectFit;
 		leftIndecator.image = [[UIImage imageNamed:@"arrow_left2"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 		
 		rightIndecator = [[UIImageView alloc]init];
 		rightIndecator.translatesAutoresizingMaskIntoConstraints = NO;
-		rightIndecator.tintColor = WODConstants.COLOR_CONTROLLER;
+		rightIndecator.tintColor = color_white;
 		rightIndecator.contentMode = UIViewContentModeScaleAspectFit;
 		rightIndecator.image = [[UIImage imageNamed:@"arrow_right2"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 		
@@ -181,14 +181,14 @@
 //		item.titleLabel.font = [UIFont fontWithName:FONT_NAME_LABEL size:item.isSelected ? 18:12];
 		if (item.isSelected)
 		{
-			item.titleLabel.font = [UIFont flatFontOfSize:item.isSelected ? 14:12];
-			item.backgroundColor = WODConstants.COLOR_CONTROLLER_HIGHTLIGHT;
+			item.titleLabel.font = [UIFont systemFontOfSize:item.isSelected ? 14:12];
+			item.backgroundColor = color_black;
 			[self scrollRectToCenter:item.frame animated:YES];
 		}
 		if (i == lastSelectIndex)
 		{
-			item.titleLabel.font = [UIFont flatFontOfSize:item.isSelected ? 14:12];
-			item.backgroundColor = WODConstants.COLOR_TOOLBAR_BACKGROUND;
+			item.titleLabel.font = [UIFont systemFontOfSize:item.isSelected ? 14:12];
+			item.backgroundColor = color_black;
 		}
 		
 //		[UIView animateWithDuration:0.3 animations:^{
@@ -228,7 +228,7 @@
 		item.tag = i;
 		[item addTarget:self action:@selector(buttonTouched:) forControlEvents:UIControlEventTouchUpInside];
 		item.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:item.isSelected ? 18:10];
-		item.titleLabel.textColor = WODConstants.COLOR_TEXT_TITLE;
+		item.titleLabel.textColor = color_white;
 		
 		item.layer.cornerRadius = 5;
 		item.layer.masksToBounds = YES;

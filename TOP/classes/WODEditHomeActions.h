@@ -10,7 +10,7 @@
 #import "WODButton.h"
 #import "EditHomeViewController.h"
 
-@interface WODEditHomeActions : NSObject<FUIAlertViewDelegate>
+@interface WODEditHomeActions : NSObject<UIAlertViewDelegate>
 
 @property (nonatomic, strong) WODButton * previewButton;
 @property (nonatomic, strong) WODButton * deleteButton;

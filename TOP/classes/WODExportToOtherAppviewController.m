@@ -62,7 +62,7 @@
 	self.title = NSLocalizedString(@"VC_TITLE_PICK_AN_APP", nil);
 	
 	self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
-	self.view.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
+	self.view.backgroundColor = color_black;
 	
 	[self.view addSubview:self.imageView];
 	

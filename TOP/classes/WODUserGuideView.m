@@ -19,7 +19,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-		self.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND_DARK;
+		self.backgroundColor = color_black;
 		self.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
 		
 		[self addSubview:self.textView];
@@ -35,9 +35,9 @@
 	if (!_textView)
 	{
 		_textView = [UITextView new];
-		_textView.backgroundColor = WODConstants.COLOR_VIEW_BACKGROUND;
-		_textView.font = [UIFont boldFlatFontOfSize:25];
-		_textView.textColor = WODConstants.COLOR_TEXT_CONTENT;
+		_textView.backgroundColor = color_black;
+		_textView.font = [UIFont systemFontOfSize:25];
+		_textView.textColor = color_white;
 		_textView.editable = NO;
 		_textView.translatesAutoresizingMaskIntoConstraints = NO;
 	}
