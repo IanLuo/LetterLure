@@ -42,9 +42,9 @@
 		isRendering = NO;
 		self.alpha = @(1.0);
         
-        _hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
-        self.hud.mode = MBProgressHUDModeAnnularDeterminate;
+//        _hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
     }
+    
     return self;
 }
 
@@ -145,8 +145,7 @@ static id semaphore;
 			}
 			else
 			{
-				[self.hud setLabelText:NSLocalizedString(@"EFFECT_HUD_APPLYING_EFFECT", nil)];
-                [self.hud show:YES];
+                [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication] keyWindow] animated:YES];
                 
 				__weak typeof(self) wSelf = self;
 				
@@ -156,7 +155,7 @@ static id semaphore;
 					
 					dispatch_async(dispatch_get_main_queue(), ^{
                         
-						[self.hud hide:YES];
+						[MBProgressHUD hideAllHUDsForView:[[UIApplication sharedApplication]keyWindow] animated:YES];
 						if (action)
 						{
 							action(image);

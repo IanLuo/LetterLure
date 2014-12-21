@@ -27,7 +27,7 @@
     self = [super init];
     if (self) {
         _items = [NSMutableArray array];
-					
+        					
 		UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismiss)];
 		[tap setDelegate:self];
 		[self addGestureRecognizer:tap];
@@ -230,10 +230,13 @@
 	
 	[self.parentView addSubview:self];
 	
+    ws(wself);
 	[UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-		self.frame = CGRectMake(0, 0, view.bounds.size.width, view.bounds.size.height);
-		self.alpha = 1.0;
-	} completion:^(BOOL finished)
+	
+        wself.frame = CGRectMake(0, 0, view.bounds.size.width, view.bounds.size.height);
+		wself.alpha = 1.0;
+	
+    } completion:^(BOOL finished)
 	{
 		selectionAction = block;
 	}];

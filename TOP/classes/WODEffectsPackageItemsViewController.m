@@ -24,7 +24,7 @@
 @property (nonatomic, strong) WODTextView * sampleTextView;
 @property (nonatomic, strong) WODIAPCenter * iapCenter;
 @property (nonatomic, strong) NSArray * allFontFamilies;
-@property (nonatomic, strong) UICollectionView * collectionView;
+@property (nonatomic, strong) UICollectionView * fontCollectionView;
 @property (nonatomic, strong) WODSimpleScrollItemPicker * effectsPicker;
 @property (nonatomic, strong) MBProgressHUD * hud;
 
@@ -43,9 +43,9 @@
     return self;
 }
 
-- (void)viewWillLayoutSubviews
+- (void)viewDidLayoutSubviews
 {
-	
+    WODDebug(@"effects picker items: %@",self.effectsPicker.itemsCollectionView);
 }
 
 - (void)makeConstrains
@@ -53,60 +53,29 @@
     ws(wself);
     [self.sampleTextImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.mas_equalTo(topOffset()+10);
+        make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(10, 10, 80, 10));
         
     }];
     
-    [self.effectsPicker mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.fontCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.width.equalTo(wself.view.mas_width);
         make.height.mas_equalTo(40);
-        make.bottom.equalTo(wself.view.mas_bottom);
+        make.bottom.equalTo(wself.view.mas_bottom).offset(-40);
         
     }];
-    
-    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.width.equalTo(wself.view.mas_width);
-        make.height.mas_equalTo(40);
-        make.bottom.equalTo(wself.effectsPicker.mas_bottom).offset(10);
-        
-    }];
-}
-
-- (void)updateConstaints
-{
-//    ws(wself);
-//    [self.sampleTextImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        
-//        make.top.mas_equalTo(topOffset()+10);
-//        
-//    }];
-//    
-//    [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        
-//        make.height.mas_equalTo(40);
-//        make.bottom.mas_equalTo(0);
-//        
-//    }];
-//    
-//    [self.effectsPicker mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        
-//        make.bottom.equalTo(wself.collectionView.mas_top).offset(10);
-//        
-//    }];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
 	NSMutableArray * visibaleIndexPaths = [NSMutableArray array];
-	for(UICollectionViewCell * cell in [self.collectionView visibleCells])
+	for(UICollectionViewCell * cell in [self.fontCollectionView visibleCells])
 	{
-		NSIndexPath * indexPath = [self.collectionView indexPathForCell:cell];
+		NSIndexPath * indexPath = [self.fontCollectionView indexPathForCell:cell];
 		[visibaleIndexPaths addObject:indexPath];
 	}
 	
-	[self.collectionView reloadItemsAtIndexPaths:[NSArray arrayWithArray:visibaleIndexPaths]];
+	[self.fontCollectionView reloadItemsAtIndexPaths:[NSArray arrayWithArray:visibaleIndexPaths]];
 }
 
 - (void)viewDidLoad
@@ -114,12 +83,16 @@
     [super viewDidLoad];
 
 	[self setAutomaticallyAdjustsScrollViewInsets:NO];
+    
+    [self setEdgesForExtendedLayout:UIRectEdgeAll];
 
     self.view.backgroundColor = color_black;
     
     [self.view addSubview:self.sampleTextImageView];
     
-    [self.view addSubview:self.collectionView];
+    [self.view addSubview:self.fontCollectionView];
+    
+    [self makeConstrains];
     
     ws(wself);
  
@@ -131,7 +104,6 @@
          
      }];
     
-    [self makeConstrains];
 }
 
 - (void)payPackage:(UIBarButtonItem *)button
@@ -178,8 +150,6 @@
 	
 	if ( self.packageItems.count > 0)
 	{
-		
-		
 		for (NSString * path in self.packageItems)
 		{
 			UIImage * image = [self.effectsManager iconForEffect:path];
@@ -200,11 +170,11 @@
 		 
 		[UIView animateWithDuration:0.3 animations:^{
             
-			[wself.collectionView setAlpha:1.0];
+			[wself.fontCollectionView setAlpha:1.0];
             
 		} completion:^(BOOL finished) {
             
-			[wself.view bringSubviewToFront:self.collectionView];
+			[wself.view bringSubviewToFront:self.fontCollectionView];
             
 		}];
 	}
@@ -224,7 +194,6 @@
 			[wself.sampleTextView displayTextHideFeatures:NO complete:^(UIImage *image) {
                 
 				[wself applyEffectForSampleTextImage:image];
-                [wself updateConstaints];
                 
 			}];
             
@@ -409,25 +378,25 @@
     return _sampleTextImageView;
 }
 
-- (UICollectionView *)collectionView
+- (UICollectionView *)fontCollectionView
 {
-    if (!_collectionView)
+    if (!_fontCollectionView)
     {
         UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
         [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
         [flowLayout setMinimumInteritemSpacing:0.0];
         [flowLayout setMinimumLineSpacing:0.0];
         
-        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"fontCell"];
-        [_collectionView setDelegate:self];
-        [_collectionView setDataSource:self];
-        [_collectionView setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [_collectionView setAlpha:0.0];
-        [_collectionView setBackgroundColor:color_black];
+        _fontCollectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        [_fontCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"fontCell"];
+        [_fontCollectionView setDelegate:self];
+        [_fontCollectionView setDataSource:self];
+        [_fontCollectionView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [_fontCollectionView setAlpha:0.0];
+        [_fontCollectionView setBackgroundColor:color_black];
     }
     
-    return _collectionView;
+    return _fontCollectionView;
 }
 
 - (WODSimpleScrollItemPicker *)effectsPicker
@@ -439,7 +408,9 @@
         _effectsPicker.distansFromBottomLandscape = 0;
         _effectsPicker.hideBorder = YES;
         _effectsPicker.displayStyle = DisplayStylePermenante;
+        _effectsPicker.position = BarPostionBotton;
     }
+    
     return _effectsPicker;
 }
 
