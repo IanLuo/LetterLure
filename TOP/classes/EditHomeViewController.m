@@ -12,17 +12,14 @@
 #import "WODActionSheet.h"
 #import "WODSimpleScrollItemPicker.h"
 #import "WODEffect.h"
-#import "WODFontRegisterViewController.h"
 #import "WODAnimationManager.h"
-#import "WODUserGuide.h"
-#import "WODAboutViewController.h"
 #import "Flurry.h"
-#import "WODBrowseTheworldViewController.h"
 #import "WODFilterSelector.h"
 #import "WODEditHomeActions.h"
 #import "WODFullSizeExportViewController.h"
 #import "CEReversibleAnimationController.h"
 #import <BlocksKit/BlocksKit+UIKit.h>
+#import "WODUserGuide.h"
 
 #define TAG_ACTIONSHEET_ACTION 20
 #define TAG_ACTIONSHEET_ADD_IMAGE 21
@@ -347,13 +344,13 @@
     UIActionSheet * actionsAS = [UIActionSheet new];
     [actionsAS setTitle:iStr(@"Actions")];
     
-    [actionsAS bk_addButtonWithTitle:iStr(@"share") handler:^{
+    [actionsAS bk_addButtonWithTitle:iStr(@"SAVE_IMAGE") handler:^{
         
         [wself shareImage];
         
     }];
     
-    [actionsAS bk_addButtonWithTitle:iStr(@"restart") handler:^{
+    [actionsAS bk_addButtonWithTitle:iStr(@"ACTION_SHEET_NEW") handler:^{
         
         [wself restart];
         
@@ -373,91 +370,6 @@
 			[button setTitleColor:color_white forState:UIControlStateHighlighted];
         }
     }
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-	switch (actionSheet.tag)
-	{
-//		case TAG_ACTIONSHEET_ADD_IMAGE:
-//		{
-//			switch (buttonIndex)
-//			{
-//				case 0:
-//				{
-//					[self showImagePicker];
-//					break;
-//				}
-//				case 1:
-//				{
-//					UIImage * image = [UIPasteboard generalPasteboard].image;
-//					if(image)
-//						[self useOutsideImage:image];
-//					break;
-//				}
-//			}
-//			break;
-//		}
-			
-		case TAG_ACTIONSHEET_ACTION:
-		{
-			switch (buttonIndex)
-			{
-				case 0:
-				{
-					WODUserGuide * userGuide = [WODUserGuide new];
-					UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:userGuide];
-					
-					[nav setModalPresentationStyle:UIModalPresentationFormSheet];
-					[self presentViewController:nav animated:YES completion:nil];
-					break;
-				}
-				case 1:
-				{
-					WODFontRegisterViewController * fontRegisterViewController = [WODFontRegisterViewController new];
-					UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:fontRegisterViewController];
-					
-					[nav setModalPresentationStyle:UIModalPresentationFormSheet];
-					[self presentViewController:nav animated:YES completion:nil];
-					break;
-				}
-				case 2:
-				{
-//					[self shareImage];
-//					break;
-				}
-				case 3:
-				{
-//					[self restart];
-//					break;
-				}
-				case 4:
-				{
-//					[self changeTheme];
-//					break;
-				}
-				case 5:
-				{
-					WODAboutViewController * about = [WODAboutViewController new];
-					UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:about];
-					[nav setModalPresentationStyle:UIModalPresentationFormSheet];
-					
-					[self presentViewController:nav animated:YES completion:nil];
-					break;
-				}
-				case 6:
-				{
-					WODBrowseTheworldViewController * brows = [WODBrowseTheworldViewController new];
-					UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:brows];
-					[nav setModalPresentationStyle:UIModalPresentationFormSheet];
-					
-					[self presentViewController:nav animated:YES completion:nil];
-					break;
-				}
-			}
-			break;
-		}
-	}
 }
 
 - (void)restart

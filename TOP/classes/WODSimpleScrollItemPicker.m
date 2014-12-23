@@ -54,12 +54,12 @@
 		
 		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateColors) name:NOTIFICATION_THEME_CHANGED object:nil];
     }
+    
     return self;
 }
 
 - (void)dealloc
 {
-    
     WODDebug(@"deallocing..");
 
     [[NSNotificationCenter defaultCenter]removeObserver:self];
@@ -133,7 +133,6 @@
 	
 	return cell;
 }
-
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -236,9 +235,10 @@
         wself.frame = CGRectMake(0, 0, view.bounds.size.width, view.bounds.size.height);
 		wself.alpha = 1.0;
 	
-    } completion:^(BOOL finished)
-	{
+    } completion:^(BOOL finished){
+        
 		selectionAction = block;
+        
 	}];
 	
 }

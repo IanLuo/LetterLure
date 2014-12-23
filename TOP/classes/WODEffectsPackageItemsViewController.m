@@ -83,8 +83,6 @@
     [super viewDidLoad];
 
 	[self setAutomaticallyAdjustsScrollViewInsets:NO];
-    
-    [self setEdgesForExtendedLayout:UIRectEdgeAll];
 
     self.view.backgroundColor = color_black;
     
@@ -93,17 +91,6 @@
     [self.view addSubview:self.fontCollectionView];
     
     [self makeConstrains];
-    
-    ws(wself);
- 
-    [self.effectsPicker showFrom:self.view withSelection:^(WODSimpleScrollItemPickerItem *selectedItem)
-     {
-         NSString * xmlFilePath = [wself.packageItems[selectedItem.index]stringByAppendingString:@"/effect.xml"];
-         
-         [wself showEffectedText:xmlFilePath];
-         
-     }];
-    
 }
 
 - (void)payPackage:(UIBarButtonItem *)button
@@ -160,14 +147,25 @@
 				[self.effectsPicker addItemWithView:effecIcon];
 			}
 			else
-				[self.effectsPicker addItem:[path lastPathComponent]];
+            {
+                
+                [self.effectsPicker addItem:[path lastPathComponent]];
+            }
 		}
+        
+        ws(wself);
+        
+        [self.effectsPicker showFrom:self.view withSelection:^(WODSimpleScrollItemPickerItem *selectedItem)
+         {
+             NSString * xmlFilePath = [wself.packageItems[selectedItem.index]stringByAppendingString:@"/effect.xml"];
+             
+             [wself showEffectedText:xmlFilePath];
+             
+         }];
 		
 		NSString * xmlFilePath = [self.packageItems[0]stringByAppendingString:@"/effect.xml"];
 		[self showEffectedText:xmlFilePath];
-		
-        ws(wself);
-		 
+				 
 		[UIView animateWithDuration:0.3 animations:^{
             
 			[wself.fontCollectionView setAlpha:1.0];
@@ -274,6 +272,7 @@
 	[self.sampleTextView setText:[self sampleAttributedStringForFont:font]];
 			
 	__weak typeof(self) wself = self;
+    
 	[self.sampleTextView displayTextHideFeatures:NO complete:^(UIImage *image) {
 		[wself applyEffectForSampleTextImage:image];
 	}];
@@ -333,6 +332,7 @@
     {
         _iapCenter = [WODIAPCenter sharedSingleton];
     }
+    
     return _iapCenter;
 }
 
@@ -342,6 +342,7 @@
     {
         _allFontFamilies = [UIFont familyNames];
     }
+    
     return _allFontFamilies;
 }
 
@@ -351,6 +352,7 @@
     {
         _effectsManager = [WODEffectPackageManager new];
     }
+    
     return _effectsManager;
 }
 
@@ -362,6 +364,7 @@
         UIFont * font = [UIFont fontWithName:@"ArialHebrew-Bold" size:FontSize];
         [_sampleTextView setText:[self sampleAttributedStringForFont:font]];
     }
+    
     return _sampleTextView;
 }
 

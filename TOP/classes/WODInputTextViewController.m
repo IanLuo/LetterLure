@@ -12,6 +12,7 @@
 #import "WODButton.h"
 #import "WODTextConfigureView.h"
 #import "UIView+Appearance.h"
+#import "UIImage+Generate.h"
 
 #define toolbar_height 39
 #define colorButtonTag 9
@@ -527,6 +528,7 @@
         
         WODButton * font = [[WODButton alloc]initWithFrame:CGRectMake(color.viewRightEdge + 10, 5, 100, 30)];
         font.tag = fontButtonTag;
+        [font setBackgroundImage:[UIImage squareImageWithColor:color_black andSize:font.viewSize] forState:UIControlStateNormal];
         font.style = WODButtonStyleRoundCorner;
         [font setTitle:[NSString stringWithFormat:@"Abc %.0f",self.currentFont.pointSize] forState:UIControlStateNormal];
         font.titleLabel.font = [UIFont fontWithName:self.currentFont.fontName size:16];
@@ -535,6 +537,7 @@
         
         WODButton * textConfigure = [[WODButton alloc]initWithFrame:CGRectMake(0, 5, 40, 30)];
         textConfigure.tag = textConfigureButtonTag;
+        [textConfigure setBackgroundImage:[UIImage squareImageWithColor:color_black andSize:font.viewSize] forState:UIControlStateNormal];
         [textConfigure align:ViewAlignmentTopLeft relativeToPoint:CGPointMake(font.viewRightEdge + 10, 5)];
         textConfigure.style = WODButtonStyleRoundCorner;
         [textConfigure addTarget:self action:@selector(showTextConfigure:) forControlEvents:UIControlEventTouchUpInside];

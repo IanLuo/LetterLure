@@ -23,9 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-	self.edgesForExtendedLayout = UIRectEdgeNone;
-	
+		
 	self.view.backgroundColor = color_black;
 	self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
 
@@ -48,6 +46,7 @@
 	flowLayout.minimumLineSpacing = 0;
 	
 	_collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+    self.collectionView.contentInset = UIEdgeInsetsMake(isVertical() ? HEIGHT_STATUS_AND_NAV_BAR : 0, 0, 0, 0);
 	_collectionView.backgroundColor = color_black;
 	_collectionView.showsHorizontalScrollIndicator = NO;
 	_collectionView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -59,6 +58,68 @@
 	[self.view addSubview:self.collectionView];
 	[self.view addSubview:self.player.view];
 	[self.view addSubview:self.pageControl];
+    
+    if(isVertical())
+    {
+        [self updatePortraiteConstraints];
+    }
+    else
+    {
+        [self updateLandscapeConstraints];
+    }
+}
+
+- (void)updatePortraiteConstraints
+{
+    [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        
+        make.width.equalTo(self.view);
+        make.top.equalTo(self.view.mas_top);
+        make.height.mas_equalTo(@(self.view.viewHeight/2));
+        
+    }];
+    
+    [self.pageControl mas_remakeConstraints:^(MASConstraintMaker *make) {
+        
+        make.width.equalTo(self.collectionView.mas_width);
+        make.bottom.equalTo(self.collectionView.mas_bottom);
+        
+    }];
+    
+    [self.player.view mas_remakeConstraints:^(MASConstraintMaker *make) {
+        
+        make.width.equalTo(self.view);
+        make.top.equalTo(self.collectionView.mas_bottom);
+        make.height.mas_equalTo(@(self.view.viewHeight/2));
+        
+    }];
+}
+
+- (void)updateLandscapeConstraints
+{
+    [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        
+        make.width.mas_equalTo(@(self.view.viewWidth/2));
+        make.left.equalTo(self.view.mas_left);
+        make.height.equalTo(self.view.mas_height);
+        
+    }];
+    
+    [self.pageControl mas_remakeConstraints:^(MASConstraintMaker *make) {
+        
+        make.width.equalTo(self.collectionView.mas_width);
+        make.bottom.equalTo(self.collectionView.mas_bottom);
+        
+    }];
+    
+    [self.player.view mas_remakeConstraints:^(MASConstraintMaker *make) {
+        
+        make.width.mas_equalTo(@(self.view.viewWidth/2));
+        make.left.equalTo(self.collectionView.mas_right);
+        make.top.equalTo(self.view.mas_top);
+        make.height.equalTo(self.view.mas_height);
+        
+    }];
 }
 
 - (MPMoviePlayerController *)player
@@ -72,32 +133,6 @@
 		[_player.view setTranslatesAutoresizingMaskIntoConstraints:NO];
 	}
 	return _player;
-}
-
-- (void)viewWillLayoutSubviews
-{
-	[self.view removeConstraints:self.view.constraints];
-	
-	UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-	
-	if ((orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) && (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone))
-	{
-		[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[collectionView]|" options:0 metrics:nil views:@{@"collectionView":self.collectionView}]];
-		[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[player]|" options:0 metrics:nil views:@{@"collectionView":self.collectionView,@"player":self.player.view}]];
-		[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[collectionView(player)][player]|" options:0 metrics:nil views:@{@"collectionView":self.collectionView,@"player":self.player.view}]];
-		
-		[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[pageControl]|" options:0 metrics:nil views:@{@"pageControl":self.pageControl,@"player":self.player.view}]];
-		[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[pageControl][player]|" options:0 metrics:nil views:@{@"pageControl":self.pageControl,@"player":self.player.view}]];
-	}
-	else
-	{
-		[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[collectionView]|" options:0 metrics:nil views:@{@"collectionView":self.collectionView}]];
-		[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[player]|" options:0 metrics:nil views:@{@"collectionView":self.collectionView,@"player":self.player.view}]];
-		[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[collectionView(player)][player]|" options:0 metrics:nil views:@{@"collectionView":self.collectionView,@"player":self.player.view}]];
-		
-		[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[pageControl][player]|" options:0 metrics:nil views:@{@"pageControl":self.pageControl,@"player":self.player.view}]];
-		[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[pageControl]|" options:0 metrics:nil views:@{@"pageControl":self.pageControl}]];
-	}
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -120,15 +155,14 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-	NSMutableArray * visibaleIndexPaths = [NSMutableArray array];
-	for(UICollectionViewCell * cell in [self.collectionView visibleCells])
-	{
-		NSIndexPath * indexPath = [self.collectionView indexPathForCell:cell];
-		[visibaleIndexPaths addObject:indexPath];
-	}
-	
-	[self.collectionView reloadItemsAtIndexPaths:[NSArray arrayWithArray:visibaleIndexPaths]];
-	[self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.pageControl.currentPage inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    if(isVertical())
+    {
+        [self updatePortraiteConstraints];
+    }
+    else
+    {
+        [self updateLandscapeConstraints];
+    }
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section

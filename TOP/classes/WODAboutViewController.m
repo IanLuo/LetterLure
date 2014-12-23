@@ -36,7 +36,7 @@
 	
 	[self setTitle:NSLocalizedString(@"ABOUT", nil)];
     // Do any additional setup after loading the view.
-	[self setEdgesForExtendedLayout:UIRectEdgeNone];
+    [self setAutomaticallyAdjustsScrollViewInsets:NO];
 	
 	self.view.backgroundColor = color_black;
 		
@@ -90,7 +90,7 @@
 	[self.view addSubview:_version];
 	
 	NSDictionary * views = NSDictionaryOfVariableBindings(rate,rateTitle,support,supportTitle,shareToFriendsTitle,shareButtons);
-	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[supportTitle]-[support]-[rateTitle]-[rate]-[shareToFriendsTitle]-[shareButtons]" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-topOffset-[supportTitle]-[support]-[rateTitle]-[rate]-[shareToFriendsTitle]-[shareButtons]" options:0 metrics:@{@"topOffset":@(HEIGHT_STATUS_AND_NAV_BAR)} views:views]];
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-[rateTitle]-|" options:0 metrics:nil views:views]];
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-[rate]-|" options:0 metrics:nil views:views]];
 	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-[supportTitle]-|" options:0 metrics:nil views:views]];

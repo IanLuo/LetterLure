@@ -28,7 +28,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+    
+    [self setAutomaticallyAdjustsScrollViewInsets:NO];
+    
 	_webView = [[UIWebView alloc]init];
 	self.webView.delegate = self;
 	

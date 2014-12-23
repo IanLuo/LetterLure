@@ -12,6 +12,7 @@
 #import "MBProgressHUD.h"
 #import "WODButton.h"
 #import "WODFontCreditViewerViewController.h"
+#import "UIImage+Generate.h"
 
 #define segmentHeight 34
 #define purchaseButtonsHeight 44
@@ -38,6 +39,7 @@
 	{
 		_tableView = [[UITableView alloc] initWithFrame:CGRectMake(10, self.segmented.bounds.size.height + 4, self.view.bounds.size.width-20, self.view.bounds.size.height - segmentHeight -4) style:UITableViewStylePlain];
 		_tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        self.tableView.contentInset = UIEdgeInsetsMake( HEIGHT_STATUS_AND_NAV_BAR, 0, 0, 0);
 		[_tableView setDataSource:self];
 		[_tableView setDelegate:self];
 		[_tableView setBackgroundColor:color_black];
@@ -82,6 +84,7 @@
 		[_segmented insertSegmentWithTitle:NSLocalizedString(@"FONTS_ALL", nil) atIndex:0 animated:NO];
 		[_segmented insertSegmentWithTitle:NSLocalizedString(@"FONTS_EXTRA", nil) atIndex:1 animated:NO];
 		[_segmented insertSegmentWithTitle:NSLocalizedString(@"FONTS_CUSTOM", nil) atIndex:2 animated:NO];
+        [_segmented setTintColor:color_white];
 	
 ////		_segmented.selectedFont = [UIFont boldFlatFontOfSize:16];
 //		_segmented.selectedFontColor = WODConstants.COLOR_TEXT_TITLE;
@@ -99,7 +102,7 @@
 
 - (void)showPurchaseButton
 {
-	UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, self.segmented.bounds.size.height, self.view.bounds.size.width, purchaseButtonsHeight)];
+	UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, self.segmented.bounds.size.height + HEIGHT_STATUS_AND_NAV_BAR, self.view.bounds.size.width, purchaseButtonsHeight)];
 	view.tag = puchaseButtonsViewTag;
 	view.alpha = 0.0;
 	view.backgroundColor = color_black;
@@ -108,6 +111,8 @@
 	
 	WODButton * restore = [[WODButton alloc] initWithFrame:CGRectMake(10, 5, (self.view.bounds.size.width - 30)/2, 34)];
 	[restore setTitle:NSLocalizedString(@"Restore", nil) forState:UIControlStateNormal];
+    [restore setBackgroundImage:[UIImage squareImageWithColor:color_white andSize:restore.viewSize] forState:UIControlStateNormal];
+    [restore setTitleColor:color_black forState:UIControlStateNormal];
 	[restore setStyle:WODButtonStyleRoundCorner];
 	restore.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleRightMargin;
 	[restore addTarget:self action:@selector(restore) forControlEvents:UIControlEventTouchUpInside];
@@ -116,6 +121,8 @@
 	WODButton * purchase = [[WODButton alloc] initWithFrame:CGRectMake(restore.bounds.size.width + 20, 5, (self.view.bounds.size.width - 30)/2, 34)];
 	[purchase setTitle:NSLocalizedString(@"PURCHASE", nil) forState:UIControlStateNormal];
 	[purchase setStyle:WODButtonStyleRoundCorner];
+    [purchase setBackgroundImage:[UIImage squareImageWithColor:color_white andSize:purchase.viewSize] forState:UIControlStateNormal];
+    [purchase setTitleColor:color_black forState:UIControlStateNormal];
 	purchase.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleLeftMargin;
 	[purchase addTarget:self action:@selector(purchase) forControlEvents:UIControlEventTouchUpInside];
 	[view addSubview:purchase];
@@ -181,24 +188,24 @@
 	
 	self.view.backgroundColor = color_black;
 	
-	[self setEdgesForExtendedLayout:UIRectEdgeNone];
-	
+    [self setAutomaticallyAdjustsScrollViewInsets:NO];
+    
 	[self setTitle:NSLocalizedString(@"VC_TITLE_MANAGE_FONT", nil)];
 	
 	[self.tableView registerClass:[WODFontRegisterTableCell class] forCellReuseIdentifier:@"fontFamilyCell"];
 	
+    self.tableView.tableHeaderView = self.segmented;
 	[self.segmented setSelectedSegmentIndex:0];
 	[self fontSourceChanged:self.segmented];
 	
-	[self.view addSubview:self.segmented];
+//	[self.view addSubview:self.segmented];
 	[self.view addSubview:self.tableView];
 	
 	UIBarButtonItem * done = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(close)];
 	
 	[self.navigationItem setRightBarButtonItem:done];
     
-    _hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    self.hud.mode = MBProgressHUDModeAnnularDeterminate;
+    _hud = [MBProgressHUD HUDForView:self.view];
 }
 
 - (void)close
