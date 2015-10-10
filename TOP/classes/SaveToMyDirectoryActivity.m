@@ -60,7 +60,6 @@
 - (void)prepareWithActivityItems:(NSArray *)activityItems      // override to extract items and set up your HI. default does nothing
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication]keyWindow] animated:YES];
-    hud.mode = MBProgressHUDModeAnnularDeterminate;
     [hud setLabelText:@"Saving.."];
     [hud show:YES];
     

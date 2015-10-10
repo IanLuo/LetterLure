@@ -26,7 +26,6 @@
 	
 	if (self)
 	{
-		self.view.backgroundColor = color_black;
 		needUpdateUIAfterLayout = YES;
 	}
 	
@@ -42,6 +41,8 @@
 
 - (void)viewDidLoad
 {
+    self.view.backgroundColor = color_black;
+
 	[super viewDidLoad];
 	
     [self setAutomaticallyAdjustsScrollViewInsets:NO];
@@ -125,18 +126,15 @@
 	if (!isPad())
 		toolbarHeight = toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown ? 50 : 30;
     
-    NSUInteger topOffset = HEIGHT_STATUS_AND_NAV_BAR;
+    NSUInteger topOffset = HEIGHT_STATUS_AND_NAV_BAR_LANDSCAPE;
     if (isVertical())
     {
-        topOffset = HEIGHT_STATUS_AND_NAV_BAR_LANDSCAPE;
+        topOffset = HEIGHT_STATUS_AND_NAV_BAR;
     }
-	
-//	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[toolbar]|" options:0 metrics:nil views:@{@"toolbar":self.toolbar}]];
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-topOffset-[openGLESStageView]-10-|" options:0 metrics:@{@"topOffset":@(topOffset)} views:@{@"openGLESStageView":self.openGLESStageView}]];
-//	[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-topOffset-[openGLESStageView]-10-[toolbar(hight)]|" options:0 metrics:@{@"hight":@(toolbarHeight),@"topOffset":@(topOffset)} views:@{@"toolbar":self.toolbar,@"openGLESStageView":self.openGLESStageView}]];
 
     [self.toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+      
+        make.left.equalTo(self.view);
         make.width.equalTo(self.view.mas_width);
         make.height.mas_equalTo(@(toolbarHeight));
         make.bottom.equalTo(self.view.mas_bottom);
@@ -145,9 +143,7 @@
     
     [self.openGLESStageView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.width.equalTo(self.view.mas_width).offset(20);
-        make.height.equalTo(self.view.mas_height).offset(-toolbarHeight-topOffset);
-        make.top.mas_equalTo(@(0));
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(HEIGHT_STATUS_AND_NAV_BAR + 10, 10, 60, 10));
         
     }];
     

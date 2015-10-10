@@ -97,19 +97,19 @@
     
     [typesetterAS setTitle:iStr(@"Use Typesetting")];
     
-    [typesetterAS bk_addButtonWithTitle:@"Bend" handler:^{
+    [typesetterAS bk_addButtonWithTitle:iStr(@"VC_TITLE_TYPESETTER_BEND") handler:^{
         
         [wself bendDraw];
         
     }];
     
-    [typesetterAS bk_addButtonWithTitle:@"Path" handler:^{
+    [typesetterAS bk_addButtonWithTitle:iStr(@"VC_TITLE_TYPESETTER_FREE_DRAW") handler:^{
        
         [wself freeDraw];
         
     }];
     
-    [typesetterAS bk_addButtonWithTitle:@"Wrape" handler:^{
+    [typesetterAS bk_addButtonWithTitle:iStr(@"VC_TITLE_TYPESETTER_SHAPE") handler:^{
         
         [wself shapeDraw];
         
@@ -166,7 +166,7 @@
     [chooseTextAS setTitle:iStr(@"Choose Text")];
     
     ws(wself);
-    [chooseTextAS bk_addButtonWithTitle:@"New Text" handler:^{
+    [chooseTextAS bk_addButtonWithTitle:iStr(@"VC_TITLE_ADD_NEW_TEXT") handler:^{
         
         [wself.editHomeController addText];
         

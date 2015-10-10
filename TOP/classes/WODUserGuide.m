@@ -71,53 +71,58 @@
 
 - (void)updatePortraiteConstraints
 {
+    ws(wself)
     [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        
-        make.width.equalTo(self.view);
-        make.top.equalTo(self.view.mas_top);
-        make.height.mas_equalTo(@(self.view.viewHeight/2));
+      
+        make.left.equalTo(wself.view);
+        make.width.equalTo(wself.view);
+        make.top.equalTo(wself.view.mas_top);
+        make.height.equalTo(wself.view).with.multipliedBy(0.5);
         
     }];
     
     [self.pageControl mas_remakeConstraints:^(MASConstraintMaker *make) {
-        
-        make.width.equalTo(self.collectionView.mas_width);
-        make.bottom.equalTo(self.collectionView.mas_bottom);
+      
+        make.left.equalTo(wself.view);
+        make.width.equalTo(wself.collectionView.mas_width);
+        make.bottom.equalTo(wself.collectionView.mas_bottom);
         
     }];
     
     [self.player.view mas_remakeConstraints:^(MASConstraintMaker *make) {
-        
-        make.width.equalTo(self.view);
-        make.top.equalTo(self.collectionView.mas_bottom);
-        make.height.mas_equalTo(@(self.view.viewHeight/2));
+      
+        make.left.equalTo(wself.view);
+        make.width.equalTo(wself.view);
+        make.top.equalTo(wself.collectionView.mas_bottom);
+        make.height.mas_equalTo(@(wself.view.viewHeight/2));
         
     }];
 }
 
 - (void)updateLandscapeConstraints
 {
+    ws(wself)
     [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
         
-        make.width.mas_equalTo(@(self.view.viewWidth/2));
-        make.left.equalTo(self.view.mas_left);
-        make.height.equalTo(self.view.mas_height);
+        make.width.mas_equalTo(@(wself.view.viewWidth/2));
+        make.left.equalTo(wself.view.mas_left);
+        make.height.equalTo(wself.view.mas_height);
         
     }];
     
     [self.pageControl mas_remakeConstraints:^(MASConstraintMaker *make) {
         
-        make.width.equalTo(self.collectionView.mas_width);
-        make.bottom.equalTo(self.collectionView.mas_bottom);
+        make.width.equalTo(wself.collectionView.mas_width);
+        make.bottom.equalTo(wself.collectionView.mas_bottom);
         
     }];
     
     [self.player.view mas_remakeConstraints:^(MASConstraintMaker *make) {
         
-        make.width.mas_equalTo(@(self.view.viewWidth/2));
-        make.left.equalTo(self.collectionView.mas_right);
-        make.top.equalTo(self.view.mas_top);
-        make.height.equalTo(self.view.mas_height);
+        make.width.mas_equalTo(@(wself.view.viewWidth/2));
+        make.left.equalTo(wself.collectionView.mas_right);
+        make.top.equalTo(wself.view.mas_top);
+        make.height.equalTo(wself.view.mas_height);
         
     }];
 }

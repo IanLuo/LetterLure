@@ -19,6 +19,12 @@
 #import "WODUserGuide.h"
 
 @interface WODRootViewController ()<WODImagePickerDelegate>
+@property (strong, nonatomic) IBOutlet UILabel *label_chooseImage;
+@property (strong, nonatomic) IBOutlet UILabel *label_paste;
+@property (strong, nonatomic) IBOutlet UILabel *label_manageFont;
+@property (strong, nonatomic) IBOutlet UILabel *label_instagram;
+@property (strong, nonatomic) IBOutlet UILabel *label_userGuide;
+@property (strong, nonatomic) IBOutlet UILabel *label_feedback;
 
 @end
 
@@ -26,133 +32,23 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-	{
-		self.view.backgroundColor = color_black;
-    }
-    return self;
+  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  if (self) {
+    self.view.backgroundColor = color_black;
+  }
+  return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-	
-    [self loadViews];
-}
-
-- (void)loadViews
-{
-    [self loadButtons];
-}
-
-- (void)loadButtons
-{
-    CGSize buttonSize = CGSizeMake(150, 80);
-    WODButton * imagePickerBtn = [WODButton new];
-    [imagePickerBtn addTarget:self action:@selector(showImagePicker) forControlEvents:UIControlEventTouchUpInside];
-    [imagePickerBtn setStyle:WODButtonStyleRoundCorner];
-    [imagePickerBtn roundCorner:4];
-    [imagePickerBtn setBackgroundImage:[UIImage squareImageWithColor:[color_gray colorWithAlphaComponent:0.5] andSize:buttonSize] forState:UIControlStateNormal];
-    [imagePickerBtn setTitle:iStr(@"IMAGE_PICKER") forState:UIControlStateNormal];
-    [imagePickerBtn setTitleColor:color_white forState:UIControlStateNormal];
-
-    [self.view addSubview:imagePickerBtn];
-    
-    __weak typeof (self)wself = self;
-    [imagePickerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.size.mas_greaterThanOrEqualTo(buttonSize);
-        make.top.equalTo(@(60));
-        make.centerX.equalTo(wself.view);
-        
-    }];
-    
-    WODButton * paseteImageBtn = [WODButton new];
-    [paseteImageBtn addTarget:self action:@selector(pasteImage) forControlEvents:UIControlEventTouchUpInside];
-    [paseteImageBtn setStyle:WODButtonStyleRoundCorner];
-    [paseteImageBtn roundCorner:4];
-    [paseteImageBtn setTitle:iStr(@"PASTE_IMAGE") forState:UIControlStateNormal];
-    [paseteImageBtn setBackgroundImage:[UIImage squareImageWithColor:[color_gray colorWithAlphaComponent:0.5] andSize:buttonSize] forState:UIControlStateNormal];
-    [self.view addSubview:paseteImageBtn];
-    
-    [paseteImageBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.size.equalTo(imagePickerBtn);
-        make.top.equalTo(imagePickerBtn.mas_bottom).offset(20);
-        make.centerX.equalTo(wself.view);
-        
-    }];
-    
-    
-    WODButton * fontManageButton = [WODButton new];
-    [fontManageButton addTarget:self action:@selector(showFontManager) forControlEvents:UIControlEventTouchUpInside];
-    [fontManageButton setStyle:WODButtonStyleRoundCorner];
-    [fontManageButton roundCorner:4];
-    [fontManageButton setTitle:iStr(@"EDIT_HOME_MANAGE_FONT") forState:UIControlStateNormal];
-    [fontManageButton setBackgroundImage:[UIImage squareImageWithColor:[color_gray colorWithAlphaComponent:0.5] andSize:buttonSize] forState:UIControlStateNormal];
-    [self.view addSubview:fontManageButton];
-    
-    WODButton * userGuideButton = [WODButton new];
-    [userGuideButton addTarget:self action:@selector(showUserGuide) forControlEvents:UIControlEventTouchUpInside];
-    [userGuideButton setStyle:WODButtonStyleRoundCorner];
-    [userGuideButton roundCorner:4];
-    [userGuideButton setTitle:iStr(@"USERGUIDE") forState:UIControlStateNormal];
-    [userGuideButton setBackgroundImage:[UIImage squareImageWithColor:[color_gray colorWithAlphaComponent:0.5] andSize:buttonSize] forState:UIControlStateNormal];
-    [self.view addSubview:userGuideButton];
-    
-    WODButton * aboutButton = [WODButton new];
-    [aboutButton addTarget:self action:@selector(showAbout) forControlEvents:UIControlEventTouchUpInside];
-    [aboutButton setStyle:WODButtonStyleRoundCorner];
-    [aboutButton roundCorner:4];
-    [aboutButton setTitle:iStr(@"ABOUT") forState:UIControlStateNormal];
-    [aboutButton setBackgroundImage:[UIImage squareImageWithColor:[color_gray colorWithAlphaComponent:0.5] andSize:buttonSize] forState:UIControlStateNormal];
-    [self.view addSubview:aboutButton];
-    
-    WODButton * examplesButton = [WODButton new];
-    [examplesButton addTarget:self action:@selector(showBrowseTheWorld) forControlEvents:UIControlEventTouchUpInside];
-    [examplesButton setStyle:WODButtonStyleRoundCorner];
-    [examplesButton roundCorner:4];
-    [examplesButton setTitle:iStr(@"INSTAGRAM") forState:UIControlStateNormal];
-    [examplesButton setBackgroundImage:[UIImage squareImageWithColor:[color_gray colorWithAlphaComponent:0.5] andSize:buttonSize] forState:UIControlStateNormal];
-    [self.view addSubview:examplesButton];
-    
-    [aboutButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.width.mas_equalTo(@((self.view.viewWidth - 60) / 2));
-        make.height.mas_equalTo(@((self.view.viewWidth - 60) / 2));
-        make.bottom.equalTo(self.view.mas_bottom).offset(-20);
-        make.left.mas_equalTo(@(20));
-        
-    }];
-    
-    [examplesButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.width.equalTo(aboutButton.mas_width);
-        make.height.equalTo(aboutButton.mas_height);
-        make.right.mas_equalTo(@(-20));
-        make.bottom.equalTo(self.view.mas_bottom).offset(-20);
-        
-    }];
-    
-    [fontManageButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.bottom.equalTo(aboutButton.mas_top).offset(-20);
-        make.height.equalTo(aboutButton.mas_height);
-        make.width.equalTo(aboutButton.mas_width);
-        make.left.equalTo(aboutButton.mas_left);
-        
-    }];
-    
-    [userGuideButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.bottom.equalTo(examplesButton.mas_top).offset(-20);
-        make.right.equalTo(examplesButton.mas_right);
-        make.height.equalTo(examplesButton.mas_height);
-        make.width.equalTo(examplesButton.mas_width);
-        
-    }];
+  [super viewDidLoad];
+  // Do any additional setup after loading the view.
+  self.label_chooseImage.text = iStr(@"IMAGE_PICKER");
+  self.label_paste.text = iStr(@"PASTE_IMAGE");
+  self.label_manageFont.text = iStr(@"EDIT_HOME_MANAGE_FONT");
+  self.label_instagram.text = iStr(@"INSTAGRAM");
+  self.label_userGuide.text = iStr(@"USERGUIDE");
+  self.label_feedback.text = iStr(@"ABOUT");
 }
 
 - (void)didReceiveMemoryWarning
@@ -163,7 +59,7 @@
 
 #pragma mark - private
 
-- (void)showBrowseTheWorld
+- (IBAction)showBrowseTheWorld
 {
     WODBrowseTheworldViewController * brows = [WODBrowseTheworldViewController new];
     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:brows];
@@ -172,7 +68,7 @@
     [self presentViewController:nav animated:YES completion:nil];
 }
 
-- (void)showAbout
+- (IBAction)showAbout
 {
     WODAboutViewController * about = [WODAboutViewController new];
     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:about];
@@ -185,7 +81,7 @@
 show font manager
 */
 
-- (void)showFontManager
+- (IBAction)showFontManager
 {
     WODFontRegisterViewController * fontRegisterViewController = [WODFontRegisterViewController new];
     UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:fontRegisterViewController];
@@ -194,7 +90,7 @@ show font manager
     [self presentViewController:nav animated:YES completion:nil];
 }
 
-- (void)showUserGuide
+- (IBAction)showUserGuide
 {
     WODUserGuide * userGuide = [WODUserGuide new];
     UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:userGuide];
@@ -208,7 +104,7 @@ show font manager
 /*
  Image Pickers
 */
-- (void)showImagePicker
+- (IBAction)showImagePicker
 {
 	WODImagePickerViewController * imagePicker = [[WODImagePickerViewController alloc]init];
 	imagePicker.delegate = self;
@@ -222,11 +118,10 @@ show font manager
 /*
  *Handle image from paste board
  */
-- (void)pasteImage
+- (IBAction)pasteImage
 {
 	UIImage * image = [UIPasteboard generalPasteboard].image;
-	if(image)
-    {
+	if(image) {
         [self useOutsideImage:image];
     }
 }

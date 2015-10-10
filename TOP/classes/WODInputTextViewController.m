@@ -155,7 +155,7 @@
     ws(wself);
     
     NSUInteger topOffset = HEIGHT_STATUS_AND_NAV_BAR;
-    if (!isVertical([[UIApplication sharedApplication]statusBarOrientation]))
+    if (!isVertical())
     {
         topOffset = HEIGHT_STATUS_AND_NAV_BAR_LANDSCAPE;
     }
@@ -170,8 +170,8 @@
     [self.toolbar mas_remakeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(wself.textView.mas_bottom).offset(-5);
-        make.width.equalTo(wself.view).offset(-10);
-        make.leading.equalTo(wself.view.mas_left).offset(5);
+        make.right.equalTo(wself.view).offset(-10);
+        make.left.equalTo(wself.view).offset(5);
         make.height.mas_equalTo(@(toolbar_height));
         
         WODDebug(@"toolbar frame : %@",NSStringFromCGRect(wself.toolbar.frame));

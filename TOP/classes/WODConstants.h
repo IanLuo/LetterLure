@@ -10,7 +10,7 @@
 #import "UIView+Layout.h"
 #import "Masonry.h"
 
-#define DEBUGMODE
+//#define DEBUGMODE
 
 #define VERSION_NUMBER @"2.0"
 

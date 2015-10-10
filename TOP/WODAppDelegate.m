@@ -12,6 +12,8 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "WODIAPCenter.h"
 #import "Flurry.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @implementation WODAppDelegate
 
@@ -20,21 +22,23 @@
 	[Flurry setCrashReportingEnabled:YES];
 	[Flurry startSession:@"4J7ZCHZYWP73RBRW7Z97"];
 
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    
+//    self.window.backgroundColor = [UIColor whiteColor];
+  
     [[UINavigationBar appearance]setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance]setShadowImage:[UIImage new]];
     [[UINavigationBar appearance]setTintColor:color_white];
     [[UINavigationBar appearance]setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:16],NSForegroundColorAttributeName:color_white}];
     
+    [[UIActionSheet appearance]setTintColor:color_black];
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
-	WODRootViewController * rootViewController = [[WODRootViewController alloc]init];
-	_navigationController = [[UINavigationController alloc]initWithRootViewController:rootViewController];
-    [self.window setRootViewController:self.navigationController];
-    [self.window makeKeyAndVisible];
+//
+//	WODRootViewController * rootViewController = [[WODRootViewController alloc]init];
+//	_navigationController = [[UINavigationController alloc]initWithRootViewController:rootViewController];
+//    [self.window setRootViewController:self.navigationController];
+//    [self.window makeKeyAndVisible];
 	
 	WODFontManager * fontManager = [WODFontManager new];
 	[fontManager loadCustomFonts];
@@ -46,7 +50,9 @@
 	{
 		[fontManager loadExtraFonts];
 	}
-	
+  
+  [Fabric with:@[[Crashlytics class]]];
+
     return YES;
 }
 

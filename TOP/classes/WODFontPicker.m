@@ -208,7 +208,7 @@
 	{
 		cell = [tableView dequeueReusableCellWithIdentifier:fontFamilyTableCell];
 		cell.textLabel.text = self.allFontFamilies[indexPath.row];
-		cell.textLabel.font = [UIFont fontWithName:[UIFont fontNamesForFamilyName:cell.textLabel.text][0] size:15];
+		cell.textLabel.font = [UIFont fontWithName:[[UIFont fontNamesForFamilyName:cell.textLabel.text] firstObject] size:15];
 	}
 	
 	if (tableView.tag == fontNameTableTag)
@@ -235,9 +235,11 @@
 		{
 			self.currentFontFamily = self.allFontFamilies[indexPath.row];
 			[self.fontNameTable reloadData];
-			self.currentFontName = [UIFont fontNamesForFamilyName:self.currentFontFamily][0];
+			self.currentFontName = [[UIFont fontNamesForFamilyName:self.currentFontFamily] firstObject];
 			
-			[self.fontNameTable selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+      if ([UIFont fontNamesForFamilyName:self.currentFontFamily].count > 0) {
+            [self.fontNameTable selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+      }
 			break;
 		}
 		case fontNameTableTag:

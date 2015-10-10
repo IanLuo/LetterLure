@@ -52,13 +52,14 @@
 {
     ws(wself);
     [self.sampleTextImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+      
         make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(10, 10, 80, 10));
         
     }];
     
     [self.fontCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+      
+        make.left.equalTo(self.view);
         make.width.equalTo(wself.view.mas_width);
         make.height.mas_equalTo(40);
         make.bottom.equalTo(wself.view.mas_bottom).offset(-40);

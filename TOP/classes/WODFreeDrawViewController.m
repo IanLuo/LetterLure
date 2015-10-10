@@ -11,6 +11,7 @@
 #import "WODDrawFreeLineView.h"
 #import "WODDrawDotLineView.h"
 #import "WODFreeLayout.h"
+#import "UIImage+Generate.h"
 
 @interface WODFreeDrawViewController ()<WODPathDrawViewDelegate>
 
@@ -80,13 +81,11 @@
 {
 	_freeDrawButton = [WODButton new];
 	[self.freeDrawButton setImage:[[UIImage imageNamed:@"typesetter_freedraw.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-	self.freeDrawButton.selected = NO;
 	self.freeDrawButton.translatesAutoresizingMaskIntoConstraints = NO;
 	[self.freeDrawButton addTarget:self action:@selector(startDrawFreeLine:) forControlEvents:UIControlEventTouchUpInside];
 	
 	_dotDrawButton = [WODButton new];
 	[self.dotDrawButton setImage:[[UIImage imageNamed:@"typesetter_dotdraw.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-	self.dotDrawButton.selected = NO;
 	self.dotDrawButton.translatesAutoresizingMaskIntoConstraints = NO;
 	[self.dotDrawButton addTarget:self action:@selector(startDrawDotLine:) forControlEvents:UIControlEventTouchUpInside];
 	
@@ -117,9 +116,7 @@
 - (void)startDrawFreeLine:(WODButton *)button
 {
 	[self clearLastDrawView];
-	
-	self.freeDrawButton.selected = YES;
-		
+			
 	WODDrawFreeLineView * freeDrawView = [[WODDrawFreeLineView alloc]initWithFrame:self.openGLESStageView.frame];
 	[freeDrawView setDelegate:self];
 	freeDrawView.stringLength = self.textView.text.length;
@@ -127,13 +124,14 @@
 	
 	[self.view addSubview:freeDrawView];
 	self.shouldIgnorGestures = YES;
+    
+    self.freeDrawButton.backgroundColor = color_gray;
 }
 
 - (void)startDrawDotLine:(WODButton *)button
 {
 	[self clearLastDrawView];
 	
-	self.dotDrawButton.selected = YES;
 		
 	WODDrawDotLineView * dotDrawView = [[WODDrawDotLineView alloc]initWithFrame:self.openGLESStageView.frame];
 	[dotDrawView setDelegate:self];
@@ -142,12 +140,14 @@
 	
 	[self.view addSubview:dotDrawView];
 	self.shouldIgnorGestures = YES;
+    
+    self.dotDrawButton.backgroundColor = color_gray;
 }
 
 - (void)clearLastDrawView
 {
-	self.freeDrawButton.selected = NO;
-	self.dotDrawButton.selected = NO;
+	self.freeDrawButton.backgroundColor = color_black;
+	self.dotDrawButton.backgroundColor = color_black;
 
 	if (self.currentPathDrawView && self.currentPathDrawView.superview)
 	{

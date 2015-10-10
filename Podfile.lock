@@ -14,6 +14,10 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - Crashlytics (3.3.4)
+  - Fabric (1.5.5):
+    - Fabric/Base (= 1.5.5)
+  - Fabric/Base (1.5.5)
   - Masonry (0.5.3)
   - MBProgressHUD (0.8)
   - RPVerticalStepper (0.0.1)
@@ -21,16 +25,20 @@ PODS:
 
 DEPENDENCIES:
   - BlocksKit
+  - Crashlytics
+  - Fabric
   - Masonry
   - MBProgressHUD
   - RPVerticalStepper (~> 0.0.1)
   - uservoice-iphone-sdk
 
 SPEC CHECKSUMS:
-  BlocksKit: 4439e7f30a9f90743462ca63545a15c1f4304cef
-  Masonry: 35368c2ca9577ca87722c12fc52c4bad9b1c1516
-  MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
-  RPVerticalStepper: 60ed8132c664f3cc00e3f3e656a058698f7ce3dd
-  uservoice-iphone-sdk: 36286c4a8de16a1e7e87110de6b2270fe9a31a36
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  Crashlytics: 41c082440d2e14da444186fff65e79c0b4b35d4c
+  Fabric: 190bf1a6eb65f7500de1347d027d2e59a7e53db1
+  Masonry: 9f515466afe48632562342a40a1c224071a1a022
+  MBProgressHUD: 8688c331cb64702283be37ab8d7d329cdd25f251
+  RPVerticalStepper: 3ac24353afc946fd5d7f01b79f1a32198332d121
+  uservoice-iphone-sdk: 67484c4eb47a37237fa1d552532fdad96b0142ea
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.39.0

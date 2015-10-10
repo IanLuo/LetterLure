@@ -12,7 +12,7 @@
 
 "SAVE_COMPLETE" = "保存完成";
 
-"ABOUT" = "技术支持";
+"ABOUT" = "反馈";
 
 "RATE" = "给个好评";
 "RATE_TITLE" = "如果你觉得我们的应用还不错哦，请给我们一个好评，让我们做得更好。";
@@ -38,7 +38,7 @@
 "IMAGE_PICKER" = "导入图片";
 "PASTE_IMAGE" = "粘贴图片";
 "OPEN_WITH_APP" = "在应用中打开";
-"INSTAGRAM" = "Instagram";
+"INSTAGRAM" = "Insta";
 
 "FONTS_ALL" = "全部字体";
 "FONTS_EXTRA"  = "更多字体";
@@ -47,6 +47,7 @@
 "VC_TITLE_HOME" = "TEXT";
 "VC_TITLE_INPUT_TEXT" = "输入文字";
 "VC_TITLE_MANAGE_FONT" = "管理字体";
+"VC_TITLE_ADD_NEW_TEXT" = "添加文字";
 
 "VC_TITLE_TYPESETTER_FREE_DRAW" = "手绘排列";
 "VC_TITLE_TYPESETTER_BEND" = "弯曲排列";
@@ -60,7 +61,7 @@
 "VC_TITLE_IMAGEPICKER" = "选择图片";
 "VC_TITLE_CAMERA" = "照相机";
 
-"ACTION_SHEET_NEW" = "新建";
+"ACTION_SHEET_NEW" = "重新开始";
 "ALERTVIEW_NEW" = "新建";
 "ALERTVIEW_NEW_MSG" = "确定删除目前的然后重新开始?";
 

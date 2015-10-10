@@ -90,7 +90,8 @@
     }];
     
     [self.toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+      
+        make.left.equalTo(wself.view);
         make.width.equalTo(wself.view.mas_width);
         make.top.equalTo(wself.openGLStageView.mas_bottom).offset(10);
         make.bottom.equalTo(wself.view.mas_bottom);
@@ -342,6 +343,7 @@
 {
     ws(wself);
     UIActionSheet * actionsAS = [UIActionSheet new];
+
     [actionsAS setTitle:iStr(@"Actions")];
     
     [actionsAS bk_addButtonWithTitle:iStr(@"SAVE_IMAGE") handler:^{
@@ -350,7 +352,7 @@
         
     }];
     
-    [actionsAS bk_addButtonWithTitle:iStr(@"ACTION_SHEET_NEW") handler:^{
+    [actionsAS bk_setDestructiveButtonWithTitle:iStr(@"ACTION_SHEET_NEW") handler:^{
         
         [wself restart];
         
@@ -361,16 +363,6 @@
     [actionsAS showInView:self.view];
 }
 
-- (void)willPresentActionSheet:(UIActionSheet *)actionSheet
-{
-    for (UIView *subview in actionSheet.subviews) {
-        if ([subview isKindOfClass:[UIButton class]]) {
-            UIButton *button = (UIButton *)subview;
-            [button setTitleColor:color_black forState:UIControlStateNormal];
-			[button setTitleColor:color_white forState:UIControlStateHighlighted];
-        }
-    }
-}
 
 - (void)restart
 {

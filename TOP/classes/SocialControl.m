@@ -156,8 +156,10 @@
 				if ([[group valueForProperty:ALAssetsGroupPropertyName]isEqualToString:NSLocalizedString(@"IMAGE_ROLL_GROUP_NAME",nil)])
 				{
 					[self addImage:imageToSave toGroup:group library:wLibrary];
-                    
-					[[[UIAlertView alloc]initWithTitle:iStr(@"OK") message:iStr(@"SAVE_COMPLETE") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]show];
+          
+          dispatch_async(dispatch_get_main_queue(), ^{
+            [[[UIAlertView alloc]initWithTitle:iStr(@"OK") message:iStr(@"SAVE_COMPLETE") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil]show];
+          });
 				}
 			} failureBlock:^(NSError *error) {
 				NSLog(@"(%@,%i)ERROR: %@",[[NSString stringWithUTF8String:__FILE__]lastPathComponent],__LINE__,error);

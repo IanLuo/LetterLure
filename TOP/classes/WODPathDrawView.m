@@ -30,8 +30,6 @@
 		
 		[self setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
         
-        _hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
-        self.hud.mode = MBProgressHUDModeAnnularDeterminate;
 	}
 	return self;
 }
@@ -87,6 +85,10 @@ static CFTimeInterval currentTime = 0.0;
 	
 	duration = anim.duration;
 	currentTime = 0.0;
+    
+    
+    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
 	
 }
 
@@ -108,7 +110,7 @@ static CFTimeInterval currentTime = 0.0;
 	
 	[self.path removeAllPoints];
 	
-    [self.hud hide:YES];
+    [[MBProgressHUD HUDForView:self] hide:YES];
 }
 
 - (void)getCurrentPoint:(CADisplayLink *)displayLink
@@ -119,7 +121,7 @@ static CFTimeInterval currentTime = 0.0;
 	[allPoints addObject:[NSValue valueWithCGPoint:currentPosition]];
 		
 	currentTime += dl.duration;
-    [self.hud setProgress:currentTime/duration];
+    [[MBProgressHUD HUDForView:self] setProgress:currentTime/duration];
 }
 
 @end

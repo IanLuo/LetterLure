@@ -40,11 +40,12 @@
 "IMAGE_PICKER" = "Import Image";
 "PASTE_IMAGE" = "Paste Image";
 "OPEN_WITH_APP" = "Open In App";
-"INSTAGRAM" = "Instagram";
+"INSTAGRAM" = "Example";
 
 "FONTS_ALL" = "All Fonts";
 "FONTS_EXTRA"  = "Extra Fonts";
 "FONTS_CUSTOM" = "My Fonts";
+"VC_TITLE_ADD_NEW_TEXT" = "Add New Text";
 
 "VC_TITLE_HOME" = "TEXT";
 "VC_TITLE_INPUT_TEXT" = "Input Text";
@@ -60,13 +61,13 @@
 "VC_TITLE_IMAGEPICKER" = "Image Picker";
 "VC_TITLE_CAMERA" = "Camera";
 
-"ACTION_SHEET_NEW" = "New";
+"ACTION_SHEET_NEW" = "Restart";
 "ALERTVIEW_NEW" = "New";
 "ALERTVIEW_NEW_MSG" = "Delete current and restart a new one?";
 
 "NAVIGATIONBAR_ITEM_USE_IT" = "Use it";
 
-"EDIT_HOME_MANAGE_FONT" = "Manage Font";
+"EDIT_HOME_MANAGE_FONT" = "Fonts";
 "EDIT_HOME_SHARE_IMAGE" = "Export";
 
 "EFFECT_HUD_APPLYING_EFFECT" = "Applying Effect";
@@ -75,7 +76,7 @@
 "PURCHASE_EXTRA_FONTS" = "Purchase Extra Fonts";
 "PURCHASE_EXTRA_FONTS_MSG" = "Would you like to purchase for the extra fonts for $0.99 ?";
 
-"USERGUIDE" = "User Guide";
+"USERGUIDE" = "Guide";
 "USERGUIDE_SKIP" = "Skip";
 "USERGUIDE_NEXT" = "Next";
 "USERGUIDE_INPUT_TEXT" = "Input Text";

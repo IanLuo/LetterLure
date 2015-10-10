@@ -4,27 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-BlocksKit.xcscheme</key>
+		<key>BlocksKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MBProgressHUD.xcscheme</key>
+		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Masonry.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-RPVerticalStepper.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-uservoice-iphone-sdk.xcscheme</key>
+		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -34,7 +24,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>UserVoice.xcscheme</key>
+		<key>RPVerticalStepper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>uservoice-iphone-sdk-UserVoice.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>uservoice-iphone-sdk.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,37 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>34AAC35DFBF591B6213D8B04</key>
+		<key>0B90E1529BFDD45416C51993F044E863</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3FFC1C1D13B0904F6897A9E1</key>
+		<key>29852B71914AA2E261D18F89DE5A907F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>465C26EBF4AD63BD71EDF84C</key>
+		<key>43004D55668CDDFDF7402BB0CD475205</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8505E2144C45AAA4768E0CC5</key>
+		<key>54A27F7797F57530E4F8684BF8C645B9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AB5C0211C2FDB8CD83001D07</key>
+		<key>B8F99E3532822FDFBF12B3588B1493DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BE68F0D14187CC386BF76AB0</key>
+		<key>DA1A7295DF2A99609DA0EEBF5E83233D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FF7CDF8267E752635A7B82D6</key>
+		<key>FE2F1D7B9D9FCEA148517E4657B243F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
